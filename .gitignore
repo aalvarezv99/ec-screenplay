@@ -82,7 +82,7 @@ fabric.properties
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
 .idea/
-.gradle/
+.gradle/*
 
 build/
 
@@ -97,5 +97,7 @@ modules.xml
 
 # Sonarlint plugin
 .idea/sonarlint
+
+*.log
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all

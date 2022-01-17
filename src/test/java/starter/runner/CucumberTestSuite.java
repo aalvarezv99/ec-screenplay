@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/login/login.feature",
+        features = "src/test/resources/features/simulador/simuladorLibreInversion.feature",
         glue="starter",
-        tags = "@login",
+        tags = "@DatosCliente",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class CucumberTestSuite {

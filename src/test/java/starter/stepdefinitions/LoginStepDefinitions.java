@@ -29,12 +29,12 @@ public class LoginStepDefinitions {
     @Entonces("ingresa a Digicredito")
     public void ingresa_a_digicredito() {
        System.out.println("*********** "+ DashboardPresente.botonradicado().answeredBy(theActorInTheSpotlight()));
-       theActorInTheSpotlight().should(
-           seeThat("El boton Solicitudes Radicadas esta presente", DashboardPresente.botonradicado(),equalTo("Solicitudes Radicadas"))
-       );
+//       theActorInTheSpotlight().should(
+//           seeThat("El boton Solicitudes Radicadas esta presente", DashboardPresente.botonradicado(),equalTo("Solicitudes Radicadas"))
+//       );
         theActorInTheSpotlight().attemptsTo(
-                WaitUntil.the(DashboardForm.Solicitudes_radicadas,isVisible()).forNoMoreThan(10).seconds(),
-                Ensure.that(DashboardForm.Solicitudes_radicadas).isDisplayed()
+                WaitUntil.the(DashboardForm.loading,isVisible()).forNoMoreThan(10).seconds(),
+                Ensure.that(DashboardForm.loading).isDisplayed()
                 );
     }
 }

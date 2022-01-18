@@ -13,6 +13,7 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class TaskSimulador implements Task {
 
+    private final String oficinaAsesor;
     private final String nombresApellidos;
     private final String numeroDocumento;
     private final String fechaNacimiento;
@@ -22,8 +23,9 @@ public class TaskSimulador implements Task {
     private final String pagaduria;
     private final String Contacto;
 
-    public TaskSimulador(String nombresApellidos, String numeroDocumento, String fechaNacimiento, String celular, String correoElectronico, String actividad, String pagaduria, String contacto){
+    public TaskSimulador(String oficinaAsesor, String nombresApellidos, String numeroDocumento, String fechaNacimiento, String celular, String correoElectronico, String actividad, String pagaduria, String contacto){
 
+        this.oficinaAsesor = oficinaAsesor;
         this.nombresApellidos = nombresApellidos;
         this.numeroDocumento = numeroDocumento;
         this.fechaNacimiento = fechaNacimiento;
@@ -34,8 +36,8 @@ public class TaskSimulador implements Task {
         this.Contacto = contacto;
     }
 
-    public static Performable whithSimulador(String nombresApellidos, String numeroDocumento, String fechaNacimiento, String celular, String correoElectronico, String actividad, String pagaduria, String Contacto){
-        return instrumented(TaskSimulador.class,nombresApellidos,numeroDocumento,fechaNacimiento,celular,correoElectronico,actividad,pagaduria,Contacto);
+    public static Performable whithSimulador(String oficinaAsesor, String nombresApellidos, String numeroDocumento, String fechaNacimiento, String celular, String correoElectronico, String actividad, String pagaduria, String Contacto){
+        return instrumented(TaskSimulador.class,oficinaAsesor,nombresApellidos,numeroDocumento,fechaNacimiento,celular,correoElectronico,actividad,pagaduria,Contacto);
     }
 
     @Override
@@ -43,29 +45,31 @@ public class TaskSimulador implements Task {
 
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
-                WaitUntil.the(DashboardForm.saltar_intro,isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DashboardForm.saltar_intro),
+                WaitUntil.the(DashboardForm.saltarIntro,isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(DashboardForm.saltarIntro),
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DashboardForm.menu_simulador),
-                Click.on(DashboardForm.nombres_apellidos),
-                Enter.theValue(nombresApellidos).into(DashboardForm.nombres_apellidos),
-                Click.on(DashboardForm.numero_documento),
-                Enter.theValue(numeroDocumento).into(DashboardForm.numero_documento),
-                Click.on(DashboardForm.fecha_nacimiento),
-                Enter.theValue(fechaNacimiento).into(DashboardForm.fecha_nacimiento),
-                Click.on(DashboardForm.numero_celular),
-                Enter.theValue(celular).into(DashboardForm.numero_celular),
+                Click.on(DashboardForm.menuSimulador),
+                Click.on(DashboardForm.oficinaAsesor),
+                Click.on(DashboardForm.selectsDatoFormulario.of(oficinaAsesor)),
+                Click.on(DashboardForm.nombresApellidos),
+                Enter.theValue(nombresApellidos).into(DashboardForm.nombresApellidos),
+                Click.on(DashboardForm.numeroDocumento),
+                Enter.theValue(numeroDocumento).into(DashboardForm.numeroDocumento),
+                Click.on(DashboardForm.fechaNacimiento),
+                Enter.theValue(fechaNacimiento).into(DashboardForm.fechaNacimiento),
+                Click.on(DashboardForm.numeroCelular),
+                Enter.theValue(celular).into(DashboardForm.numeroCelular),
                 Click.on(DashboardForm.correo),
                 Enter.theValue(correoElectronico).into(DashboardForm.correo),
-                Click.on(DashboardForm.actividad_cliente),
-                Click.on(DashboardForm.actividad_cliente_select.of(actividad)),
+                Click.on(DashboardForm.actividadCliente),
+                Click.on(DashboardForm.selectsDatoFormulario.of(actividad)),
                 Click.on(DashboardForm.pagaduria),
                 Enter.theValue(pagaduria).into(DashboardForm.pagaduria),
-                Click.on(DashboardForm.pagaduria_select.of(pagaduria)),
-                WaitUntil.the(DashboardForm.como_se_entero_de_ExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DashboardForm.como_se_entero_de_ExcelCredit),
-                Click.on(DashboardForm.como_se_entero_de_ExcelCredit_select.of(Contacto))
-
+                Click.on(DashboardForm.selectsDatoFormulario.of(pagaduria)),
+                WaitUntil.the(DashboardForm.comoSeEnteroExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(DashboardForm.comoSeEnteroExcelCredit),
+                Click.on(DashboardForm.selectsDatoFormulario.of(Contacto)),
+                Click.on(DashboardForm.botonSiguiente)
                 );
         System.out.println(" error ");
 

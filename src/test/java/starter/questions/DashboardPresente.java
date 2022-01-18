@@ -7,6 +7,6 @@ import starter.ui.dashboard.DashboardForm;
 public class DashboardPresente {
 
     public static Question<String> botonradicado(){
-        return actor -> TextContent.of(DashboardForm.Solicitudes_radicadas).viewedBy(actor).asString();
+        return actor -> TextContent.of(DashboardForm.solicitudesRadicadas).viewedBy(actor).asString();
     }
 }

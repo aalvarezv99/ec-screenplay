@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
+import starter.ui.simulador.datosClienteForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -49,29 +50,27 @@ public class TaskSimulador implements Task {
                 Click.on(DashboardForm.saltarIntro),
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DashboardForm.menuSimulador),
-                Click.on(DashboardForm.oficinaAsesor),
-                Click.on(DashboardForm.selectsDatoFormulario.of(oficinaAsesor)),
-                Click.on(DashboardForm.nombresApellidos),
-                Enter.theValue(nombresApellidos).into(DashboardForm.nombresApellidos),
-                Click.on(DashboardForm.numeroDocumento),
-                Enter.theValue(numeroDocumento).into(DashboardForm.numeroDocumento),
-                Click.on(DashboardForm.fechaNacimiento),
-                Enter.theValue(fechaNacimiento).into(DashboardForm.fechaNacimiento),
-                Click.on(DashboardForm.numeroCelular),
-                Enter.theValue(celular).into(DashboardForm.numeroCelular),
-                Click.on(DashboardForm.correo),
-                Enter.theValue(correoElectronico).into(DashboardForm.correo),
-                Click.on(DashboardForm.actividadCliente),
-                Click.on(DashboardForm.selectsDatoFormulario.of(actividad)),
-                Click.on(DashboardForm.pagaduria),
-                Enter.theValue(pagaduria).into(DashboardForm.pagaduria),
-                Click.on(DashboardForm.selectsDatoFormulario.of(pagaduria)),
-                WaitUntil.the(DashboardForm.comoSeEnteroExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DashboardForm.comoSeEnteroExcelCredit),
-                Click.on(DashboardForm.selectsDatoFormulario.of(Contacto)),
-                Click.on(DashboardForm.botonSiguiente)
+                Click.on(datosClienteForm.oficinaAsesor),
+                Click.on(datosClienteForm.selectsDatoFormulario.of(oficinaAsesor)),
+                Click.on(datosClienteForm.nombresApellidos),
+                Enter.theValue(nombresApellidos).into(datosClienteForm.nombresApellidos),
+                Click.on(datosClienteForm.numeroDocumento),
+                Enter.theValue(numeroDocumento).into(datosClienteForm.numeroDocumento),
+                Click.on(datosClienteForm.fechaNacimiento),
+                Enter.theValue(fechaNacimiento).into(datosClienteForm.fechaNacimiento),
+                Click.on(datosClienteForm.numeroCelular),
+                Enter.theValue(celular).into(datosClienteForm.numeroCelular),
+                Click.on(datosClienteForm.correo),
+                Enter.theValue(correoElectronico).into(datosClienteForm.correo),
+                Click.on(datosClienteForm.actividadCliente),
+                Click.on(datosClienteForm.selectsDatoFormulario.of(actividad)),
+                Click.on(datosClienteForm.pagaduria),
+                Enter.theValue(pagaduria).into(datosClienteForm.pagaduria),
+                Click.on(datosClienteForm.selectsDatoFormulario.of(pagaduria)),
+                WaitUntil.the(datosClienteForm.comoSeEnteroExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(datosClienteForm.comoSeEnteroExcelCredit),
+                Click.on(datosClienteForm.selectsDatoFormulario.of(Contacto)),
+                Click.on(datosClienteForm.botonSiguiente)
                 );
-        System.out.println(" error ");
-
     }
 }

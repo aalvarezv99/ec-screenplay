@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/simulador/simuladorLibreInversion.feature",
         glue="starter",
-        tags = "@DatosCliente",
+        tags = "@Simulador",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class CucumberTestSuite {

@@ -11,18 +11,18 @@ import starter.ui.login.LoginForm;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class Tasklogin  implements Task {
+public class LoginTask implements Task {
 
     private final String username;
     private final String password;
 
-    public Tasklogin(String username, String password) {
+    public LoginTask(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
     public static Performable whithCredential(String username, String password){
-        return instrumented(Tasklogin.class,username,password);
+        return instrumented(LoginTask.class,username,password);
     }
 
     @Override

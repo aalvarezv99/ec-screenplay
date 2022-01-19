@@ -1,4 +1,4 @@
-package starter.task;
+package starter.task.simulador;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;

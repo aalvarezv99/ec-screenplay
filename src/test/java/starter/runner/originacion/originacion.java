@@ -1,4 +1,4 @@
-package starter.runner;
+package starter.runner.originacion;
 
 
 import io.cucumber.junit.CucumberOptions;
@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/simulador/simuladorLibreInversion.feature",
+        features = "src/test/resources/features/originacion/simuladorLibreInversion.feature",
         glue="starter",
         tags = "@Simulador",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class CucumberTestSuite {
+public class originacion {
 }

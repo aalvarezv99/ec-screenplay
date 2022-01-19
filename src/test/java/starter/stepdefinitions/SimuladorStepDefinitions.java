@@ -2,9 +2,8 @@ package starter.stepdefinitions;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import starter.navigation.NavigateTo;
 import starter.task.TaskSimulador;
-import starter.task.Tasklogin;
+import starter.task.ValoresCreditoTask;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -16,8 +15,10 @@ public class SimuladorStepDefinitions {
                 TaskSimulador.whithSimulador(oficinaAsesor,nombresApellidos,numeroDocumento,fechaNacimiento,celular,correoElectronico,actividad,pagaduria,Contacto)
         );
     }
-    @Y("continua el flujo")
-    public void continua_el_flujo() {
-
+    @Y("ingresa la informacion de los valores credito a solicitar {string}{string}{string}{string}")
+    public void ingresa_la_informacion_de_los_valores_credito_a_solicitar(String montoSolicitado, String tasa, String plazo, String diasIntereses) {
+        theActorInTheSpotlight().attemptsTo(
+                ValoresCreditoTask.withValoresCredito(montoSolicitado,tasa,plazo,diasIntereses)
+        );
     }
 }

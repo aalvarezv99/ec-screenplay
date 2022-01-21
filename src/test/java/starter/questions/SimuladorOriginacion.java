@@ -1,11 +1,15 @@
 package starter.questions;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.TextContent;
 import starter.ui.dashboard.DashboardForm;
+import starter.ui.login.LoginForm;
 import starter.ui.simulador.ResultadoForm;
 
-public class SimuladorOriginacion {
+public class SimuladorOriginacion  {
+
 
     public static Question<String> montoSolicitadoCal(){
         return actor -> TextContent.of(ResultadoForm.montoSolicitar).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
@@ -22,5 +26,9 @@ public class SimuladorOriginacion {
     public static Question<String> primaAnticipadaSeguro(){
         return actor -> TextContent.of(ResultadoForm.primaAnticipadaSeguro).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
     }
+    public static Question<String> interesesIniciales(){
+        return actor -> TextContent.of(ResultadoForm.valoresInteresesIniciales).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
+    }
+
 
 }

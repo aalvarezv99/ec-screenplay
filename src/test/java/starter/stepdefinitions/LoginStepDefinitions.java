@@ -17,5 +17,6 @@ public class LoginStepDefinitions {
                 NavigateTo.theDigicreditoGoHomePage(),
                 LoginTask.whithCredential(usuario,contrasena)
         );
+
     }
 }

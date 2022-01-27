@@ -73,28 +73,23 @@ public class ResultadoTask {
         ResultSet resultado;
         int DesPrimaAntic=0;
 
-
         System.out.println("****** Calculando valores simulador Originacion por funcion SQL, OriginacionCreditosAccion -  consultarCalculosSimulador()*******");
 
         SimuladorModels resultSimulador = new SimuladorModels();
-
-
         ResultSet r = null;
         try {
             r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,
                     diasHabilesIntereses,monto,"0");
             while (r.next()) {
 
-                resultSimulador.setMontoSolicitar(r.getInt(1));
-                resultSimulador.setCuotaCorriente(r.getInt(2));
-                resultSimulador.setEstudioCredito(r.getInt(3));
-                resultSimulador.setFianza(r.getInt(4));
-                resultSimulador.setGmf4X100(r.getInt(5));
-                resultSimulador.setInteresesIniciales(r.getInt(6));
-                resultSimulador.setPrimaSeguroAnticipada(r.getInt(7));
-                resultSimulador.setRemanenteEstimado(r.getInt(8));
-                resultSimulador.setMontoMaxDesembolsar(r.getInt(9));
-                resultSimulador.setCapacidadCliente(r.getInt(10));
+                resultSimulador.setCuotaCorriente(r.getInt(3));
+                resultSimulador.setEstudioCredito(r.getInt(8));
+                resultSimulador.setFianza(r.getInt(7));
+                resultSimulador.setGmf4X100(r.getInt(4));
+               // resultSimulador.setInteresesIniciales(r.getInt(6));
+                resultSimulador.setPrimaSeguroAnticipada(r.getInt(2));
+                resultSimulador.setRemanenteEstimado(r.getInt(10));
+               // resultSimulador.setMontoMaxDesembolsar(r.getInt(9));
             }
         } catch (Exception e) {
             System.out.println("########## Error - OriginacionCreditosAccion - consultarCalculosSimulador() #######" + e);

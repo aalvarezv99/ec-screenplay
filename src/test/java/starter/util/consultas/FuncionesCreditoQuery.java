@@ -42,10 +42,10 @@ public class FuncionesCreditoQuery {
 
     public ResultSet consultarCalculosSimuladorRetanqueo(String creditoPadre,String tasa,String plazo,
                                                            String diasHabilesIntereses,String monto,String sumaMontocCarteras) {
-        System.out.println(" pruebas de metodo consulta");
+        System.out.println(" pruebas de metodo consulta ");
         ResultSet r = null;
         try {
-            r = dbconector.conexion("select * from public.calculos_simulador_retanqueo_adp_fianza ("+creditoPadre+","+tasa+","+plazo+","+diasHabilesIntereses+","+monto+","+sumaMontocCarteras+");");
+            r = dbconector.conexion("select * from public.calculos_simulador_retanqueo_adp_fianza ("+Integer.parseInt(creditoPadre)+","+Double.parseDouble(tasa)+","+Integer.parseInt(plazo)+","+Integer.parseInt(diasHabilesIntereses)+","+Integer.parseInt(monto)+","+Integer.parseInt(sumaMontocCarteras)+");");
         } catch (Exception e) {
             System.out.println("********consultarCalculosSimuladorRetanqueo() ********");
             System.out.println(e.getMessage());

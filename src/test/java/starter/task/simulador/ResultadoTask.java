@@ -82,7 +82,7 @@ public class ResultadoTask {
                     diasHabilesIntereses,monto,"0");
             while (r.next()) {
 
-                resultSimulador.setCuotaCorriente(r.getInt(2));
+                resultSimulador.setCuotaCorriente(r.getInt(3));
                 resultSimulador.setEstudioCredito(r.getInt(8));
                 resultSimulador.setFianza(r.getInt(7));
                 resultSimulador.setGmf4X100(r.getInt(4));

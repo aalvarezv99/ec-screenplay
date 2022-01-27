@@ -16,7 +16,7 @@ public class ConexionBase {
     public ResultSet conexion(String query) throws SQLException, ClassNotFoundException {
         ResultSet rs = null;
         try {
-            Connection con = DriverManager.getConnection(dbUrl+instancia, username, username);
+            Connection con = DriverManager.getConnection(dbUrl+instancia, username, password);
             Statement stmt = con.createStatement();
             stmt.setFetchSize(50);
             rs = stmt.executeQuery(query);

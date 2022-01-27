@@ -2,15 +2,13 @@ package starter.stepdefinitions.simulador;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.conf.SessionVariables;
 import starter.models.SimuladorModels;
 import starter.questions.SimuladorOriginacion;
-import starter.task.simulador.DatosFinacierosRetanqueo;
-import starter.task.simulador.DatosFinancieros;
-import starter.task.simulador.ResultadoTask;
-import starter.task.simulador.TaskSimulador;
-import starter.task.simulador.ValoresCreditoTask;
+import starter.task.simulador.*;
+
 import java.sql.SQLException;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -68,7 +66,7 @@ public class SimuladorStepDefinitions {
     }
 
     @Y("se validan los campos del simulador retanqueo {string}{string}{string}{string}")
-    public void se_validan_los_campos_del_simulador_retanqueo(String creditoPadre, String tasa,String plazo,String diasHabilesIntereses) throws SQLException {
+    public void  se_validan_los_campos_del_simulador_retanqueo(String creditoPadre, String tasa,String plazo,String diasHabilesIntereses) throws SQLException {
         theActorInTheSpotlight().remember(SessionVariables.montoSolicitado.toString(), SimuladorOriginacion.montoSolicitadoCal());
         SimuladorModels calculosSimulador = new SimuladorModels();
 
@@ -82,6 +80,14 @@ public class SimuladorStepDefinitions {
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito()-1,calculosSimulador.getEstudioCredito()+1),
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza()-1,calculosSimulador.getFianza()+1),
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada()-1,calculosSimulador.getPrimaSeguroAnticipada()+1)
+        );
+
+    }
+
+    @Y("se inicia la solicitud del credito")
+    public void se_inicia_la_solicitud_del_credito(){
+        theActorInTheSpotlight().attemptsTo(
+                IniciarCredito.withDatosIniciarCredito()
         );
     }
 }

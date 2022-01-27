@@ -12,5 +12,6 @@ public class ResultadoForm {
     public static final Target valoresInteresesIniciales = Target.the("Valor de intereses iniciales ").locatedBy("//span[starts-with(text(),'Valor inter')]/following-sibling::span");
     public static final Target valoresFianza = Target.the("Valor fianza ").locatedBy("//span[text()='Valor de la fianza']/following-sibling::span");
     public static final Target primaAnticipadaSeguro = Target.the("Valor prima anticipada seguro ").locatedBy("//span[text()='Prima anticipada de seguro']/following-sibling::span");
+    public static final Target iniciarSolicitud = Target.the("Boton iniciar solicitud ").located(By.id("init-solicitation"));
 
 }

@@ -7,31 +7,31 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.ValoresCreditoForm;
-import starter.ui.simulador.datosFinancierosForm;
 import starter.ui.simulador.datosClienteForm;
+import starter.ui.simulador.datosFinancierosForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-public class DatosFinancieros implements Task {
+public class DatosFinacierosRetanqueo implements Task {
     private final String ingresos;
     private final String descNomina;
     private final String descLey;
     private final String lineaCredito;
+    private final String credito;
 
-    public DatosFinancieros(String ingresos, String descNomina, String descLey, String lineaCredito) {
+    public DatosFinacierosRetanqueo(String ingresos, String descNomina, String descLey, String lineaCredito, String credito) {
         this.ingresos = ingresos;
         this.descNomina = descNomina;
         this.descLey = descLey;
         this.lineaCredito = lineaCredito;
+        this.credito = credito;
     }
 
-    public static Performable withDatosFinancieros(String ingresos, String descLey, String descNomina, String lineaCredito) {
-        return instrumented(DatosFinancieros.class, ingresos, descLey, descNomina, lineaCredito);
+    public static Performable withDatosFinancierosRetanqueo(String ingresos, String descLey, String descNomina, String lineaCredito,String Credito) {
+        return instrumented(DatosFinacierosRetanqueo.class, ingresos, descLey, descNomina, lineaCredito, Credito);
     }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -44,10 +44,12 @@ public class DatosFinancieros implements Task {
                 Enter.theValue(descLey).into(datosFinancierosForm.descuentosLey),
                 Click.on(datosFinancierosForm.lineaCredito),
                 Click.on(datosFinancierosForm.selectLinea.of(lineaCredito)),
+                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(60).seconds(),
+                Click.on(datosFinancierosForm.selectCredito.of(credito)),
                 Click.on(datosFinancierosForm.btnCalcular),
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(datosClienteForm.botonSiguiente)
         );
-
+        System.out.println("prueba");
     }
 }

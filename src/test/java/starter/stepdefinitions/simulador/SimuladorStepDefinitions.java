@@ -66,5 +66,25 @@ public class SimuladorStepDefinitions {
                 DatosFinacierosRetanqueo.withDatosFinancierosRetanqueo(ingresos, descLey, descNomina, lineaCredito,credito)
         );
     }
+
+    @Y("se validan los campos del simulador retanqueo {string}{string}{string}{string}")
+    public void se_validan_los_campos_del_simulador_retanqueo(String creditoPadre, String tasa,String plazo,String diasHabilesIntereses) throws SQLException {
+        theActorInTheSpotlight().remember(SessionVariables.montoSolicitado.toString(), SimuladorOriginacion.montoSolicitadoCal());
+        SimuladorModels calculosSimulador = new SimuladorModels();
+
+        String valueMontoSolicitado = theActorInTheSpotlight().recall(SessionVariables.montoSolicitado.toString());
+        valueMontoSolicitado = valueMontoSolicitado.replace("$","").replace(".","").replace(" ","");
+        calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,diasHabilesIntereses,valueMontoSolicitado);
+
+
+        theActorInTheSpotlight().attemptsTo(
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.montoSolicitadoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getMontoSolicitar()-1,calculosSimulador.getMontoSolicitar()+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente()-1,calculosSimulador.getCuotaCorriente()+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito()-1,calculosSimulador.getEstudioCredito()+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.interesesIniciales().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getInteresesIniciales()-1,calculosSimulador.getInteresesIniciales()+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza()-1,calculosSimulador.getFianza()+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada()-1,calculosSimulador.getPrimaSeguroAnticipada()+1)
+        );
+    }
 }
 

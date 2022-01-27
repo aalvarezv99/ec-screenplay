@@ -4,7 +4,7 @@ import starter.conf.ConexionBase;
 
 import java.sql.ResultSet;
 
-public class OriginacionCreditoQuery {
+public class FuncionesCreditoQuery {
     ConexionBase dbconector = new ConexionBase();
 
     public ResultSet consultarCalculosSimuladorOriginacion(String Monto,int DesPrimaAntic,String Tasa,String Plazo,
@@ -37,6 +37,19 @@ public class OriginacionCreditoQuery {
             System.out.println(e.getMessage());
         }
 
+        return r;
+    }
+
+    public ResultSet consultarCalculosSimuladorRetanqueo(String creditoPadre,String tasa,String plazo,
+                                                           String diasHabilesIntereses,String monto,String sumaMontocCarteras) {
+        System.out.println(" pruebas de metodo consulta");
+        ResultSet r = null;
+        try {
+            r = dbconector.conexion("select * from public.calculos_simulador_retanqueo_adp_fianza ("+creditoPadre+","+tasa+","+plazo+","+diasHabilesIntereses+","+monto+","+sumaMontocCarteras+");");
+        } catch (Exception e) {
+            System.out.println("********consultarCalculosSimuladorRetanqueo() ********");
+            System.out.println(e.getMessage());
+        }
         return r;
     }
 

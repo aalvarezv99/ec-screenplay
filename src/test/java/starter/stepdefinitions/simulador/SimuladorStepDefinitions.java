@@ -75,7 +75,7 @@ public class SimuladorStepDefinitions {
         String valueMontoSolicitado = theActorInTheSpotlight().recall(SessionVariables.montoSolicitado.toString());
         valueMontoSolicitado = valueMontoSolicitado.replace("$","").replace(".","").replace(" ","");
         calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,diasHabilesIntereses,valueMontoSolicitado);
-
+        System.out.println(" //////*************** cuota corriente "+calculosSimulador.getCuotaCorriente());
 
         theActorInTheSpotlight().attemptsTo(
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente()-1,calculosSimulador.getCuotaCorriente()+1),

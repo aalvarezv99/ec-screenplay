@@ -82,20 +82,17 @@ public class ResultadoTask {
                     diasHabilesIntereses,monto,"0");
             while (r.next()) {
 
-                resultSimulador.setCuotaCorriente(r.getInt(3));
+                resultSimulador.setCuotaCorriente(r.getInt(2));
                 resultSimulador.setEstudioCredito(r.getInt(8));
                 resultSimulador.setFianza(r.getInt(7));
                 resultSimulador.setGmf4X100(r.getInt(4));
-               // resultSimulador.setInteresesIniciales(r.getInt(6));
                 resultSimulador.setPrimaSeguroAnticipada(r.getInt(2));
                 resultSimulador.setRemanenteEstimado(r.getInt(10));
-               // resultSimulador.setMontoMaxDesembolsar(r.getInt(9));
             }
         } catch (Exception e) {
             System.out.println("########## Error - OriginacionCreditosAccion - consultarCalculosSimulador() #######" + e);
 
         }
-
         return resultSimulador;
 
     }

@@ -6,9 +6,11 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import starter.questions.SimuladorOriginacion;
 import starter.ui.login.LoginForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class LoginTask implements Task {
@@ -27,12 +29,14 @@ public class LoginTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-          actor.attemptsTo(
+
+        actor.attemptsTo(
                   WaitUntil.the(LoginForm.boton_ingreso_portal,isVisible()).forNoMoreThan(10).seconds(),
                   Click.on(LoginForm.boton_ingreso_portal),
                   Enter.theValue(username).into(LoginForm.caja_de_text_username),
                   Enter.theValue(password).into(LoginForm.caja_de_text_password),
                   Click.on(LoginForm.boton_ingreso_login)
           );
+
     }
 }

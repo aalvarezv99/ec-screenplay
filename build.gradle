@@ -37,6 +37,7 @@ ext {
     lombokVersion = '1.18.16'
     javaFakerVersion = '1.0.2'
     serenityCucumberVersion = '2.4.24'
+    postgresqlVersion = '42.2.19'
 }
 
 dependencies {
@@ -53,7 +54,8 @@ dependencies {
             "org.assertj:assertj-core:${assertJVersion}",
             "io.rest-assured:json-schema-validator:${jsonSchemaValidatorVersion}",
             "io.rest-assured:json-path:${jsonPath}",
-            "com.github.javafaker:javafaker:${javaFakerVersion}"
+            "com.github.javafaker:javafaker:${javaFakerVersion}",
+            "org.postgresql:postgresql:${postgresqlVersion}"
 
     annotationProcessor "org.projectlombok:lombok"
 

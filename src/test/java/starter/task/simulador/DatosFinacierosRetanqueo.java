@@ -50,6 +50,6 @@ public class DatosFinacierosRetanqueo implements Task {
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(datosClienteForm.botonSiguiente)
         );
-        System.out.println("prueba");
+
     }
 }

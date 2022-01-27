@@ -2,23 +2,18 @@ package starter.stepdefinitions.simulador;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-
 import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.conf.SessionVariables;
 import starter.models.SimuladorModels;
 import starter.questions.SimuladorOriginacion;
+import starter.task.simulador.DatosFinacierosRetanqueo;
 import starter.task.simulador.DatosFinancieros;
 import starter.task.simulador.ResultadoTask;
 import starter.task.simulador.TaskSimulador;
 import starter.task.simulador.ValoresCreditoTask;
-
 import java.sql.SQLException;
-
-import static net.serenitybdd.rest.Ensure.*;
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.thucydides.core.matchers.dates.DateMatchers.isBetween;
-import static org.hamcrest.CoreMatchers.equalTo;
+
 
 public class SimuladorStepDefinitions {
 
@@ -63,6 +58,13 @@ public class SimuladorStepDefinitions {
                Ensure.that(Integer.parseInt(SimuladorOriginacion.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada()-1,calculosSimulador.getPrimaSeguroAnticipada()+1)
        );
 
+    }
+
+    @Y("diligencia los datos financieros retanqueo {string}{string}{string}{string}{string}")
+    public void diligencia_los_datos_financieros_retanqueo(String ingresos, String descLey, String descNomina, String lineaCredito,String credito) {
+        theActorInTheSpotlight().attemptsTo(
+                DatosFinacierosRetanqueo.withDatosFinancierosRetanqueo(ingresos, descLey, descNomina, lineaCredito,credito)
+        );
     }
 }
 

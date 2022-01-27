@@ -2,6 +2,7 @@ package starter.stepdefinitions.simulador;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import starter.task.simulador.DatosFinacierosRetanqueo;
 import starter.task.simulador.DatosFinancieros;
 import starter.task.simulador.TaskSimulador;
 import starter.task.simulador.ValoresCreditoTask;
@@ -28,6 +29,13 @@ public class SimuladorStepDefinitions {
     public void diligencia_los_datos_financieros(String ingresos, String descLey, String descNomina, String lineaCredito) {
         theActorInTheSpotlight().attemptsTo(
                 DatosFinancieros.withDatosFinancieros(ingresos, descLey, descNomina, lineaCredito)
+        );
+    }
+
+    @Y("diligencia los datos financieros retanqueo {string}{string}{string}{string}{string}")
+    public void diligencia_los_datos_financieros_retanqueo(String ingresos, String descLey, String descNomina, String lineaCredito,String credito) {
+        theActorInTheSpotlight().attemptsTo(
+                DatosFinacierosRetanqueo.withDatosFinancierosRetanqueo(ingresos, descLey, descNomina, lineaCredito,credito)
         );
     }
 }

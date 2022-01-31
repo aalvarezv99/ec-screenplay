@@ -2,6 +2,7 @@ package starter.stepdefinitions.RegistroCliente;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import starter.task.RegistroCliente.DatosAdicionales;
 import starter.task.RegistroCliente.FotoCedula;
 import starter.task.RegistroCliente.RegistroCliente;
 
@@ -20,6 +21,13 @@ public class RegistroClienteStepDefinition {
     public void realiza_el_registro_del_cliente_paso_2_de_4(String numeroDocumento,String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String fechaNacimiento, String fechaExpedicion, String departamentoExpedicionCC, String ciudadExpedicionCC, String genero) {
         theActorInTheSpotlight().attemptsTo(
                 RegistroCliente.whithRegistroCliente(numeroDocumento,primerNombre,segundoNombre,primerApellido,segundoApellido,fechaNacimiento,fechaExpedicion,departamentoExpedicionCC,ciudadExpedicionCC,genero)
+        );
+
+    }
+    @Y("se llenan los datos adicionales {string}{string}")
+    public void se_llenan_los_datos_adicionales(String departamentoExpedicionCC,String ciudadExpedicionCC) {
+        theActorInTheSpotlight().attemptsTo(
+                DatosAdicionales.whithDatosAdicionales(departamentoExpedicionCC,ciudadExpedicionCC)
         );
 
     }

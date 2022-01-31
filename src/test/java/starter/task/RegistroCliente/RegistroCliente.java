@@ -8,8 +8,6 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.datosFinancierosForm;
-
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -62,10 +60,8 @@ public class RegistroCliente implements Task {
                 Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.Departamento),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadExpedicionDoc),
-                Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.ciudadExpedicionDoc)
-
-
-
+                Scroll.to(RegistroClienteForm.botonSiguiente),
+                Click.on(RegistroClienteForm.botonSiguiente)
         );
 
     }

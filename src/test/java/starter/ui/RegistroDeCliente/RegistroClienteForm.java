@@ -23,7 +23,7 @@ public class RegistroClienteForm {
     public static final Target departamentoResidencia  = Target.the("Caja de texto para el departamento de residencia").located(By.id("state"));
     public static final Target ciudadResidencia  = Target.the("Caja de texto para el departamento de residencia").located(By.id("city"));
     public static final Target listResidencia  = Target.the("Lista departamento residencia").locatedBy("//div[text()='{0}']");
-    public static final Target iconClosed = Target.the("icono cerrar").locatedBy("//*[@id='close-icon']/path");
+    public static final Target iconClosed = Target.the("icono cerrar").locatedBy("//*[@id='close-icon']");
 
 
 }

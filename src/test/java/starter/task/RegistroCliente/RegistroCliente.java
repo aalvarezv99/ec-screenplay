@@ -57,9 +57,11 @@ public class RegistroCliente implements Task {
                 Enter.theValue(segundoApellido).into(RegistroClienteForm.segundoApellido),
                 Enter.theValue(fechaExpedicion).into(RegistroClienteForm.fechaExpedicionDoc),
                 Enter.theValue(departamentoExpedicionCC).into(RegistroClienteForm.Departamento),
+                Click.on(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC)),
                 Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.Departamento),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadExpedicionDoc),
+                Click.on(RegistroClienteForm.listResidencia.of(ciudadExpedicionCC)),
                 Scroll.to(RegistroClienteForm.botonSiguiente),
                 Click.on(RegistroClienteForm.botonSiguiente)
         );

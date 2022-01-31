@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Hit;
+import net.serenitybdd.screenplay.actions.JavaScriptClick;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
@@ -40,8 +41,10 @@ public class DatosAdicionales implements Task {
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadResidencia),
                 Click.on(RegistroClienteForm.listResidencia.of(ciudadExpedicionCC)),
                 Click.on(RegistroClienteForm.botonSiguiente),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
-                Click.on(RegistroClienteForm.iconClosed)
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(190).seconds(),
+                WaitUntil.the(RegistroClienteForm.iconClosed, isVisible()).forNoMoreThan(10).seconds(),
+               // Click.on(RegistroClienteForm.iconClosed)
+                JavaScriptClick.on(RegistroClienteForm.iconClosed)
         );
 
     }

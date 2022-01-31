@@ -48,10 +48,12 @@ public class RegistroCliente implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(RegistroClienteForm.tipoDocumento, isVisible()).forNoMoreThan(10).seconds(),
-               /* Click.on(RegistroClienteForm.tipoDocumento),
+                Click.on(RegistroClienteForm.tipoDocumento),
                 Enter.theValue(primerNombre).into(RegistroClienteForm.primernombre),
                 Enter.theValue(primerApellido).into(RegistroClienteForm.primerApellido),
                 Enter.theValue(fechaNacimiento).into(RegistroClienteForm.fechaNacimiento),
+                Scroll.to(RegistroClienteForm.Genero),
+                Click.on(RegistroClienteForm.Genero),
                 Enter.theValue(numeroDocumento).into(RegistroClienteForm.identificacion),
                 Enter.theValue(segundoNombre).into(RegistroClienteForm.segundoNombre),
                 Enter.theValue(segundoApellido).into(RegistroClienteForm.segundoApellido),
@@ -60,9 +62,8 @@ public class RegistroCliente implements Task {
                 Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.Departamento),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadExpedicionDoc),
-                Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.ciudadExpedicionDoc),*/
-                Scroll.to(RegistroClienteForm.Genero),
-                Click.on(RegistroClienteForm.Genero)
+                Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.ciudadExpedicionDoc)
+
 
 
         );

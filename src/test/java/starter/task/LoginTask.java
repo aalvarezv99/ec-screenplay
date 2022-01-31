@@ -2,12 +2,18 @@ package starter.task;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
+import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.conditions.Check;
+import net.serenitybdd.screenplay.questions.SelectedValue;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import net.serenitybdd.screenplay.questions.Visibility;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.login.LoginForm;
+
+
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -36,9 +42,16 @@ public class LoginTask implements Task {
                 Enter.theValue(username).into(LoginForm.caja_de_text_username),
                 Enter.theValue(password).into(LoginForm.caja_de_text_password),
                 Click.on(LoginForm.boton_ingreso_login),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
-                WaitUntil.the(DashboardForm.saltarIntro, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DashboardForm.saltarIntro)
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+
+        );
+        Boolean clearCompleteButtonIsVisible = Visibility.of(DashboardForm.saltarIntro).viewedBy(actor).value();
+        actor.attemptsTo(
+                Check.whether(clearCompleteButtonIsVisible)
+                        .andIfSo(
+                                WaitUntil.the(DashboardForm.saltarIntro, isVisible()).forNoMoreThan(10).seconds(),
+                                Click.on(DashboardForm.saltarIntro)
+                        )
         );
 
     }

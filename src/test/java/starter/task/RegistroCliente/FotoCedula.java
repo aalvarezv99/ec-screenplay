@@ -13,6 +13,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.server.commandhandler.UploadFile;
 import starter.task.LoginTask;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
+import starter.ui.dashboard.DashboardForm;
 import starter.ui.simulador.datosFinancierosForm;
 
 import java.awt.*;
@@ -23,6 +24,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class FotoCedula implements Task {
@@ -58,7 +60,9 @@ public class FotoCedula implements Task {
         }
 
         actor.attemptsTo(
-                Upload.theFile(cedulaPath).to(RegistroClienteForm.inputCedulaCliente)
+                Upload.theFile(cedulaPath).to(RegistroClienteForm.inputCedulaCliente),
+                Click.on(RegistroClienteForm.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
         );
 
 

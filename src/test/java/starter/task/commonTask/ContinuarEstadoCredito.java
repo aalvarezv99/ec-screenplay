@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.ui.commons.commonsLocators;
+import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -39,14 +39,14 @@ public class ContinuarEstadoCredito implements Task {
         actor.attemptsTo(
                 Check.whether(redirect)
                         .andIfSo(
-                                Click.on(commonsLocators.locatorByText.of(page)),
+                                Click.on(CommonsLocators.locatorByText.of(page)),
                                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
                         ),
                 Check.whether(!this.estadoActual.equals(""))
                         .andIfSo(
                                 WaitUntil.the(DashboardForm.selectEstados, isVisible()).forNoMoreThan(10).seconds(),
                                 Click.on(DashboardForm.selectEstados),
-                                Click.on(commonsLocators.locatorByText.of(estadoActual))
+                                Click.on(CommonsLocators.locatorByText.of(estadoActual))
                         ),
 
                 Enter.theValue(cedula).into(DashboardForm.inputCedula),

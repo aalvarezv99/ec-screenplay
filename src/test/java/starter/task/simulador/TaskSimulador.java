@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.simulador.datosClienteForm;
-import starter.ui.commons.commonsLocators;
+import starter.ui.commons.CommonsLocators;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -49,7 +49,7 @@ public class TaskSimulador implements Task {
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DashboardForm.menuSimulador),
                 Click.on(datosClienteForm.oficinaAsesor),
-                Click.on(commonsLocators.locatorByText.of(oficinaAsesor)),
+                Click.on(CommonsLocators.locatorByText.of(oficinaAsesor)),
                 Click.on(datosClienteForm.nombresApellidos),
                 Enter.theValue(nombresApellidos).into(datosClienteForm.nombresApellidos),
                 Click.on(datosClienteForm.numeroDocumento),
@@ -61,13 +61,13 @@ public class TaskSimulador implements Task {
                 Click.on(datosClienteForm.correo),
                 Enter.theValue(correoElectronico).into(datosClienteForm.correo),
                 Click.on(datosClienteForm.actividadCliente),
-                Click.on(commonsLocators.locatorByText.of(actividad)),
+                Click.on(CommonsLocators.locatorByText.of(actividad)),
                 Click.on(datosClienteForm.pagaduria),
                 Enter.theValue(pagaduria).into(datosClienteForm.pagaduria),
-                Click.on(commonsLocators.locatorByText.of(pagaduria)),
+                Click.on(CommonsLocators.locatorByText.of(pagaduria)),
                 WaitUntil.the(datosClienteForm.comoSeEnteroExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(datosClienteForm.comoSeEnteroExcelCredit),
-                Click.on(commonsLocators.locatorByText.of(Contacto)),
+                Click.on(CommonsLocators.locatorByText.of(Contacto)),
                 Click.on(datosClienteForm.botonSiguiente)
                 );
     }

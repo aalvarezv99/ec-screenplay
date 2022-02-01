@@ -14,7 +14,7 @@ public class CommonStepDefinitions {
        theActorCalled(name);
     }
 
-    @Entonces("busca el credito para retomar el estado actual {string}{string}{string}")
+    @Cuando("busca el credito para retomar el estado actual {string}{string}{string}")
     public void busca_el_credito_para_retomar_el_estado_actual(String cedula, String estadoActual, String page) {
         theActorInTheSpotlight().attemptsTo(
                 ContinuarEstadoCredito.withContinuarEstadoCredito(cedula, estadoActual, page)

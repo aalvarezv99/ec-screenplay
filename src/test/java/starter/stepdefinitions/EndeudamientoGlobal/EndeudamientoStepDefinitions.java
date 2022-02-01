@@ -24,10 +24,10 @@ public class EndeudamientoStepDefinitions {
         );
     }
 
-    @Entonces("finaliza registrando la informacion a centrales {string}{string}")
-    public void finaliza_endeudamiento_global(String cuotaHipotecaria, String tipoDocNomina) {
+    @Entonces("finaliza registrando la informacion a centrales {string}{string}{string}{string}")
+    public void finaliza_endeudamiento_global(String cuotaHipotecaria, String tipoDocNomina, String rutaPdf, String otrosIngresos) {
         theActorInTheSpotlight().attemptsTo(
-                InformacionCentrales.withInformacionCentrales(cuotaHipotecaria, tipoDocNomina)
+                InformacionCentrales.withInformacionCentrales(cuotaHipotecaria, tipoDocNomina, rutaPdf, otrosIngresos)
         );
     }
 }

@@ -14,4 +14,6 @@ public class EndeudamientoGlobalForm {
     public static final Target descNomina = Target.the("input descuentos de nómina").locatedBy("//label[@for = 'descuentosNomina']/following-sibling::input");
     public static final Target cuotasHipotecarias = Target.the("input cuotas hipotecarios centrales").locatedBy("//label[@for = 'cuotasHipotecarias']/following-sibling::input");
     public static final Target tipoDocumento = Target.the("Div para desplegar valores del select Tipo documento").locatedBy("//label[text() = 'Tipo documento']/following-sibling::div");
+    public static final Target otrosIngresosCertificados = Target.the("h5 para saber si aparece nueva pantalla de certificados").locatedBy("//h5[text() = 'Otros ingresos certificados']");
+    public static final Target inputOtrosIngresos = Target.the("Input para colocar ingresos adicionales").locatedBy("//label[text() = 'Ingresos adicionales certificados']/following-sibling::input");
 }

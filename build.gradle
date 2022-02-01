@@ -38,6 +38,8 @@ ext {
     javaFakerVersion = '1.0.2'
     serenityCucumberVersion = '2.4.24'
     postgresqlVersion = '42.2.19'
+    restassuredVersion = '4.5.0'
+    jsonsimpleVersion = '1.1.1'
 }
 
 dependencies {
@@ -55,7 +57,9 @@ dependencies {
             "io.rest-assured:json-schema-validator:${jsonSchemaValidatorVersion}",
             "io.rest-assured:json-path:${jsonPath}",
             "com.github.javafaker:javafaker:${javaFakerVersion}",
-            "org.postgresql:postgresql:${postgresqlVersion}"
+            "org.postgresql:postgresql:${postgresqlVersion}",
+            "io.rest-assured:rest-assured:${restassuredVersion}",
+            "com.googlecode.json-simple:json-simple:${jsonsimpleVersion}"
 
     annotationProcessor "org.projectlombok:lombok"
 

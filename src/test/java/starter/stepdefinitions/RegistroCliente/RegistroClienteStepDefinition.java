@@ -4,6 +4,7 @@ import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import starter.task.RegistroCliente.DatosAdicionales;
 import starter.task.RegistroCliente.FotoCedula;
+import starter.task.RegistroCliente.FotoCliente;
 import starter.task.RegistroCliente.RegistroCliente;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -28,6 +29,14 @@ public class RegistroClienteStepDefinition {
     public void se_llenan_los_datos_adicionales(String departamentoExpedicionCC,String ciudadExpedicionCC) {
         theActorInTheSpotlight().attemptsTo(
                 DatosAdicionales.whithDatosAdicionales(departamentoExpedicionCC,ciudadExpedicionCC)
+        );
+
+    }
+
+    @Y("se cargar la foto de perfil del cliente {string}")
+    public void se_cargar_la_foto_de_perfil_del_cliente(String RutaPDF) {
+        theActorInTheSpotlight().attemptsTo(
+                FotoCliente.whithFotoCliente(RutaPDF)
         );
 
     }

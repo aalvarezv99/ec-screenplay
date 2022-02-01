@@ -18,8 +18,8 @@ Característica: Simulador Digicredito
     Y se llenan los datos adicionales <departamentoExpedicionCC><ciudadExpedicionCC>
     Y se cargar la foto de perfil del cliente <RutaPDF>
     Ejemplos:
-      | oficinaAsesor | nombresApellidos        | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito      |
-      | "Soacha"      | "Daniel Andres Abogado" | "10324591950"   | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" |
+      | oficinaAsesor | nombresApellidos        | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito      | RutaPDF                                 |estadoActual        |page                |primerNombre|segundoNombre|primerApellido|segundoApellido|fechaExpedicion|departamentoExpedicionCC|ciudadExpedicionCC|genero|
+      | "Soacha"      | "Daniel Andres Abogado" | "1032459190"    | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" | "src/test/resources/Data/PDFPRUEBA.pdf" |""                  |"Mis Simulaciones"  |"Daniel"    |"Andres"      |"Abogado"     |"Guzman"       |"10/10/2010"   |"Cauca"                 |"Balboa"          |"M"   |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global

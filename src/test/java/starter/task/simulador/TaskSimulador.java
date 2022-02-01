@@ -47,9 +47,6 @@ public class TaskSimulador implements Task {
 
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
-                WaitUntil.the(DashboardForm.saltarIntro,isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DashboardForm.saltarIntro),
-                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DashboardForm.menuSimulador),
                 Click.on(datosClienteForm.oficinaAsesor),
                 Click.on(CommonsLocators.locatorByText.of(oficinaAsesor)),

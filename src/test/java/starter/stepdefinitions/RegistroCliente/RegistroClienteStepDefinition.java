@@ -6,6 +6,8 @@ import starter.task.RegistroCliente.DatosAdicionales;
 import starter.task.RegistroCliente.FotoCedula;
 import starter.task.RegistroCliente.FotoCliente;
 import starter.task.RegistroCliente.RegistroCliente;
+import starter.task.propeccionCliente.Prospeccion;
+import starter.task.propeccionCliente.ProspeccionBackground;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -37,6 +39,22 @@ public class RegistroClienteStepDefinition {
     public void se_cargar_la_foto_de_perfil_del_cliente(String RutaPDF) {
         theActorInTheSpotlight().attemptsTo(
                 FotoCliente.whithFotoCliente(RutaPDF)
+        );
+
+    }
+
+    @Entonces("se realiza el proceso de Prospeccion del cliente {string}")
+    public void se_realiza_el_proceso_de_Prospeccion_del_cliente(String numeroDocumento) {
+        theActorInTheSpotlight().attemptsTo(
+                Prospeccion.whithProspeccion(numeroDocumento)
+        );
+
+    }
+
+    @Y("recorre las paginas de la consulta de propeccion")
+    public void recorre_las_paginas_de_la_consulta_de_propeccion() {
+        theActorInTheSpotlight().attemptsTo(
+                ProspeccionBackground.whithProspeccionBackground()
         );
 
     }

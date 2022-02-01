@@ -42,12 +42,36 @@ public class FuncionesCreditoQuery {
 
     public ResultSet consultarCalculosSimuladorRetanqueo(String creditoPadre,String tasa,String plazo,
                                                            String diasHabilesIntereses,String monto,String sumaMontocCarteras) {
-        System.out.println(" pruebas de metodo consulta ");
+
         ResultSet r = null;
         try {
             r = dbconector.conexion("select * from public.calculos_simulador_retanqueo_adp_fianza ("+Integer.parseInt(creditoPadre)+","+Double.parseDouble(tasa)+","+Integer.parseInt(plazo)+","+Integer.parseInt(diasHabilesIntereses)+","+Integer.parseInt(monto)+","+Integer.parseInt(sumaMontocCarteras)+");");
         } catch (Exception e) {
             System.out.println("********consultarCalculosSimuladorRetanqueo() ********");
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+
+    public ResultSet consultarIdCliente(String cedula) {
+
+        ResultSet r = null;
+        try {
+            r = dbconector.conexion("select id from cliente c where c.identificacion ='"+cedula+"';");
+        } catch (Exception e) {
+            System.out.println(" ********consultarIdCliente() ******** ");
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+
+    public ResultSet consultarCreditoHijo(String idCliente) {
+
+        ResultSet r = null;
+        try {
+            r = dbconector.conexion("select id from credito c where c.id_cliente = '"+idCliente+"';");
+        } catch (Exception e) {
+            System.out.println(" ********consultarCreditoHijo() ******** ");
             System.out.println(e.getMessage());
         }
         return r;

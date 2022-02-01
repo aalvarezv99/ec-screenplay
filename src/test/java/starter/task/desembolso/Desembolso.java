@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.desembolso.DesembolsoLocators;
-import starter.ui.commons.commonsLocators;
+import starter.ui.commons.CommonsLocators;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -31,11 +31,11 @@ public class Desembolso implements Task {
         actor.attemptsTo(
                 Click.on(DesembolsoLocators.modalidadDesembolso.of(modalidadDesembolso)),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
-                Click.on(commonsLocators.botonSiguiente),
+                Click.on(CommonsLocators.botonSiguiente),
                 // WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DesembolsoLocators.tipoCliente),
-                Click.on(commonsLocators.locatorByText.of(tipoCliente)),
-                Click.on(commonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.locatorByText.of(tipoCliente)),
+                Click.on(CommonsLocators.botonSiguiente)
         );
         System.out.println(" punto de interrupción ");
     }

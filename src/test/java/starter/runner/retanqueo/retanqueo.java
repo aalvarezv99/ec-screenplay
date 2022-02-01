@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/retanqueo/libreInversion.feature",
         glue="starter",
-        tags = "@desembolso",
+        tags = "@endeudamientoGlobal",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class retanqueo {

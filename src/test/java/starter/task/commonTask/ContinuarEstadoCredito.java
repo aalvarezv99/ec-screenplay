@@ -33,7 +33,7 @@ public class ContinuarEstadoCredito implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         // condición para saber si redirecciona a otra pestaña
-        boolean redirect = !this.page.equals("") && !this.page.equals("Pendientes por Radicar");
+        boolean redirect = !this.page.equals("");
         // indice del credito a recoger (1 es por defecto el primero)
         String index = "1";
         actor.attemptsTo(

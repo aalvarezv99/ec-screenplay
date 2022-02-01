@@ -34,8 +34,11 @@ public class FotoCliente implements Task {
                 Click.on(RegistroClienteForm.botonSiguiente),
                 WaitUntil.the(RegistroClienteForm.buttonContinuar, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.buttonContinuar),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(RegistroClienteForm.buttonAceptarTerminos, isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(RegistroClienteForm.buttonAceptarTerminos),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
         );
-        System.out.println(" 6666666666666666666 ");
+
     }
 }

@@ -20,4 +20,5 @@ public class CommonStepDefinitions {
                 ContinuarEstadoCredito.withContinuarEstadoCredito(cedula, estadoActual, page)
         );
     }
+
 }

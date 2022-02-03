@@ -7,10 +7,8 @@ import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.referencias.referenciasForm;
-import starter.ui.seguroAP.SeguroApForm;
+import starter.ui.referencias.ReferenciasForm;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.List;
 
@@ -48,26 +46,33 @@ public class ReferenciasPersonales implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
-                WaitUntil.the(referenciasForm.formReferencias.of("1"), isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(referenciasForm.formReferencias.of("1")),
-                Scroll.to(referenciasForm.formReferencias.of("2")),
-                Click.on(referenciasForm.formReferencias.of("2")),
-                Scroll.to(referenciasForm.formReferencias.of("1"))
+                WaitUntil.the(ReferenciasForm.formReferencias.of("1"), isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(ReferenciasForm.formReferencias.of("1")),
+                Scroll.to(ReferenciasForm.formReferencias.of("2")),
+                Click.on(ReferenciasForm.formReferencias.of("2")),
+                Scroll.to(ReferenciasForm.formReferencias.of("1"))
         );
         List<String> referencias = Arrays.asList("first","second");
         for(int i=0;i<2;i++){
             actor.attemptsTo(
-                    Enter.theValue(pNombreRef).into(referenciasForm.primerNombreRef.of(referencias.get(i))),
-                    Enter.theValue(sNombreRef).into(referenciasForm.segundoNombreRef.of(referencias.get(i))),
-                    Enter.theValue(pApellidoRef).into(referenciasForm.primerApellidoRef.of(referencias.get(i))),
-                    Enter.theValue(sApellidoRef).into(referenciasForm.segundoApellidoRef.of(referencias.get(i))),
-                    Click.on(referenciasForm.relacionRef.of(referencias.get(i))),
-                    Click.on(CommonsLocators.locatorByText.of(relacionRef)),
-                    Enter.theValue(celRef).into(referenciasForm.celularRef.of(referencias.get(i)))
-                   // Enter.theValue(deptoRef).into(referenciasForm.departamentoRef.of(String.valueOf(i))),
-                   // Enter.theValue(ciudadRef).into(referenciasForm.ciudadRef.of(String.valueOf(i)))
+                    Enter.theValue(pNombreRef).into(ReferenciasForm.primerNombreRef.of(referencias.get(i))),
+                    Enter.theValue(sNombreRef).into(ReferenciasForm.segundoNombreRef.of(referencias.get(i))),
+                    Enter.theValue(pApellidoRef).into(ReferenciasForm.primerApellidoRef.of(referencias.get(i))),
+                    Enter.theValue(sApellidoRef).into(ReferenciasForm.segundoApellidoRef.of(referencias.get(i))),
+                    Click.on(ReferenciasForm.relacionRef.of(referencias.get(i))),
+                    Click.on(ReferenciasForm.listaRelacionRef.of(referencias.get(i),relacionRef)),
+                    Enter.theValue(celRef).into(ReferenciasForm.celularRef.of(referencias.get(i))),
+                    Enter.theValue(deptoRef).into(ReferenciasForm.departamentoRef.of(referencias.get(i))),
+                    WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
+                    Click.on(ReferenciasForm.optionDepartamentoRef.of(referencias.get(i))),
+                    Enter.theValue(ciudadRef).into(ReferenciasForm.ciudadRef.of(referencias.get(i))),
+                    Click.on(ReferenciasForm.optionCiudadRef.of(referencias.get(i)))
             );
-            System.out.println(referencias.get(i));
         }
+        actor.attemptsTo(
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+        );
+        System.out.println("prueba");
     }
 }

@@ -6,13 +6,16 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
+import starter.ui.dashboard.DashboardForm;
 import starter.ui.seguroVida.SeguroVidaForm;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 
 public class SeguroVidaBeneficiarios implements Task {
     private final String nombreBeneficiario;
@@ -60,7 +63,9 @@ public class SeguroVidaBeneficiarios implements Task {
             );
         }
         actor.attemptsTo(
-                Click.on(CommonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+
         );
         System.out.println(" punto de interrupción ");
     }

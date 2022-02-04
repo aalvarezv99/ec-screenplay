@@ -18,54 +18,54 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class ReferenciasPersonales implements Task {
 
-    private final String pNombreRef;
-    private final String sNombreRef;
-    private final String pApellidoRef;
-    private final String sApellidoRef;
-    private final String relacionRef;
-    private final String celRef;
-    private final String deptoRef;
-    private final String ciudadRef;
+    private final String pNombreRefP;
+    private final String sNombreRefP;
+    private final String pApellidoRefP;
+    private final String sApellidoRefP;
+    private final String relacionRefP;
+    private final String celRefP;
+    private final String deptoRefP;
+    private final String ciudadRefP;
 
-    public ReferenciasPersonales(String pNombreRef, String sNombreRef, String pApellidoRef, String sApellidoRef, String relacionRef, String celRef, String deptoRef, String ciudadRef) {
-        this.pNombreRef = pNombreRef;
-        this.sNombreRef = sNombreRef;
-        this.pApellidoRef = pApellidoRef;
-        this.sApellidoRef = sApellidoRef;
-        this.relacionRef = relacionRef;
-        this.celRef = celRef;
-        this.deptoRef = deptoRef;
-        this.ciudadRef = ciudadRef;
+    public ReferenciasPersonales(String pNombreRefP, String sNombreRefP, String pApellidoRefP, String sApellidoRefP, String relacionRefP, String celRefP, String deptoRefP, String ciudadRefP) {
+        this.pNombreRefP = pNombreRefP;
+        this.sNombreRefP = sNombreRefP;
+        this.pApellidoRefP = pApellidoRefP;
+        this.sApellidoRefP = sApellidoRefP;
+        this.relacionRefP = relacionRefP;
+        this.celRefP = celRefP;
+        this.deptoRefP = deptoRefP;
+        this.ciudadRefP = ciudadRefP;
     }
 
-    public static Performable whithReferenciasPersonales(String pNombreRef, String sNombreRef, String pApellidoRef, String sApellidoRef, String relacionRef, String celRef, String deptoRef, String ciudadRef) {
-        return instrumented(ReferenciasPersonales.class, pNombreRef, sNombreRef, pApellidoRef, sApellidoRef, relacionRef, celRef, deptoRef, ciudadRef);
+    public static Performable whithReferenciasPersonales(String pNombreRefP, String sNombreRefP, String pApellidoRefP, String sApellidoRefP, String relacionRefP, String celRefP, String deptoRefP, String ciudadRefP) {
+        return instrumented(ReferenciasPersonales.class, pNombreRefP, sNombreRefP, pApellidoRefP, sApellidoRefP, relacionRefP, celRefP, deptoRefP, ciudadRefP);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
-                WaitUntil.the(ReferenciasForm.formReferencias.of("1"), isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(ReferenciasForm.formReferencias.of("1")),
-                Scroll.to(ReferenciasForm.formReferencias.of("2")),
-                Click.on(ReferenciasForm.formReferencias.of("2")),
-                Scroll.to(ReferenciasForm.formReferencias.of("1"))
+                WaitUntil.the(ReferenciasForm.formReferenciasP.of("1"), isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(ReferenciasForm.formReferenciasP.of("1")),
+                Scroll.to(ReferenciasForm.formReferenciasP.of("2")),
+                Click.on(ReferenciasForm.formReferenciasP.of("2")),
+                Scroll.to(ReferenciasForm.formReferenciasP.of("1"))
         );
         List<String> referencias = Arrays.asList("first","second");
         for(int i=0;i<2;i++){
             actor.attemptsTo(
-                    Enter.theValue(pNombreRef).into(ReferenciasForm.primerNombreRef.of(referencias.get(i))),
-                    Enter.theValue(sNombreRef).into(ReferenciasForm.segundoNombreRef.of(referencias.get(i))),
-                    Enter.theValue(pApellidoRef).into(ReferenciasForm.primerApellidoRef.of(referencias.get(i))),
-                    Enter.theValue(sApellidoRef).into(ReferenciasForm.segundoApellidoRef.of(referencias.get(i))),
+                    Enter.theValue(pNombreRefP).into(ReferenciasForm.primerNombreRef.of(referencias.get(i))),
+                    Enter.theValue(sNombreRefP).into(ReferenciasForm.segundoNombreRef.of(referencias.get(i))),
+                    Enter.theValue(pApellidoRefP).into(ReferenciasForm.primerApellidoRef.of(referencias.get(i))),
+                    Enter.theValue(sApellidoRefP).into(ReferenciasForm.segundoApellidoRef.of(referencias.get(i))),
                     Click.on(ReferenciasForm.relacionRef.of(referencias.get(i))),
-                    Click.on(ReferenciasForm.listaRelacionRef.of(referencias.get(i),relacionRef)),
-                    Enter.theValue(celRef).into(ReferenciasForm.celularRef.of(referencias.get(i))),
-                    Enter.theValue(deptoRef).into(ReferenciasForm.departamentoRef.of(referencias.get(i))),
+                    Click.on(ReferenciasForm.listaRelacionRef.of(referencias.get(i),relacionRefP)),
+                    Enter.theValue(celRefP).into(ReferenciasForm.celularRef.of(referencias.get(i))),
+                    Enter.theValue(deptoRefP).into(ReferenciasForm.departamentoRef.of(referencias.get(i))),
                     WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                     Click.on(ReferenciasForm.optionDepartamentoRef.of(referencias.get(i))),
-                    Enter.theValue(ciudadRef).into(ReferenciasForm.ciudadRef.of(referencias.get(i))),
+                    Enter.theValue(ciudadRefP).into(ReferenciasForm.ciudadRef.of(referencias.get(i))),
                     Click.on(ReferenciasForm.optionCiudadRef.of(referencias.get(i)))
             );
         }
@@ -73,6 +73,5 @@ public class ReferenciasPersonales implements Task {
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
         );
-        System.out.println("prueba");
     }
 }

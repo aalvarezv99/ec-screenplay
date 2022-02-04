@@ -24,10 +24,10 @@ public class DatosSolicitudStepDefinitions {
         );
     }
 
-    @Y("registra los datos adicionales del cliente en Pagina 4 {string}{string}{string}{string}{string}{string}")
-    public void registraLosDatosAdicionalesDelClienteEnPagina4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String nitAfiliacion, String tipoDocumento, String rutaPdf) {
+    @Y("registra los datos adicionales del cliente en Pagina 4 {string}{string}{string}{string}{string}{string}{string}")
+    public void registraLosDatosAdicionalesDelClienteEnPagina4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String fechaTerminacion, String nitAfiliacion, String tipoDocumento, String rutaPdf) {
         theActorInTheSpotlight().attemptsTo(
-                DatosSolicitudP4.withDatosSolicitudP4(tipoPension,  codigoProgramaNomina,  fechaIngreso,  nitAfiliacion, tipoDocumento, rutaPdf)
+                DatosSolicitudP4.withDatosSolicitudP4(tipoPension,  codigoProgramaNomina,  fechaIngreso, fechaTerminacion,  nitAfiliacion, tipoDocumento, rutaPdf)
         );
     }
 }

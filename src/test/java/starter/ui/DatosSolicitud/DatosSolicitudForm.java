@@ -24,9 +24,10 @@ public class DatosSolicitudForm {
     public static final Target tipoPension = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='tipoPension']");
     public static final Target codigoProgramaNomina = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='codigoProgramaNomina']");
     public static final Target fechaIngreso = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='fechaIngreso']");
+    public static final Target fechaFinalizacion = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='fechaTerminacion']");
     public static final Target nitAfiliacion = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='nitAfiliacion']");
 
     public static final Target tipoDocumento = Target.the("ciudad Residencia cliente").locatedBy("//div[@class='sc-httYMd bzHUut']");
-    public static final Target subirPDF = Target.the("ciudad Residencia cliente").locatedBy("//div[@id='input-file']");
+    public static final Target subirPDF = Target.the("ciudad Residencia cliente").locatedBy("//input[@id='file']");
 
 }

@@ -22,22 +22,24 @@ public class DatosSolicitudP4 implements Task {
     private final String tipoPension;
     private final String codigoProgramaNomina;
     private final String fechaIngreso;
+    private final String fechaTerminacion;
     private final String nitAfiliacion;
     private final String tipoDocumento;
     private final String rutaPdf;
 
-    public DatosSolicitudP4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String nitAfiliacion, String tipoDocumento, String rutaPdf) {
+    public DatosSolicitudP4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String fechaTerminacion, String nitAfiliacion, String tipoDocumento, String rutaPdf) {
         this.tipoPension = tipoPension;
         this.codigoProgramaNomina = codigoProgramaNomina;
         this.fechaIngreso = fechaIngreso;
+        this.fechaTerminacion = fechaTerminacion;
         this.nitAfiliacion = nitAfiliacion;
         this.tipoDocumento = tipoDocumento;
         this.rutaPdf = rutaPdf;
     }
 
 
-    public static Performable withDatosSolicitudP4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String nitAfiliacion, String tipoDocumento, String rutaPdf) {
-        return instrumented(DatosSolicitudP4.class,  tipoPension,  codigoProgramaNomina,  fechaIngreso,  nitAfiliacion, tipoDocumento, rutaPdf);
+    public static Performable withDatosSolicitudP4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String fechaTerminacion, String nitAfiliacion, String tipoDocumento, String rutaPdf) {
+        return instrumented(DatosSolicitudP4.class,  tipoPension,  codigoProgramaNomina,  fechaIngreso, fechaTerminacion,  nitAfiliacion, tipoDocumento, rutaPdf);
     }
 
 
@@ -53,12 +55,13 @@ public class DatosSolicitudP4 implements Task {
                 Enter.theValue(tipoPension).into(DatosSolicitudForm.tipoPension),
                 Enter.theValue(codigoProgramaNomina).into(DatosSolicitudForm.codigoProgramaNomina),
                 Enter.theValue(fechaIngreso).into(DatosSolicitudForm.fechaIngreso),
+                Enter.theValue(fechaTerminacion).into(DatosSolicitudForm.fechaFinalizacion),
                 Enter.theValue(nitAfiliacion).into(DatosSolicitudForm.nitAfiliacion),
                 //
                 Scroll.to(CommonsLocators.botonSiguiente),
                 Upload.theFile(fotoPath).to(DatosSolicitudForm.subirPDF),
                 Click.on(CommonsLocators.botonSiguiente)
                 );
-        System.out.println("Fin Pagina 4/6 Datos Adicionales Clente");
+        System.out.println("Fin Pagina 4/6 Datos Adicionales Cliente");
     }
 }

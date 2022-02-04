@@ -67,6 +67,6 @@ public class DatosSolicitudP2 implements Task {
                 Scroll.to(CommonsLocators.botonSiguiente),
                 Click.on(CommonsLocators.botonSiguiente)
                 );
-        System.out.println("Fin Pagina 2/6 Datos Adicionales Clente");
+        System.out.println("Fin Pagina 2/6 Datos Adicionales Cliente");
     }
 }

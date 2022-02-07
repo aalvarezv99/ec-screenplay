@@ -49,7 +49,7 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y registra los datos adicionales del cliente en Pagina 1 <paisNacimiento><lugarDeNacimiento><nacionalidad><estadoCivil><profesion>
     Y registra los datos adicionales del cliente en Pagina 2 <departamentoResidencia><ciudadResidencia><direccionResidencia><mesesResidencia><numeroHijos><personasACargo><departamentoCorrespondencia><ciudadCorrespondencia>
-    Y registra los datos adicionales del cliente en Pagina 3
+    #Y registra los datos adicionales del cliente en Pagina 3
     Y registra los datos adicionales del cliente en Pagina 4 <tipoPension><codigoProgramaNomina><fechaIngreso><fechaTerminacion><nitAfiliacion><tipoDocumento><rutaPdf>
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual2><page>
     Entonces se registran los datos para el credito Originacion <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito>

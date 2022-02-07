@@ -26,8 +26,18 @@ public class DatosSolicitudForm {
     public static final Target fechaIngreso = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='fechaIngreso']");
     public static final Target fechaFinalizacion = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='fechaTerminacion']");
     public static final Target nitAfiliacion = Target.the("numeros de hijos del cliente").locatedBy("//input[@id='nitAfiliacion']");
-
     public static final Target tipoDocumento = Target.the("ciudad Residencia cliente").locatedBy("//div[@class='sc-httYMd bzHUut']");
     public static final Target subirPDF = Target.the("ciudad Residencia cliente").locatedBy("//input[@id='file']");
+    //Pagina Datos Credito
+    public static final Target ingresosMensuales = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Total ingresos mensuales']//following-sibling::input[1]");
+    public static final Target totalDescuentos = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Total descuentos']//following-sibling::input[1]");
+    public static final Target totalDescuentosLey = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Total descuentos de ley']//following-sibling::input[1]");
+    public static final Target lineaDeCredito = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'nea de ')]//ancestor::div[@id='select']");
+    //Pagina Calculo Credito
+    public static final Target montoSolicitado = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Monto solicitado']//following-sibling::input[1]");
+    public static final Target plazoFront = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Plazo en meses']//following-sibling::input[1]");
+    public static final Target diasInteresesIniciales = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'intereses Iniciales')]//following-sibling::input[1]");
+    public static final Target tasaFront = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'Tasa')]//ancestor::div[@id='select']");
+    public static final Target botonCalcular = Target.the("Boton de Calcular").locatedBy("//button[contains(text(), 'Calcular')]");
 
 }

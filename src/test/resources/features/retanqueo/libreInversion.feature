@@ -13,10 +13,16 @@ Característica: Simulador Digicredito
     Y diligencia los datos financieros retanqueo <ingresos><descLey><descNomina><lineaCredito><creditoPadre><vlrCompras>
     Y se validan los campos del simulador retanqueo <creditoPadre><tasa><plazo><diasIntereses><vlrCompras>
     Y se inicia la solicitud del credito
+    Entonces El usuario carga los archivos imagen de la cedula del cliente <RutaPDF>
+    Y realiza el registro del cliente paso 2 de 4 <numeroDocumento><primerNombre><segundoNombre><primerApellido><segundoApellido><fechaNacimiento><fechaExpedicion><departamentoExpedicionCC><ciudadExpedicionCC><genero>
+    Y se llenan los datos adicionales <departamentoExpedicionCC><ciudadExpedicionCC>
+    Entonces se realiza el proceso de Prospeccion del cliente <numeroDocumento>
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y recorre las paginas de la consulta de propeccion
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos | vlrCompras | lineaCredito                | creditoPadre | estadoActual                       |
-      | "Soacha"      | "JORGE ANCIZAR CORTES CORREA" | "9971523"       | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "10000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000"| "200000" | "Retanqueo compra de cartera" | "55412"      | "En proceso calculo endeudamiento" |
+      | oficinaAsesor | nombresApellidos                   | numeroDocumento | fechaNacimiento | celular      | correoElectronico           | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos | vlrCompras| lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "CARLOS FERNANDO HERRERA ARBOLEDA" | "9777757"       | "12/12/2000"    | "3204992496" | "jvcutilidades@hotmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "3500000" |"200000" | "Retanqueo libre inversión" | "88829"     | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"| "Balboa"           | "F"    |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -26,8 +32,8 @@ Característica: Simulador Digicredito
     Entonces finaliza registrando la informacion a centrales <cuotaHipotecaria><tipoDocNomina><rutaPdf><otrosIngresos>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos | vlrCompras | lineaCredito                | creditoPadre | estadoActual                       |
-      | "Soacha"      | "JORGE ANCIZAR CORTES CORREA" | "9971523"       | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "10000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000"| "200000" | "Retanqueo compra de cartera" | "55412"      | "En proceso calculo endeudamiento" |
+      | oficinaAsesor | nombresApellidos                   | numeroDocumento | fechaNacimiento | celular      | correoElectronico           | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos | vlrCompras| lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "CARLOS FERNANDO HERRERA ARBOLEDA" | "9777757"       | "12/12/2000"    | "3204992496" | "jvcutilidades@hotmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "3500000" |"200000" | "Retanqueo libre inversión" | "88829"     | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"| "Balboa"           | "F"    |
 
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
@@ -44,5 +50,5 @@ Característica: Simulador Digicredito
     Entonces diligencia minimo tres beneficiaros para el seguro de vida <nombreBeneficario><documentoBeneficiario><celularBeneficiario><departamento><ciudad>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos | vlrCompras | lineaCredito                | creditoPadre | estadoActual                       |
-      | "Soacha"      | "JORGE ANCIZAR CORTES CORREA" | "9971523"       | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "10000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000"| "200000" | "Retanqueo compra de cartera" | "55412"      | "En proceso calculo endeudamiento" |
+      | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
+      | "9777757"       | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |

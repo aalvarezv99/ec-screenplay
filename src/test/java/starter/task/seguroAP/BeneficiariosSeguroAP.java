@@ -47,6 +47,7 @@ public class BeneficiariosSeguroAP implements Task {
                 Enter.theValue(porcentajes.get(i)).into(SeguroApForm.porcentaje.of(String.valueOf(i)))
             );
         }
+
         actor.attemptsTo(
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),

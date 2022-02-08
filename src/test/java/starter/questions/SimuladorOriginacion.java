@@ -1,5 +1,6 @@
 package starter.questions;
 
+
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.TextContent;
 import starter.ui.simulador.ResultadoForm;

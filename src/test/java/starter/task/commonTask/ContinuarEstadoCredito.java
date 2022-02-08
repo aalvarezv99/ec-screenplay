@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
@@ -37,6 +38,7 @@ public class ContinuarEstadoCredito implements Task {
         // indice del credito a recoger (1 es por defecto el primero)
         String index = "1";
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
                 Check.whether(redirect)
                         .andIfSo(
                                 Click.on(CommonsLocators.locatorByText.of(page)),
@@ -46,9 +48,11 @@ public class ContinuarEstadoCredito implements Task {
                         .andIfSo(
                                 WaitUntil.the(DashboardForm.selectEstados, isVisible()).forNoMoreThan(10).seconds(),
                                 Click.on(DashboardForm.selectEstados),
+                                Scroll.to(CommonsLocators.locatorByText.of(estadoActual)),
                                 Click.on(CommonsLocators.locatorByText.of(estadoActual))
                         ),
 
+                Scroll.to(DashboardForm.inputCedula),
                 Enter.theValue(cedula).into(DashboardForm.inputCedula),
                 Click.on(DashboardForm.botonSelectCredito.of(index)),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()

@@ -46,7 +46,7 @@ public class TaskSimulador implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(20).seconds(),
                 Click.on(DashboardForm.menuSimulador),
                 Click.on(datosClienteForm.oficinaAsesor),
                 Click.on(CommonsLocators.locatorByText.of(oficinaAsesor)),

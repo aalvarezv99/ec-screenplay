@@ -11,5 +11,6 @@ public class datosFinancierosForm {
     public static final Target selectLinea = Target.the("Seleccionar la linea de credito a diligenciar").locatedBy("//div[text() = '{0}']");
     public static final Target btnCalcular = Target.the("botón calcular capacidad").located(By.id("calculate"));
     public static final Target selectCredito = Target.the("Seleccionar el credito").locatedBy("//h6[text()='{0}']//preceding-sibling::div");
+    public static final Target vlrCompras = Target.the("Campo para ingresar los valores de la cartera").locatedBy("//label[text() = '{0}']/parent::div/following-sibling::div/child::input[1]");
 
 }

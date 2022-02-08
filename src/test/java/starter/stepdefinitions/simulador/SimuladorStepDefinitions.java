@@ -58,27 +58,29 @@ public class SimuladorStepDefinitions {
 
     }
 
-    @Y("diligencia los datos financieros retanqueo {string}{string}{string}{string}{string}")
-    public void diligencia_los_datos_financieros_retanqueo(String ingresos, String descLey, String descNomina, String lineaCredito,String credito) {
+    @Y("diligencia los datos financieros retanqueo {string}{string}{string}{string}{string}{string}")
+    public void diligencia_los_datos_financieros_retanqueo(String ingresos, String descLey, String descNomina, String lineaCredito,String credito, String vlrCompras) {
         theActorInTheSpotlight().attemptsTo(
-                DatosFinacierosRetanqueo.withDatosFinancierosRetanqueo(ingresos, descLey, descNomina, lineaCredito,credito)
+                DatosFinacierosRetanqueo.withDatosFinancierosRetanqueo(ingresos, descLey, descNomina, lineaCredito,credito,vlrCompras)
         );
     }
 
-    @Y("se validan los campos del simulador retanqueo {string}{string}{string}{string}")
-    public void  se_validan_los_campos_del_simulador_retanqueo(String creditoPadre, String tasa,String plazo,String diasHabilesIntereses) throws SQLException {
+    @Y("se validan los campos del simulador retanqueo {string}{string}{string}{string}{string}")
+    public void  se_validan_los_campos_del_simulador_retanqueo(String creditoPadre, String tasa,String plazo,String diasHabilesIntereses, String vlrCompras) throws SQLException {
         theActorInTheSpotlight().remember(SessionVariables.montoSolicitado.toString(), SimuladorOriginacion.montoSolicitadoCal());
         SimuladorModels calculosSimulador = new SimuladorModels();
 
         String valueMontoSolicitado = theActorInTheSpotlight().recall(SessionVariables.montoSolicitado.toString());
         valueMontoSolicitado = valueMontoSolicitado.replace("$","").replace(".","").replace(" ","");
-        calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,diasHabilesIntereses,valueMontoSolicitado);
+        calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,diasHabilesIntereses,valueMontoSolicitado,vlrCompras);
         System.out.println(" //////*************** cuota corriente "+calculosSimulador.getCuotaCorriente());
 
         theActorInTheSpotlight().attemptsTo(
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente()-1,calculosSimulador.getCuotaCorriente()+1),
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito()-1,calculosSimulador.getEstudioCredito()+1),
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza()-1,calculosSimulador.getFianza()+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.vlrCompras().answeredBy(theActorInTheSpotlight()))).isBetween(Integer.parseInt(vlrCompras) -1,Integer.parseInt(vlrCompras)+1),
+                Ensure.that(Integer.parseInt(SimuladorOriginacion.vlr4X1000().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getGmf4X100()-1,calculosSimulador.getGmf4X100()+1),
                 Ensure.that(Integer.parseInt(SimuladorOriginacion.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada()-1,calculosSimulador.getPrimaSeguroAnticipada()+1)
         );
 

@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/originacion/simuladorLibreInversion.feature",
         glue="starter",
-        tags = "@datosSolicitud or @datosSolicitudCredito",
+        tags = "@Simulador",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 //@Simulador,@endeudamientoGlobal,@desembolso,@datosSolicitud,@seguroAP

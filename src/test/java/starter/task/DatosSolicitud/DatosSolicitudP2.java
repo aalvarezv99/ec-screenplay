@@ -45,16 +45,20 @@ public class DatosSolicitudP2 implements Task {
         actor.attemptsTo(
                 WaitUntil.the(DatosSolicitudForm.pageDatosAdicionales.of("2"), isPresent()).forNoMoreThan(10).seconds(),
 
+                //
+                WaitUntil.the(DatosSolicitudForm.departamentoCorrespondencia, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DatosSolicitudForm.departamentoCorrespondencia),
                 Click.on(CommonsLocators.locatorByText.of(departamentoCorrespondencia)),
                 //
+                WaitUntil.the(DatosSolicitudForm.ciudadCorrespondencia, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DatosSolicitudForm.ciudadCorrespondencia),
                 Click.on(CommonsLocators.locatorByText.of(ciudadCorrespondencia)),
                 //
+                WaitUntil.the(DatosSolicitudForm.ciudadResidencia, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DatosSolicitudForm.departamentoResidencia),
                 Click.on(CommonsLocators.locatorByText.of(departamentoResidencia)),
                 //
-                WaitUntil.the(DatosSolicitudForm.ciudadResidencia, isEnabled()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DatosSolicitudForm.ciudadResidencia, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DatosSolicitudForm.ciudadResidencia),
                 Click.on(CommonsLocators.locatorByText.of(ciudadResidencia)),
                 //

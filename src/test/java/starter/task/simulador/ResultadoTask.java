@@ -68,7 +68,7 @@ public class ResultadoTask {
 
 
     public static SimuladorModels consultarCalculosSimuladorRetanqueo(String creditoPadre, String tasa, String plazo,
-                                                                      String diasHabilesIntereses, String monto) throws SQLException {
+                                                                      String diasHabilesIntereses, String monto,String vlrCompras) throws SQLException {
 
         ResultSet resultado;
         int DesPrimaAntic=0;
@@ -79,7 +79,7 @@ public class ResultadoTask {
         ResultSet r = null;
         try {
             r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,
-                    diasHabilesIntereses,monto,"0");
+                    diasHabilesIntereses,monto,vlrCompras);
             while (r.next()) {
 
                 resultSimulador.setCuotaCorriente(r.getInt(3));

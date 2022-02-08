@@ -16,5 +16,12 @@ public class SeguroApForm {
     public static final Target parentesco = Target.the("parentesco Beneficiario").locatedBy("//input[@id='posicionHogar{0}']");
     public static final Target porcentaje = Target.the("porcentaje Beneficiario").locatedBy("//input[@id='tasa{0}']");
     public static final Target continuar = Target.the("Boton continuar a referencias").locatedBy("//button[text()='Continuar']");
-
+    public static final Target nombresTomador = Target.the("Nombres y apellidos tomador del seguro AP").located(By.id("nombres_apellidos"));
+    public static final Target documentoTomador = Target.the("documento tomador del seguro AP").located(By.id("documento"));
+    public static final Target celularTomador = Target.the("celular tomador del seguro AP").located(By.id("celular"));
+    public static final Target correoTomador = Target.the("correo tomador del seguro AP").located(By.id("email"));
+    public static final Target fechaNacimientoTomador = Target.the("fechaNacimiento tomador del seguro AP").located(By.id("fechaNacimiento"));
+    public static final Target departamentoTomador = Target.the("departamento tomador del seguro AP").located(By.id("state"));
+    public static final Target ciudadTomador = Target.the("ciudad tomador del seguro AP").located(By.id("city"));
+    public static final Target direccionResidenciaTomador = Target.the("direccion tomador del seguro AP").located(By.id("direccionResidencia"));
 }

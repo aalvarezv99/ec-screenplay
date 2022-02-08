@@ -12,5 +12,6 @@ import org.junit.runner.RunWith;
         tags = "@referencias",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
+//@Simulador,@endeudamientoGlobal,@desembolso,@datosSolicitud,@seguroAP
 public class originacion {
 }

@@ -14,6 +14,7 @@ import starter.ui.prospeccion.ProspeccionUI;
 import starter.util.consultas.FuncionesCreditoQuery;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -41,14 +42,20 @@ public class Prospeccion implements Task {
 
         FuncionesCreditoQuery query = new FuncionesCreditoQuery();
         resultado = query.consultarIdCliente(numeroDocumento);
-        while (resultado.next()) {
-            idCliente = resultado.getString(1);
-        }
-
         resultado = query.consultarCreditoHijo(idCliente);
-        while (resultado.next()) {
-            creditoHijo = resultado.getString(1);
-        }
+        try {
+			while (resultado.next()) {
+			    idCliente = resultado.getString(1);
+			}
+			while (resultado.next()) {
+	            creditoHijo = resultado.getString(1);
+	        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+     
         String codigo_OTP = TokenDev.obtenerTokenAPI_notificacion_OPT(token_bearer,creditoHijo,idCliente,"2895");
 
         System.out.println(" ********* codigo_OTP ************ "+ codigo_OTP);

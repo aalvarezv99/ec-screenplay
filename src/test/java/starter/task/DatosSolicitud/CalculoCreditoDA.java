@@ -44,6 +44,8 @@ public class CalculoCreditoDA implements Task {
                 Click.on(CommonsLocators.locatorByText.of(tasaFront)),
                 //
                 Click.on(DatosSolicitudForm.botonCalcular)
+                //
+                //Click.on(CommonsLocators.botonSiguiente)
 
                 );
         System.out.println("Fin Pagina 6/6 Datos Calculo Credito");

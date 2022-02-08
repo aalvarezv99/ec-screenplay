@@ -12,5 +12,6 @@ import org.junit.runner.RunWith;
         tags = "@seguroAP",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
+//@Simulador,@endeudamientoGlobal,@desembolso,@datosSolicitud,@seguroAP
 public class originacion {
 }

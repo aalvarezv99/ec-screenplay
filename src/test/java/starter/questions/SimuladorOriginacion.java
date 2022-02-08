@@ -1,11 +1,8 @@
 package starter.questions;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import net.serenitybdd.screenplay.Actor;
+
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.TextContent;
-import starter.ui.dashboard.DashboardForm;
-import starter.ui.login.LoginForm;
 import starter.ui.simulador.ResultadoForm;
 
 public class SimuladorOriginacion  {

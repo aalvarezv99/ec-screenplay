@@ -39,7 +39,13 @@ public class DatosAdicionales implements Task {
                 Click.on(RegistroClienteForm.listResidencia.of(ciudadExpedicionCC)),
                 Click.on(RegistroClienteForm.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(190).seconds(),
-                Click.on(RegistroClienteForm.iconClosed)
+                WaitUntil.the(RegistroClienteForm.buttonContinuar, isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(RegistroClienteForm.buttonContinuar),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(RegistroClienteForm.buttonAceptarTerminos, isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(RegistroClienteForm.buttonAceptarTerminos),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+
         );
 
     }

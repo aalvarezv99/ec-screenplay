@@ -6,4 +6,10 @@ public class DbConfig {
     public static String dbUrl = "jdbc:postgresql://libranzas-preproduccion.chimul6agbmw.us-east-1.rds.amazonaws.com:5432/";
     public static String username = "abacus";
     public static String password = "L1br4nz4s$2018";
+
+    //Variables de conexion a la BD de token
+    public static String instanciaToken = "token_instancia4";
+    public static String dbTokenUrl = "jdbc:postgresql://libranzas-aplicaciones.chimul6agbmw.us-east-1.rds.amazonaws.com:5432/";
+    public static String userToken = "token";
+    public static String pswToken = "70K3n&EC2013";
 }

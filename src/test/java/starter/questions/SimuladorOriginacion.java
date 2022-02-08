@@ -27,5 +27,13 @@ public class SimuladorOriginacion  {
         return actor -> TextContent.of(ResultadoForm.valoresInteresesIniciales).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
     }
 
+    public static Question<String> vlrCompras(){
+        return actor -> TextContent.of(ResultadoForm.vlrCompras).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
+    }
+
+    public static Question<String> vlr4X1000(){
+        return actor -> TextContent.of(ResultadoForm.vlr4X1000).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
+    }
+
 
 }

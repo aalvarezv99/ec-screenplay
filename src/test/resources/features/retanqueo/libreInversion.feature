@@ -44,6 +44,18 @@ Característica: Simulador Digicredito
       | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
       | "Soacha"      | "JORGE ANCIZAR CORTES CORREA" | "9971523"       | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "10000000"      | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "200000"   | "Retanqueo compra de cartera" | "55412"      | "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
+  @datosSolicitud
+  Esquema del escenario: Diligenciamiento formulario Datos Solicitud
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y registra los datos adicionales del cliente en Pagina 1 <paisNacimiento><lugarDeNacimiento><nacionalidad><estadoCivil><profesion>
+    Y registra los datos adicionales del cliente en Pagina 2 <departamentoResidencia><ciudadResidencia><direccionResidencia><mesesResidencia><numeroHijos><personasACargo><departamentoCorrespondencia><ciudadCorrespondencia>
+    #Y registra los datos adicionales del cliente en Pagina 3
+    Y registra los datos adicionales del cliente en Pagina 4 <tipoPension><codigoProgramaNomina><fechaIngreso><fechaTerminacion><nitAfiliacion><tipoDocumento><rutaPdf><cargo>
+
+    Ejemplos:
+      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | estadoActual2         | montoSolicitado | tasa   | plazo | diasInteresesIniciales |
+      | "9777757"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "En simulación final" | "15000000"      | "1.70" | "24"  | "120"                  |
+
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>

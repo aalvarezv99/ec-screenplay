@@ -60,7 +60,7 @@ Característica: Simulador Digicredito
       | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | estadoActual2         | montoSolicitado | tasa   | plazo | diasInteresesIniciales |
       | "80134193"      | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "En simulación final" | "15000000"      | "1.70" | "24"  | "120"                  |
 
-   @seguroAP
+  @seguroAP
   Esquema del escenario: Etapa de seguro AP
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces Se visualizan los beneficios del seguro
@@ -92,3 +92,13 @@ Característica: Simulador Digicredito
       | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
       | "91077296"      | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
 
+  @firmaDocumentos
+  Esquema del escenario: Realiza la firma final de documentos
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y consulta el codigo OTP <numeroDocumento>
+    Y descarga los documentos a firmar
+    Entonces diligencia el tipo de documento y adjunta el archivo <rutaPdf>
+
+    Ejemplos:
+      | numeroDocumento | estadoActual | page | rutaPdf                                 |
+      | "91077296"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" |

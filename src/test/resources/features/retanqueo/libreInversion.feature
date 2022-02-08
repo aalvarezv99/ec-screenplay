@@ -46,3 +46,14 @@ Característica: Simulador Digicredito
     Ejemplos:
       | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
       | "91077296"      | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
+
+  @firmaDocumentos
+  Esquema del escenario: Realiza la firma final de documentos
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y consulta el codigo OTP <numeroDocumento>
+    Y descarga los documentos a firmar
+    Entonces diligencia el tipo de documento y adjunta el archivo <rutaPdf>
+
+    Ejemplos:
+      | numeroDocumento | estadoActual | page | rutaPdf                                 |
+      | "91077296"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" |

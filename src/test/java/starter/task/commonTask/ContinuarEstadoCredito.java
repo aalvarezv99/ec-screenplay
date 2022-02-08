@@ -55,7 +55,7 @@ public class ContinuarEstadoCredito implements Task {
                 Scroll.to(DashboardForm.inputCedula),
                 Enter.theValue(cedula).into(DashboardForm.inputCedula),
                 Click.on(DashboardForm.botonSelectCredito.of(index)),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(30).seconds()
 
         );
         System.out.println(" punto de interrupción");

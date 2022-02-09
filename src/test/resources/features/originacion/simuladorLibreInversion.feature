@@ -58,12 +58,12 @@ Característica: Simulador Digicredito
   @datosSolicitudCredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
-    Entonces se registran los datos para el credito Originacion <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito>
+    Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre>
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
-
+    Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
     Ejemplos:
-      | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales |
-      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "15000000"      | "1.70" | "24"  | "120"                  |
+      | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                                  | vlrCompras |
+      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | "88829"      | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "0"   |
 
 
   @seguroAP

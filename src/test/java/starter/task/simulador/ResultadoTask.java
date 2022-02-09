@@ -81,7 +81,6 @@ public class ResultadoTask {
             r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,
                     diasHabilesIntereses,monto,vlrCompras);
             while (r.next()) {
-
                 resultSimulador.setTipoCalculos(r.getString(1));
                 resultSimulador.setPrimaSeguroAnticipada(r.getInt(2));
                 resultSimulador.setCuotaCorriente(r.getInt(3));

@@ -66,6 +66,7 @@ Característica: Simulador Digicredito
       | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                                  | vlrCompras |
       | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | "88829"      | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "0"   |
 
+
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
@@ -74,6 +75,17 @@ Característica: Simulador Digicredito
     Ejemplos:
       | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
       | "91077296"      | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
+
+
+  @OperInternacionalesPEPS
+  Esquema del escenario: Registrar operaciones internacionales y PEPS
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y llena el formulario de operaciones internacionales <monedaExtranjera><tipoTransanccion><productoBancario><banco><numProducto><tipoProducto><pais><ciudad><monto><moneda>
+    Y llena el formulario de persona expuesta politicamente <funcionarioPublico><recursosPublicos><expuestoPoliticamente><fechaExpuesto>
+    Ejemplos:
+      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto           | pais       | ciudad       | monto     | moneda      |funcionarioPublico  |recursosPublicos  |expuestoPoliticamente  |fechaExpuesto|
+      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro"   | "Alemania" | "Berlin"     | "8500"    | "Euros"     |"No"                |"No"              |"No"                   |"12/12/2008" |
+
 
   @firmaDocumentos
   Esquema del escenario: Realiza la firma final de documentos

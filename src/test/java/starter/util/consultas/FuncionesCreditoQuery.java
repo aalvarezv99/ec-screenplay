@@ -15,7 +15,7 @@ public class FuncionesCreditoQuery {
         String Pagaduria = "'" + pagaduria + "'";
         ResultSet r = null;
         try {
-            r = dbconector.conexion("select * from public.calculos_automatizacion_pruebas_fianza (" + Monto + "," + DesPrimaAntic + "," + Tasa +
+            r = dbconector.conexion("select * from public.calculos_automatizacion_pruebas_originacion(" + Monto + "," + DesPrimaAntic + "," + Tasa +
                     "," + Plazo + "," + DiasHabilesIntereses + "," + vlrCompasSaneamientos + "," + Ingresos + "," + descLey +
                     "," + descNomina + "," + Pagaduria + ");");
         } catch (Exception e) {

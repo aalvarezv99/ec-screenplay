@@ -59,11 +59,16 @@ Característica: Simulador Digicredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces se registran los datos para el credito Originacion <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito>
+    Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaDeCredito>
+      | Contador        | Entidad                                                    | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
+      | 1     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 30/12/2021       | 21236         |
+      | 2     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 30/12/2021       | 21236         |
+      | 3     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 30/12/2021       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
 
     Ejemplos:
       | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales |
-      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "15000000"      | "1.70" | "24"  | "120"                  |
+      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Compra de cartera" | "15000000"      | "1.70" | "24"  | "120"                  |
 
   @seguroAP
   Esquema del escenario: Etapa de seguro AP

@@ -1,8 +1,12 @@
 package starter.stepdefinitions.DatosSolicitud;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import starter.task.DatosSolicitud.*;
+
+import java.util.List;
+import java.util.Map;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -35,6 +39,15 @@ public class DatosSolicitudStepDefinitions {
         theActorInTheSpotlight().attemptsTo(
                 DatosCredito.withDatosCredito(ingresosMensuales, totalDescuentos, totalDescuentosLey, lineaDeCredito)
         );
+    }
+
+    @Y("^se crean los tipos de cartera o saneamiento a recoger con la linea de \"([^\"]*)\"$")
+    public void seCreanLosTiposDeCarteraOSaneamientoARecogerConLaLineaDeCredito(String lineaCredito, DataTable dataTable) {
+    if(!lineaCredito.equals("Libre inversion")|| !lineaCredito.equals("Retanqueo libre inversión")){
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        theActorInTheSpotlight().attemptsTo(
+                DatosCreditosComprasCarteras.withDatosCreditosComprasCarteras(data));
+    }
     }
 
     @Y("diligencia los datos calculo credito {string}{string}{string}{string}")

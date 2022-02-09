@@ -40,5 +40,7 @@ public class DatosSolicitudForm {
     public static final Target diasInteresesIniciales = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'intereses Iniciales')]//following-sibling::input[1]");
     public static final Target tasaFront = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'Tasa')]//ancestor::div[@id='select']");
     public static final Target botonCalcular = Target.the("Boton de Calcular").locatedBy("//button[contains(text(), 'Calcular')]");
+    //Pagina Calculo Credito Retanqueo
+    public static final Target creditosActivosChekBox = Target.the("check box creditos Activos").locatedBy("//h6[text()='{0}']//preceding::div[@id='checkbox']");
 
 }

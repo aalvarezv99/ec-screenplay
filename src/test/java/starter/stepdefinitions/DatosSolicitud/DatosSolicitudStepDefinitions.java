@@ -43,4 +43,11 @@ public class DatosSolicitudStepDefinitions {
                 CalculoCreditoDA.withCalculoCreditoDA(montoSolicitado, tasa, plazo, diasInteresesIniciales)
         );
     }
+
+    @Entonces("se registran los datos para el credito Retanqueo {string}{string}{string}{string}{string}")
+    public void seRegistranLosDatosParaElCreditoRetanqueo(String ingresosMensuales, String totalDescuentos, String totalDescuentosLey, String lineaDeCredito, String creditoPadre) {
+        theActorInTheSpotlight().attemptsTo(
+                DatosCreditoRetanqueo.withDatosCreditoRetanqueo(ingresosMensuales, totalDescuentos, totalDescuentosLey, lineaDeCredito, creditoPadre)
+        );
+    }
 }

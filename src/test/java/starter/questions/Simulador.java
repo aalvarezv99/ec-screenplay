@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.TextContent;
 import starter.ui.simulador.ResultadoForm;
 
-public class SimuladorOriginacion  {
+public class Simulador {
 
 
     public static Question<String> montoSolicitadoCal(){
@@ -34,5 +34,7 @@ public class SimuladorOriginacion  {
         return actor -> TextContent.of(ResultadoForm.vlr4X1000).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
     }
 
-
+    public static Question<String> remanenteEstimado(){
+        return actor -> TextContent.of(ResultadoForm.remanteEstimado).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
+    }
 }

@@ -75,7 +75,7 @@ public class DatosSolicitudStepDefinitions {
             theActorInTheSpotlight().attemptsTo(
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente() - 1, calculosSimulador.getCuotaCorriente() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito() - 1, calculosSimulador.getEstudioCredito() + 1),
-                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza() - 1, calculosSimulador.getFianza() + 1),
+                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianzaNeta() - 1, calculosSimulador.getFianzaNeta() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlrCompras().answeredBy(theActorInTheSpotlight()))).isBetween(Integer.parseInt(vlrCompras) - 1, Integer.parseInt(vlrCompras) + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlr4X1000().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getGmf4X100() - 1, calculosSimulador.getGmf4X100() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada() - 1, calculosSimulador.getPrimaSeguroAnticipada() + 1),
@@ -89,7 +89,7 @@ public class DatosSolicitudStepDefinitions {
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente() - 1, calculosSimulador.getCuotaCorriente() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito() - 1, calculosSimulador.getEstudioCredito() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.interesesIniciales().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getInteresesIniciales() - 1, calculosSimulador.getInteresesIniciales() + 1),
-                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza() - 1, calculosSimulador.getFianza() + 1),
+                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianzaNeta() - 1, calculosSimulador.getFianzaNeta() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada() - 1, calculosSimulador.getPrimaSeguroAnticipada() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.remanenteEstimado().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getRemanenteEstimado() - 1, calculosSimulador.getRemanenteEstimado() + 1)
 

@@ -15,9 +15,10 @@ public class FuncionesCreditoQuery {
         String Pagaduria = "'" + pagaduria + "'";
         ResultSet r = null;
         try {
-            r = dbconector.conexion("select * from public.calculos_automatizacion_pruebas_originacion(" + Monto + "," + DesPrimaAntic + "," + Tasa +
+            String sql = "select * from public.calculos_automatizacion_pruebas_originacion (" + Monto + "," + DesPrimaAntic + "," + Tasa +
                     "," + Plazo + "," + DiasHabilesIntereses + "," + vlrCompasSaneamientos + "," + Ingresos + "," + descLey +
-                    "," + descNomina + "," + Pagaduria + ");");
+                    "," + descNomina + "," + Pagaduria + ");";
+            r = dbconector.conexion(sql);
         } catch (Exception e) {
             System.out.println("********consultarCalculosSimuladorOriginacion() ********");
             System.out.println(e.getMessage());

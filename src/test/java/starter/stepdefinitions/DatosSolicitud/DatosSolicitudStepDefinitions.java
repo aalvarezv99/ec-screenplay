@@ -95,5 +95,6 @@ public class DatosSolicitudStepDefinitions {
 
             );
         }
+        SimuladorDatosSolicitud.withSimuladorDatosSolicitud();
     }
 }

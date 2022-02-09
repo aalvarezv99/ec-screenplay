@@ -51,16 +51,14 @@ public class DatosCreditoRetanqueo implements Task {
 
         );
         // Se crea la accion para que valide la linea de credito libre inversion para retanqueo
-        System.out.println("Pausa");
+
         actor.attemptsTo(
-                Check.whether(lineaDeCredito.contains("Retanqueo libre inversi"))
+                Check.whether(lineaDeCredito.contains("Retanqueo"))
                         .andIfSo(
                                 WaitUntil.the(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre), isVisible()).forNoMoreThan(20).seconds(),
                                 Scroll.to(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre)),
                                 Click.on(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre))
-                        ),
-                //
-                Click.on(CommonsLocators.botonSiguiente)
+                        )
         );
         System.out.println("Fin Pagina 5/6 Datos Adicionales Credito");
     }

@@ -83,11 +83,11 @@ public class ResultadoTask {
             while (r.next()) {
 
                 resultSimulador.setCuotaCorriente(r.getInt(3));
-                resultSimulador.setEstudioCredito(r.getInt(8));
-                resultSimulador.setFianza(r.getInt(7));
+                resultSimulador.setEstudioCredito(r.getInt(10));
+                resultSimulador.setFianza(r.getInt(9));
                 resultSimulador.setGmf4X100(r.getInt(4));
                 resultSimulador.setPrimaSeguroAnticipada(r.getInt(2));
-                resultSimulador.setRemanenteEstimado(r.getInt(10));
+                resultSimulador.setRemanenteEstimado(r.getInt(12));
             }
         } catch (Exception e) {
             System.out.println("########## Error - OriginacionCreditosAccion - consultarCalculosSimulador() #######" + e);

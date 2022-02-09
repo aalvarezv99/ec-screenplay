@@ -10,8 +10,8 @@ Característica: Simulador Digicredito
   Esquema del escenario:  Simulador Inicial
     Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><numeroDocumento><fechaNacimiento><celular><correoElectronico><actividad><pagaduria><Contacto>
     Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><tasa><plazo><diasIntereses>
-    Y diligencia los datos financieros <ingresos><descLey><descNomina><lineaCredito>
-    Y se validan los campos del simulador <montoSolicitado><tasa><plazo><ingresos><descLey><descNomina><pagaduria><diasIntereses>
+    Y diligencia los datos financieros <ingresos><descLey><descNomina><lineaCredito><creditoPadre><vlrCompras>
+    Y se validan los campos del simulador <tasa><plazo><ingresos><descLey><descNomina><pagaduria><diasIntereses><creditoPadre><vlrCompras><lineaCredito>
     Y se inicia la solicitud del credito
     Entonces El usuario carga los archivos imagen de la cedula del cliente <RutaPDF>
     Y realiza el registro del cliente paso 2 de 4 <numeroDocumento><primerNombre><segundoNombre><primerApellido><segundoApellido><fechaNacimiento><fechaExpedicion><departamentoExpedicionCC><ciudadExpedicionCC><genero>
@@ -20,8 +20,8 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y recorre las paginas de la consulta de propeccion
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito      | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
-      | "Soacha"      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "RUBY"       | "ALEYDA"      | "RODRIGUEZ"    | "GONZALEZ"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    |
+      | oficinaAsesor | nombresApellidos             | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito        | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras |
+      | "Soacha"      | "ANGEL MARIA MEJIA SANDOVAL" | "91077296"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Compra de cartera" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "RUBY"       | "ALEYDA"      | "RODRIGUEZ"    | "GONZALEZ"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "200000"   |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -103,8 +103,8 @@ Característica: Simulador Digicredito
     Y llena el formulario de operaciones internacionales <monedaExtranjera><tipoTransanccion><productoBancario><banco><numProducto><tipoProducto><pais><ciudad><monto><moneda>
     Y llena el formulario de persona expuesta politicamente <funcionarioPublico><recursosPublicos><expuestoPoliticamente><fechaExpuesto>
     Ejemplos:
-      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto           | pais       | ciudad       | monto     | moneda      |funcionarioPublico  |recursosPublicos  |expuestoPoliticamente  |fechaExpuesto|
-      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro"   | "Alemania" | "Berlin"     | "8500"    | "Euros"     |"No"                |"No"              |"No"                   |"12/12/2008" |
+      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudad   | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto |
+      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro" | "Alemania" | "Berlin" | "8500" | "Euros" | "No"               | "No"             | "No"                  | "12/12/2008"  |
 
   @firmaDocumentos
   Esquema del escenario: Realiza la firma final de documentos

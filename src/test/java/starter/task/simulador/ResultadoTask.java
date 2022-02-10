@@ -48,7 +48,7 @@ public class ResultadoTask {
                 resultSimulador.setMontoSolicitar(r.getInt(1));
                 resultSimulador.setCuotaCorriente(r.getInt(2));
                 resultSimulador.setEstudioCredito(r.getInt(3));
-                resultSimulador.setFianza(r.getInt(4));
+                resultSimulador.setFianzaNeta(r.getInt(4));
                 resultSimulador.setGmf4X100(r.getInt(5));
                 resultSimulador.setInteresesIniciales(r.getInt(6));
                 resultSimulador.setPrimaSeguroAnticipada(r.getInt(7));

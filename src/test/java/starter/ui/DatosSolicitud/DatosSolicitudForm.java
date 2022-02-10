@@ -30,10 +30,18 @@ public class DatosSolicitudForm {
     public static final Target tipoDocumento = Target.the("ciudad Residencia cliente").locatedBy("//div[@class='sc-httYMd bzHUut']");
     public static final Target subirPDF = Target.the("ciudad Residencia cliente").locatedBy("//input[@id='file']");
     //Pagina Datos Credito
-    public static final Target ingresosMensuales = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Total ingresos mensuales']//following-sibling::input[1]");
-    public static final Target totalDescuentos = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Total descuentos']//following-sibling::input[1]");
-    public static final Target totalDescuentosLey = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Total descuentos de ley']//following-sibling::input[1]");
-    public static final Target lineaDeCredito = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'nea de ')]//ancestor::div[@id='select']");
+    public static final Target ingresosMensuales = Target.the("Ingresos mensuales cliente").locatedBy("//label[text()='Total ingresos mensuales']//following-sibling::input[1]");
+    public static final Target totalDescuentos = Target.the("Total Descuentos cliente").locatedBy("//label[text()='Total descuentos']//following-sibling::input[1]");
+    public static final Target totalDescuentosLey = Target.the("Total descuentos ley cliente").locatedBy("//label[text()='Total descuentos de ley']//following-sibling::input[1]");
+    public static final Target lineaDeCredito = Target.the("Linea de Credito").locatedBy("//label[contains(text(),'nea de ')]//ancestor::div[@id='select']");
+    //Pagina Datos Credito - Compra de carteras
+    public static final Target botonAnadirCompras = Target.the("Boton añadir compras").locatedBy("//span[contains(text(),'adir valor')]");
+    public static final Target campoEntidadCompra = Target.the("campo de entidad en carteras").locatedBy("//input[@id='entidad{0}']");
+    public static final Target campoMontoCompra = Target.the("Campo entidad en carteras").locatedBy("//input[@id='monto{0}']//preceding-sibling::input");
+    public static final Target campoVlrCuotaCompra = Target.the("Campo vlr Cuora").locatedBy("//input[@id='valorCuota{0}']//preceding-sibling::input");
+    public static final Target campoFechaVencimientoCompra = Target.the("campo Fecha Vencimiento").locatedBy("//input[@id='fechaVencimiento{0}']");
+    public static final Target campoNumObligacionCompra = Target.the("campo Numero de Obligacion ").locatedBy("//input[@id='noObligacion{0}']");;
+
     //Pagina Calculo Credito
     public static final Target montoSolicitado = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Monto solicitado']//following-sibling::input[1]");
     public static final Target plazoFront = Target.the("ciudad Residencia cliente").locatedBy("//label[text()='Plazo en meses']//following-sibling::input[1]");

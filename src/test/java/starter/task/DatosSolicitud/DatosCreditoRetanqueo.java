@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.DatosSolicitud.DatosSolicitudForm;
+import starter.ui.commons.CommonsFuntions;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.simulador.datosFinancierosForm;
@@ -47,11 +48,10 @@ public class DatosCreditoRetanqueo implements Task {
                 Click.on(DatosSolicitudForm.lineaDeCredito),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                 Click.on(CommonsLocators.locatorByText.of(lineaDeCredito)),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
 
         );
         // Se crea la accion para que valide la linea de credito libre inversion para retanqueo
-
         actor.attemptsTo(
                 Check.whether(lineaDeCredito.contains("Retanqueo"))
                         .andIfSo(
@@ -60,6 +60,13 @@ public class DatosCreditoRetanqueo implements Task {
                                 Click.on(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre))
                         )
         );
+
+        if(CommonsFuntions.limpiarCadena(lineaDeCredito).equals("Retanqueo libre inversion")
+                || CommonsFuntions.limpiarCadena(lineaDeCredito).equals("Libre inversion")){
+            actor.attemptsTo(
+                    Click.on(CommonsLocators.botonSiguiente)
+            );
+        }
         System.out.println("Fin Pagina 5/6 Datos Adicionales Credito");
     }
 }

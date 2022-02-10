@@ -8,9 +8,10 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.DatosSolicitud.DatosSolicitudForm;
 import starter.ui.commons.CommonsLocators;
+import starter.ui.dashboard.DashboardForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class CalculoCreditoDA implements Task {
     private final String montoSolicitado;
@@ -38,15 +39,11 @@ public class CalculoCreditoDA implements Task {
                 Enter.theValue(montoSolicitado).into(DatosSolicitudForm.montoSolicitado),
                 Enter.theValue(plazo).into(DatosSolicitudForm.plazoFront),
                 Enter.theValue(diasInteresesIniciales).into(DatosSolicitudForm.diasInteresesIniciales),
-
-                //
                 Click.on(DatosSolicitudForm.tasaFront),
                 Click.on(CommonsLocators.locatorByText.of(tasaFront)),
-                //
-                Click.on(DatosSolicitudForm.botonCalcular)
-                //
-                //Click.on(CommonsLocators.botonSiguiente)
-
+                Click.on(DatosSolicitudForm.botonCalcular),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(DatosSolicitudForm.montoSolicitar, isVisible()).forNoMoreThan(20).seconds()
                 );
         System.out.println("Fin Pagina 6/6 Datos Calculo Credito");
     }

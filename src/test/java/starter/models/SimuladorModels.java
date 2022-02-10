@@ -4,7 +4,6 @@ public class SimuladorModels {
     private int montoSolicitar;
     private int cuotaCorriente;
     private int estudioCredito;
-    private int fianza;
     private int gmf4X100;
     private int interesesIniciales;
     private int primaSeguroAnticipada;
@@ -43,12 +42,6 @@ public class SimuladorModels {
     }
     public void setEstudioCredito(int studioCredito) {
         this.estudioCredito = studioCredito;
-    }
-    public int getFianza() {
-        return fianza;
-    }
-    public void setFianza(int fianza) {
-        this.fianza = fianza;
     }
     public int getGmf4X100() {
         return gmf4X100;

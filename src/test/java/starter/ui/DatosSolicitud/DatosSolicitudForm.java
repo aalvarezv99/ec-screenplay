@@ -48,5 +48,21 @@ public class DatosSolicitudForm {
     public static final Target diasInteresesIniciales = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'intereses Iniciales')]//following-sibling::input[1]");
     public static final Target tasaFront = Target.the("ciudad Residencia cliente").locatedBy("//label[contains(text(),'Tasa')]//ancestor::div[@id='select']");
     public static final Target botonCalcular = Target.the("Boton de Calcular").locatedBy("//button[contains(text(), 'Calcular')]");
+    //Pagina Calculo Credito Retanqueo
+    public static final Target creditosActivosChekBox = Target.the("check box creditos Activos").locatedBy("//h6[text()='{0}']//preceding::div[@id='checkbox']");
+    //Simulador
+    public static final Target montoSolicitar = Target.the("caja de texto que contiene el monto a solicitar").locatedBy("//h6[text()='Monto a solicitar']/following-sibling::h6");
+    public static final Target montoMaximoSugerido = Target.the("caja de texto que contiene el Monto máximo sugerido").locatedBy("//h6[text()='Monto máximo sugerido']/following-sibling::h6");
+    public static final Target cuotaCorriente = Target.the("caja de texto que contiene el Cuota corriente").locatedBy("//h6[text()='Cuota corriente']/following-sibling::h6");
+    public static final Target remanenteEstimado = Target.the("caja de texto que contiene el Remanente estimado").locatedBy("//h6[text()='Remanente estimado']/following-sibling::h6");
+    public static final Target estudiosCreditoIva = Target.the("Estudio credito mas IVA").locatedBy("//span[contains(text(),'Estudios cr')]/following-sibling::span");
+    public static final Target valorInteresesIniciales = Target.the("Valor de intereses iniciales").locatedBy("//span[contains(text(),'Valor inter')]/following-sibling::span");
+    public static final Target valorFianza = Target.the("Valor de la fianza").locatedBy("//span[contains(text(),'Valor de la fianza')]/following-sibling::span");
+    public static final Target gmf4X1000 = Target.the("GMF (4 X 1.000)").locatedBy("//span[contains(text(),'GMF (4 X 1.000)')]/following-sibling::span");
+    public static final Target valorComprasGirar = Target.the("Valor compras a girar").locatedBy("//span[contains(text(),'Valor compras a girar')]/following-sibling::span");
+    public static final Target primaAnticipadaSeguro = Target.the("caja de texto que contiene la Prima anticipada de seguro").locatedBy("//span[contains(text(),'Prima anticipada de seguro')]/following-sibling::span");
+
+
+
 
 }

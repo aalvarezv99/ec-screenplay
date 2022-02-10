@@ -35,34 +35,25 @@ public class Prospeccion implements Task {
     @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String token_bearer = TokenDev.obtenerTokenDevelopmentExcelCredit();
-        ResultSet resultado;
-        String idCliente="";
-        String creditoHijo="";
-
         FuncionesCreditoQuery query = new FuncionesCreditoQuery();
-        resultado = query.consultarIdCliente(numeroDocumento);
-        resultado = query.consultarCreditoHijo(idCliente);
-        try {
-			while (resultado.next()) {
-			    idCliente = resultado.getString(1);
-			}
-			while (resultado.next()) {
-	            creditoHijo = resultado.getString(1);
-	        }
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        String idCliente = "", token = "";
+        ResultSet result;
 
-     
-        String codigo_OTP = TokenDev.obtenerTokenAPI_notificacion_OPT(token_bearer,creditoHijo,idCliente,"2895");
+        result = query.consultarIdCliente(numeroDocumento);
+        while (result.next()) {
+            idCliente = result.getString(1);
+        }
 
-        System.out.println(" ********* codigo_OTP ************ "+ codigo_OTP);
+        result = query.consultarTokenCliente(idCliente);
+        while (result.next()) {
+            token = result.getString(1);
+        }
+
+        System.out.println(" ********* codigo_OTP ************ "+ token);
 
         actor.attemptsTo(
           WaitUntil.the(ProspeccionUI.tituloProspeccion, isVisible()).forNoMoreThan(10).seconds(),
-          Enter.theValue(codigo_OTP).into(ProspeccionUI.cajaTextoOTP),
+          Enter.theValue(token).into(ProspeccionUI.cajaTextoOTP),
           WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
           Click.on(ProspeccionUI.botonConfirmar),
           WaitUntil.the(ProspeccionUI.botonConfirmarDos, isVisible()).forNoMoreThan(10).seconds(),

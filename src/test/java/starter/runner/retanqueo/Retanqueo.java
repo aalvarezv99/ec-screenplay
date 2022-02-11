@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/retanqueo/libreInversion.feature",
+        features = "src/test/resources/features/retanqueo/SimuladorRetanqueo.feature",
         glue="starter",
         tags = "@datosSolicitudCredito",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class retanqueo {
+public class Retanqueo {
 }

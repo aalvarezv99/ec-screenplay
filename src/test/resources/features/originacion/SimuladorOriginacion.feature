@@ -31,16 +31,16 @@ Característica: Simulador Digicredito
     Entonces finaliza registrando la informacion a centrales <cuotaHipotecaria><tipoDocNomina><rutaPdf><otrosIngresos>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito                | creditoPadre | estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
-      | "Soacha"      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Retanqueo libre inversión" | "55412"      | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
+      | numeroDocumento |  descNomina | descLey  |  estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
+      | "52912399"      |  "260000"   | "100000" |  ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
 
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito                | creditoPadre | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "Soacha"      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Retanqueo libre inversión" | "55412"      | "En selección medio de desembolso" | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento |  estadoActual                       | page | modalidadDesembolso      | tipoCliente |
+      | "52912399"      | "En selección medio de desembolso"  | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
@@ -51,8 +51,8 @@ Característica: Simulador Digicredito
     Y registra los datos adicionales del cliente en Pagina 4 <tipoPension><codigoProgramaNomina><fechaIngreso><fechaTerminacion><nitAfiliacion><tipoDocumento><rutaPdf><cargo>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | estadoActual2         | montoSolicitado | tasa   | plazo | diasInteresesIniciales |
-      | "9777757"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "En simulación final" | "15000000"      | "1.70" | "24"  | "120"                  |
+      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo |
+      | "9777757"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" |
 
 
   @datosSolicitudCredito
@@ -63,7 +63,7 @@ Característica: Simulador Digicredito
     Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
     Ejemplos:
       | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                                  | vlrCompras |
-      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | "88829"      | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "0"   |
+      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | "88829"      | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "0"        |
 
 
   @seguroAP
@@ -71,12 +71,12 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces Se visualizan los beneficios del seguro
     Y Se selecciona el vinculo del seguro y el plan <vinculo><plan>
-    #Y Se llenan los campos de tomador del seguro <nombresApellidos><numeroDocumento><celular><correoElectronico><fechaNacimiento><departamento><ciudad><direccion>
+    Y Se llenan los campos de tomador del seguro <nombresApellidos><numeroDocumento><celular><correoElectronico><fechaNacimiento><departamento><ciudad><direccion>
     Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito                | creditoPadre | estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |
-      | "Soacha"      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Retanqueo libre inversión" | "55412"      | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "No vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |
+      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     |  estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" |  ""           | ""   | "No vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |
 
   @referencias
   Esquema del escenario: Diligenciamiento de referencias personales y familiares
@@ -84,8 +84,8 @@ Característica: Simulador Digicredito
     Y Se ingresa la informacion de las referencias personales <pNombreRefP><sNombreRefP><pApellidoRefP><sApellidoRefP><relacionRefP><celRefP><deptoRefP><ciudadRefP>
     Y Se ingresa la informacion de las referencias familiares <pNombreRefF><sNombreRefF><pApellidoRefF><sApellidoRefF><relacionRefF><celRefF><deptoRefF><ciudadRefF>
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito                | creditoPadre | estadoActual                 | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | vinculo     | plan     | nombresSeguroAP | parentescoSeguroAP | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
-      | "Soacha"      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Retanqueo libre inversión" | "55412"      | "En registro de referencias" | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
+      | numeroDocumento | estadoActual                 | page | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
+      | "52912399"      | "En registro de referencias" | ""   | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
 
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida

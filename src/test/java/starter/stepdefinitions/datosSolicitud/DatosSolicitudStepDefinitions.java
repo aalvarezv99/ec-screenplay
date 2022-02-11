@@ -1,20 +1,17 @@
-package starter.stepdefinitions.DatosSolicitud;
+package starter.stepdefinitions.datosSolicitud;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.conf.SessionVariables;
 import starter.models.SimuladorModels;
 import starter.questions.ResultadoCalculoCredito;
-import starter.task.DatosSolicitud.*;
+import starter.task.datosSolicitud.*;
 import starter.task.simulador.ResultadoTask;
-import starter.ui.DatosSolicitud.DatosSolicitudForm;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
 import java.sql.SQLException;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 
 public class DatosSolicitudStepDefinitions {
@@ -95,5 +92,6 @@ public class DatosSolicitudStepDefinitions {
 
             );
         }
+
     }
 }

@@ -8,8 +8,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.datosFinancierosForm;
-import starter.ui.simulador.datosClienteForm;
+import starter.ui.simulador.DatosFinancierosForm;
+import starter.ui.simulador.DatosClienteForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -36,18 +36,18 @@ public class DatosFinancieros implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(datosFinancierosForm.ingresos,isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(datosFinancierosForm.ingresos),
-                Enter.theValue(ingresos).into(datosFinancierosForm.ingresos),
-                Click.on(datosFinancierosForm.descuentosNomina),
-                Enter.theValue(descNomina).into(datosFinancierosForm.descuentosNomina),
-                Click.on(datosFinancierosForm.descuentosLey),
-                Enter.theValue(descLey).into(datosFinancierosForm.descuentosLey),
-                Click.on(datosFinancierosForm.lineaCredito),
-                Click.on(datosFinancierosForm.selectLinea.of(lineaCredito)),
-                Click.on(datosFinancierosForm.btnCalcular),
+                WaitUntil.the(DatosFinancierosForm.ingresos,isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(DatosFinancierosForm.ingresos),
+                Enter.theValue(ingresos).into(DatosFinancierosForm.ingresos),
+                Click.on(DatosFinancierosForm.descuentosNomina),
+                Enter.theValue(descNomina).into(DatosFinancierosForm.descuentosNomina),
+                Click.on(DatosFinancierosForm.descuentosLey),
+                Enter.theValue(descLey).into(DatosFinancierosForm.descuentosLey),
+                Click.on(DatosFinancierosForm.lineaCredito),
+                Click.on(DatosFinancierosForm.selectLinea.of(lineaCredito)),
+                Click.on(DatosFinancierosForm.btnCalcular),
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
-                Click.on(datosClienteForm.botonSiguiente)
+                Click.on(DatosClienteForm.botonSiguiente)
         );
 
     }

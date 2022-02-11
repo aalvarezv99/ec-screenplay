@@ -1,4 +1,4 @@
-package starter.stepdefinitions.Referencias;
+package starter.stepdefinitions.referencias;
 
 import io.cucumber.java.es.Y;
 import starter.task.referencias.ReferenciasFamiliares;

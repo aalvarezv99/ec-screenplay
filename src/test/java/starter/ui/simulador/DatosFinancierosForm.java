@@ -3,7 +3,7 @@ package starter.ui.simulador;
 import net.serenitybdd.screenplay.targets.Target;
 import net.serenitybdd.core.annotations.findby.By;
 
-public class datosFinancierosForm {
+public class DatosFinancierosForm {
     public static final Target ingresos = Target.the("Campo ingresos paso datos financieros simulador").locatedBy("//div[@id='input-amount']/child::input[1]");
     public static final Target descuentosNomina = Target.the("Campo descuento de nomina paso datos financieros simulador").locatedBy("//label[text() = 'Total descuentos']/following-sibling::input[1]");
     public static final Target descuentosLey = Target.the("Campo ingresos paso datos financieros simulador").locatedBy("//label[text() = 'Total descuentos de ley']/following-sibling::input[1]");

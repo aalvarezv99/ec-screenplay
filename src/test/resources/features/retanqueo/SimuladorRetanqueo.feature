@@ -32,8 +32,8 @@ Característica: Simulador Digicredito
     Entonces finaliza registrando la informacion a centrales <cuotaHipotecaria><tipoDocNomina><rutaPdf><otrosIngresos>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                   | numeroDocumento | fechaNacimiento | celular      | correoElectronico           | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
-      | "Soacha"      | "CARLOS FERNANDO HERRERA ARBOLEDA" | "9777757"       | "12/12/2000"    | "3204992496" | "jvcutilidades@hotmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "200000"   | "Retanqueo libre inversión" | "88829"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
+      | numeroDocumento | descNomina | descLey  | estadoActual | page                     | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
+      | "9777757"       | "260000"   | "100000" | ""           | "Pendientes por Radicar" | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
 
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
@@ -41,8 +41,8 @@ Característica: Simulador Digicredito
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "Soacha"      | "JORGE ANCIZAR CORTES CORREA" | "9971523"       | "24/09/1994"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "10000000"      | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "200000"   | "Retanqueo compra de cartera" | "55412"      | "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento |  estadoActual                       | page | modalidadDesembolso      | tipoCliente |
+      | "9971523"       |  "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
@@ -53,8 +53,8 @@ Característica: Simulador Digicredito
     Y registra los datos adicionales del cliente en Pagina 4 <tipoPension><codigoProgramaNomina><fechaIngreso><fechaTerminacion><nitAfiliacion><tipoDocumento><rutaPdf><cargo>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | estadoActual2         | montoSolicitado | tasa   | plazo | diasInteresesIniciales |
-      | "9777757"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "En simulación final" | "15000000"      | "1.70" | "24"  | "120"                  |
+      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo |
+      | "9777757"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" |
 
   @datosSolicitudCredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
@@ -64,7 +64,7 @@ Característica: Simulador Digicredito
     Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
     Ejemplos:
       | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                                  | vlrCompras |
-      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | "88829"      | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "0"   |
+      | "9777757"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | "88829"      | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "0"        |
 
 
   @seguroVida

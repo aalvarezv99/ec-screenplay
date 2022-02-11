@@ -10,8 +10,8 @@ Característica: Simulador Digicredito
   Esquema del escenario:  Paso uno Datos cliente
     Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><numeroDocumento><fechaNacimiento><celular><correoElectronico><actividad><pagaduria><Contacto>
     Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><tasa><plazo><diasIntereses>
-    Y diligencia los datos financieros retanqueo <ingresos><descLey><descNomina><lineaCredito><creditoPadre><vlrCompras>
-    Y se validan los campos del simulador retanqueo <creditoPadre><tasa><plazo><diasIntereses><vlrCompras>
+    Y diligencia los datos financieros <ingresos><descLey><descNomina><lineaCredito><creditoPadre><vlrCompras>
+    Y se validan los campos del simulador <tasa><plazo><ingresos><descLey><descNomina><pagaduria><diasIntereses><creditoPadre><vlrCompras><lineaCredito>
     Y se inicia la solicitud del credito
     Entonces El usuario carga los archivos imagen de la cedula del cliente <RutaPDF>
     Y realiza el registro del cliente paso 2 de 4 <numeroDocumento><primerNombre><segundoNombre><primerApellido><segundoApellido><fechaNacimiento><fechaExpedicion><departamentoExpedicionCC><ciudadExpedicionCC><genero>
@@ -21,8 +21,8 @@ Característica: Simulador Digicredito
     Y recorre las paginas de la consulta de propeccion
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                   | numeroDocumento | fechaNacimiento | celular      | correoElectronico           | actividad    | pagaduria                                  | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
-      | "Soacha"      | "CARLOS FERNANDO HERRERA ARBOLEDA" | "9777757"       | "12/12/2000"    | "3204992496" | "jvcutilidades@hotmail.com" | "Pensionado" | "ALCALDIA DE CALI JUBILADOS Y PENSIONADOS" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "200000"   | "Retanqueo libre inversión" | "88829"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    |
+      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria     | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "OSCAR FABIAN ROJAS SOGAMOSO" | "96331519"      | "05/01/1977"    | "3183903022" | "aalvarez@excelcredit.co" | "Pensionado" | "P.A. CREMIL" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "0"        | "Retanqueo libre inversión" | "76625"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global

@@ -1,5 +1,6 @@
 package starter.stepdefinitions.datosSolicitud;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import starter.conf.SessionVariables;
@@ -8,8 +9,12 @@ import starter.questions.ResultadoCalculoCredito;
 import starter.task.datosSolicitud.*;
 import starter.task.simulador.ResultadoTask;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import starter.ui.commons.CommonsFuntions;
 
 import java.sql.SQLException;
+
+import java.util.List;
+import java.util.Map;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -44,6 +49,18 @@ public class DatosSolicitudStepDefinitions {
         );
     }
 
+    @Y("^se crean los tipos de cartera o saneamiento a recoger con la linea de \"([^\"]*)\"$")
+    public void seCreanLosTiposDeCarteraOSaneamientoARecogerConLaLineaDeCredito(String lineaCredito, DataTable dataTable) {
+        System.out.println("IMPRIMIENTO linea Credito "+ CommonsFuntions.limpiarCadena(lineaCredito));
+    if(!CommonsFuntions.limpiarCadena(lineaCredito).equals("Retanqueo libre inversion") && !CommonsFuntions.limpiarCadena(lineaCredito).equals("Libre inversion")){
+        System.out.println("INGRESO A LAS CARTERAS");
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        theActorInTheSpotlight().attemptsTo(
+                DatosCreditosComprasCarteras.withDatosCreditosComprasCarteras(data));
+    }
+        System.out.println("NO INGRESO A LAS CARTERAS");
+    }
+
     @Y("diligencia los datos calculo credito {string}{string}{string}{string}")
     public void diligenciaLosDatosCalculoCredito(String montoSolicitado, String tasa, String plazo, String diasInteresesIniciales) {
         theActorInTheSpotlight().attemptsTo(
@@ -72,7 +89,7 @@ public class DatosSolicitudStepDefinitions {
             theActorInTheSpotlight().attemptsTo(
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente() - 1, calculosSimulador.getCuotaCorriente() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito() - 1, calculosSimulador.getEstudioCredito() + 1),
-                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza() - 1, calculosSimulador.getFianza() + 1),
+                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianzaNeta() - 1, calculosSimulador.getFianzaNeta() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlrCompras().answeredBy(theActorInTheSpotlight()))).isBetween(Integer.parseInt(vlrCompras) - 1, Integer.parseInt(vlrCompras) + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlr4X1000().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getGmf4X100() - 1, calculosSimulador.getGmf4X100() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada() - 1, calculosSimulador.getPrimaSeguroAnticipada() + 1),
@@ -82,16 +99,22 @@ public class DatosSolicitudStepDefinitions {
             calculosSimulador = ResultadoTask.consultarCalculosSimulador(valueMontoSolicitado, tasa, plazo, diasIntereses, vlrCompras, ingresos, descLey, descNomina, pagaduria);
 
             theActorInTheSpotlight().attemptsTo(
+                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlrCompras().answeredBy(theActorInTheSpotlight()))).isBetween(Integer.parseInt(vlrCompras) - 1, Integer.parseInt(vlrCompras) + 1),
+                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlr4X1000().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getGmf4X100() - 1, calculosSimulador.getGmf4X100() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.montoSolicitadoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getMontoSolicitar() - 1, calculosSimulador.getMontoSolicitar() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente() - 1, calculosSimulador.getCuotaCorriente() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito() - 1, calculosSimulador.getEstudioCredito() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.interesesIniciales().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getInteresesIniciales() - 1, calculosSimulador.getInteresesIniciales() + 1),
-                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianza() - 1, calculosSimulador.getFianza() + 1),
+                    Ensure.that(Integer.parseInt(ResultadoCalculoCredito.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianzaNeta() - 1, calculosSimulador.getFianzaNeta() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada() - 1, calculosSimulador.getPrimaSeguroAnticipada() + 1),
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.remanenteEstimado().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getRemanenteEstimado() - 1, calculosSimulador.getRemanenteEstimado() + 1)
 
             );
         }
+<<<<<<< HEAD:src/test/java/starter/stepdefinitions/datosSolicitud/DatosSolicitudStepDefinitions.java
 
+=======
+        SimuladorDatosSolicitud.withSimuladorDatosSolicitud();
+>>>>>>> eea10548a3ce4f5f3ba2830d2b69e69faf01f460:src/test/java/starter/stepdefinitions/DatosSolicitud/DatosSolicitudStepDefinitions.java
     }
 }

@@ -8,7 +8,12 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+<<<<<<< HEAD:src/test/java/starter/task/datosSolicitud/DatosCreditoRetanqueo.java
 import starter.ui.datosSolicitud.DatosSolicitudForm;
+=======
+import starter.ui.DatosSolicitud.DatosSolicitudForm;
+import starter.ui.commons.CommonsFuntions;
+>>>>>>> eea10548a3ce4f5f3ba2830d2b69e69faf01f460:src/test/java/starter/task/DatosSolicitud/DatosCreditoRetanqueo.java
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 
@@ -46,21 +51,25 @@ public class DatosCreditoRetanqueo implements Task {
                 Click.on(DatosSolicitudForm.lineaDeCredito),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                 Click.on(CommonsLocators.locatorByText.of(lineaDeCredito)),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
 
         );
         // Se crea la accion para que valide la linea de credito libre inversion para retanqueo
-        System.out.println("Pausa");
         actor.attemptsTo(
-                Check.whether(lineaDeCredito.contains("Retanqueo libre inversi"))
+                Check.whether(lineaDeCredito.contains("Retanqueo"))
                         .andIfSo(
                                 WaitUntil.the(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre), isVisible()).forNoMoreThan(20).seconds(),
                                 Scroll.to(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre)),
                                 Click.on(DatosSolicitudForm.creditosActivosChekBox.of(creditoPadre))
-                        ),
-                //
-                Click.on(CommonsLocators.botonSiguiente)
+                        )
         );
+
+        if(CommonsFuntions.limpiarCadena(lineaDeCredito).equals("Retanqueo libre inversion")
+                || CommonsFuntions.limpiarCadena(lineaDeCredito).equals("Libre inversion")){
+            actor.attemptsTo(
+                    Click.on(CommonsLocators.botonSiguiente)
+            );
+        }
         System.out.println("Fin Pagina 5/6 Datos Adicionales Credito");
     }
 }

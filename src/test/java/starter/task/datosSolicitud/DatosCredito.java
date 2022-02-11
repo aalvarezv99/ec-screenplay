@@ -18,6 +18,7 @@ public class DatosCredito implements Task {
     private final String totalDescuentosLey;
     private final String lineaDeCredito;
 
+
     public DatosCredito(String ingresosMensuales, String totalDescuentos, String totalDescuentosLey, String lineaDeCredito) {
         this.ingresosMensuales = ingresosMensuales;
         this.totalDescuentos = totalDescuentos;
@@ -37,12 +38,10 @@ public class DatosCredito implements Task {
                 Enter.theValue(ingresosMensuales).into(DatosSolicitudForm.ingresosMensuales),
                 Enter.theValue(totalDescuentos).into(DatosSolicitudForm.totalDescuentos),
                 Enter.theValue(totalDescuentosLey).into(DatosSolicitudForm.totalDescuentosLey),
-                //
                 Click.on(DatosSolicitudForm.lineaDeCredito),
-                Click.on(CommonsLocators.locatorByText.of(lineaDeCredito)),
-                //
-                Click.on(CommonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.locatorByText.of(lineaDeCredito))
+               // Click.on(CommonsLocators.botonSiguiente)
                 );
-        System.out.println("Fin Pagina 5/6 Datos Adicionales Credito");
+
     }
 }

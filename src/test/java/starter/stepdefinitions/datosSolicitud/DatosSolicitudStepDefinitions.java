@@ -3,16 +3,15 @@ package starter.stepdefinitions.datosSolicitud;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.conf.SessionVariables;
 import starter.models.SimuladorModels;
 import starter.questions.ResultadoCalculoCredito;
 import starter.task.datosSolicitud.*;
 import starter.task.simulador.ResultadoTask;
-import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.ui.commons.CommonsFuntions;
 
 import java.sql.SQLException;
-
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +55,7 @@ public class DatosSolicitudStepDefinitions {
         System.out.println("INGRESO A LAS CARTERAS");
         List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
         theActorInTheSpotlight().attemptsTo(
-                DatosCreditosComprasCarteras.withDatosCreditosComprasCarteras(data));
+            DatosCreditosComprasCarteras.withDatosCreditosComprasCarteras(data));
     }
         System.out.println("NO INGRESO A LAS CARTERAS");
     }
@@ -111,10 +110,7 @@ public class DatosSolicitudStepDefinitions {
 
             );
         }
-<<<<<<< HEAD:src/test/java/starter/stepdefinitions/datosSolicitud/DatosSolicitudStepDefinitions.java
 
-=======
         SimuladorDatosSolicitud.withSimuladorDatosSolicitud();
->>>>>>> eea10548a3ce4f5f3ba2830d2b69e69faf01f460:src/test/java/starter/stepdefinitions/DatosSolicitud/DatosSolicitudStepDefinitions.java
     }
 }

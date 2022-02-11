@@ -3,7 +3,7 @@ package starter.hooks;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
-public class hooksPrueba {
+public class HooksPrueba {
 
     @Before("@login2")
     public static void beforeHook(){

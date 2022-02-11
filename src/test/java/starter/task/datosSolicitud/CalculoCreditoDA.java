@@ -1,4 +1,4 @@
-package starter.task.DatosSolicitud;
+package starter.task.datosSolicitud;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.ui.DatosSolicitud.DatosSolicitudForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 

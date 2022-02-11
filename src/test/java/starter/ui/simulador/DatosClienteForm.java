@@ -3,7 +3,7 @@ package starter.ui.simulador;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class datosClienteForm {
+public class DatosClienteForm {
 
     public static final Target oficinaAsesor   = Target.the("Lista desplegable para ingresar la oficina del asesor").locatedBy("//span[text()='Oficina Asesor']/following-sibling::div/child::span[text()='Seleccionar...']");
     public static final Target nombresApellidos  = Target.the("Caja de texto de los nombres y apellidos").located(By.id("nombres"));

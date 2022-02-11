@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.simulador.ValoresCreditoForm;
-import starter.ui.simulador.datosClienteForm;
+import starter.ui.simulador.DatosClienteForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -37,7 +37,7 @@ public class ValoresCreditoTask implements Task {
                 Click.on(ValoresCreditoForm.selectTasa.of(tasa)),
                 Enter.theValue(plazo).into(ValoresCreditoForm.plazo),
                 Enter.theValue(diasIntereses).into(ValoresCreditoForm.diasInteresesIniciales),
-                Click.on(datosClienteForm.botonSiguiente)
+                Click.on(DatosClienteForm.botonSiguiente)
         );
         System.out.println("Prueba");
     }

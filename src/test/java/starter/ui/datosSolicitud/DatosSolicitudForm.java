@@ -1,7 +1,6 @@
-package starter.ui.DatosSolicitud;
+package starter.ui.datosSolicitud;
 
 import net.serenitybdd.screenplay.targets.Target;
-import org.openqa.selenium.By;
 
 public class DatosSolicitudForm {
     public static final Target paisNacimiento = Target.the("input para ingresar el pais de nacimiento").locatedBy("//input[@id='paisNacimiento']");

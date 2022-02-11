@@ -3,7 +3,7 @@ package starter.ui.operacionesIntPEPS;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class operacionesIntPEPSForm {
+public class OperacionesIntPEPSForm {
     public static final Target transaccionMonedaExtrajera = Target.the("Ingresar primer formulario de referencias personales").locatedBy("//input[starts-with(@id,'monedaExtranjera')]/following-sibling::label[text()='{0}']/preceding-sibling::div");
     public static final Target tipoTransaccion = Target.the("Tipo de transaccion").locatedBy("//h6[text()='{0}']/preceding-sibling::div");
     public static final Target productoBancario = Target.the("Productos bancarios en moneda extranjera").locatedBy("//input[starts-with(@id,'productMonedaExtranjera')]/following-sibling::label[text()='{0}']/preceding-sibling::div");

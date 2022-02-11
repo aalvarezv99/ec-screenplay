@@ -9,8 +9,8 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.datosClienteForm;
-import starter.ui.simulador.datosFinancierosForm;
+import starter.ui.simulador.DatosClienteForm;
+import starter.ui.simulador.DatosFinancierosForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -42,6 +42,34 @@ public class DatosFinacieros implements Task {
         boolean seleccionarCreditoPadre = lineaCredito.contains("Retanqueo");
         boolean seleccionarValor = lineaCredito.contains("cartera") || lineaCredito.contains("saneamiento");
         actor.attemptsTo(
+<<<<<<< HEAD:src/test/java/starter/task/simulador/DatosFinacierosRetanqueo.java
+                WaitUntil.the(DatosFinancierosForm.ingresos,isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(DatosFinancierosForm.ingresos),
+                Enter.theValue(ingresos).into(DatosFinancierosForm.ingresos),
+                Click.on(DatosFinancierosForm.descuentosNomina),
+                Enter.theValue(descNomina).into(DatosFinancierosForm.descuentosNomina),
+                Click.on(DatosFinancierosForm.descuentosLey),
+                Enter.theValue(descLey).into(DatosFinancierosForm.descuentosLey),
+                Click.on(DatosFinancierosForm.lineaCredito),
+                Click.on(DatosFinancierosForm.selectLinea.of(lineaCredito)),
+                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(60).seconds(),
+                Click.on(DatosFinancierosForm.selectCredito.of(credito)),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
+        );
+        //Se crea la accion para que valide el tipo de credito y puedan agregarse las carteras
+        actor.attemptsTo(
+                Click.on(DatosFinancierosForm.vlrCompras.of("1")),
+                Check.whether(!lineaCredito.equals("Libre inversion")|| !lineaCredito.equals("Retanqueo libre inversión"))
+                        .andIfSo(
+                                WaitUntil.the(DatosFinancierosForm.vlrCompras.of("1"), isVisible()).forNoMoreThan(20).seconds(),
+                                Scroll.to(DatosFinancierosForm.vlrCompras.of("1")),
+                                Click.on(DatosFinancierosForm.vlrCompras.of("1")),
+                                Enter.theValue(vlrCompras).into(DatosFinancierosForm.vlrCompras.of("1"))
+                        ),
+                Click.on(DatosFinancierosForm.btnCalcular),
+                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
+                Click.on(DatosClienteForm.botonSiguiente)
+=======
                 WaitUntil.the(datosFinancierosForm.ingresos, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(datosFinancierosForm.ingresos),
                 Enter.theValue(ingresos).into(datosFinancierosForm.ingresos),
@@ -66,6 +94,7 @@ public class DatosFinacieros implements Task {
                 Click.on(datosFinancierosForm.btnCalcular),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(datosClienteForm.botonSiguiente)
+>>>>>>> eea10548a3ce4f5f3ba2830d2b69e69faf01f460:src/test/java/starter/task/simulador/DatosFinacieros.java
         );
         System.out.println(" punto de interrupción ");
     }

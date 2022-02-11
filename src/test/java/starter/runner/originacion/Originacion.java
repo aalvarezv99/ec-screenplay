@@ -1,4 +1,4 @@
-package starter.runner.retanqueo;
+package starter.runner.originacion;
 
 
 import io.cucumber.junit.CucumberOptions;
@@ -7,10 +7,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/retanqueo/libreInversion.feature",
+        features = "src/test/resources/features/originacion/SimuladorOriginacion.feature",
         glue="starter",
         tags = "@datosSolicitudCredito",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-public class retanqueo {
+//@Simulador,@endeudamientoGlobal,@desembolso,@datosSolicitud,@seguroAP
+public class Originacion {
 }

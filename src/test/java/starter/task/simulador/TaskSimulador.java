@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.datosClienteForm;
+import starter.ui.simulador.DatosClienteForm;
 import starter.ui.commons.CommonsLocators;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -48,27 +48,27 @@ public class TaskSimulador implements Task {
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(20).seconds(),
                 Click.on(DashboardForm.menuSimulador),
-                Click.on(datosClienteForm.oficinaAsesor),
+                Click.on(DatosClienteForm.oficinaAsesor),
                 Click.on(CommonsLocators.locatorByText.of(oficinaAsesor)),
-                Click.on(datosClienteForm.nombresApellidos),
-                Enter.theValue(nombresApellidos).into(datosClienteForm.nombresApellidos),
-                Click.on(datosClienteForm.numeroDocumento),
-                Enter.theValue(numeroDocumento).into(datosClienteForm.numeroDocumento),
-                Click.on(datosClienteForm.fechaNacimiento),
-                Enter.theValue(fechaNacimiento).into(datosClienteForm.fechaNacimiento),
-                Click.on(datosClienteForm.numeroCelular),
-                Enter.theValue(celular).into(datosClienteForm.numeroCelular),
-                Click.on(datosClienteForm.correo),
-                Enter.theValue(correoElectronico).into(datosClienteForm.correo),
-                Click.on(datosClienteForm.actividadCliente),
+                Click.on(DatosClienteForm.nombresApellidos),
+                Enter.theValue(nombresApellidos).into(DatosClienteForm.nombresApellidos),
+                Click.on(DatosClienteForm.numeroDocumento),
+                Enter.theValue(numeroDocumento).into(DatosClienteForm.numeroDocumento),
+                Click.on(DatosClienteForm.fechaNacimiento),
+                Enter.theValue(fechaNacimiento).into(DatosClienteForm.fechaNacimiento),
+                Click.on(DatosClienteForm.numeroCelular),
+                Enter.theValue(celular).into(DatosClienteForm.numeroCelular),
+                Click.on(DatosClienteForm.correo),
+                Enter.theValue(correoElectronico).into(DatosClienteForm.correo),
+                Click.on(DatosClienteForm.actividadCliente),
                 Click.on(CommonsLocators.locatorByText.of(actividad)),
-                Click.on(datosClienteForm.pagaduria),
-                Enter.theValue(pagaduria).into(datosClienteForm.pagaduria),
+                Click.on(DatosClienteForm.pagaduria),
+                Enter.theValue(pagaduria).into(DatosClienteForm.pagaduria),
                 Click.on(CommonsLocators.locatorByText.of(pagaduria)),
-                WaitUntil.the(datosClienteForm.comoSeEnteroExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(datosClienteForm.comoSeEnteroExcelCredit),
+                WaitUntil.the(DatosClienteForm.comoSeEnteroExcelCredit,isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(DatosClienteForm.comoSeEnteroExcelCredit),
                 Click.on(CommonsLocators.locatorByText.of(Contacto)),
-                Click.on(datosClienteForm.botonSiguiente)
+                Click.on(DatosClienteForm.botonSiguiente)
                 );
     }
 }

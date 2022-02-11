@@ -1,4 +1,4 @@
-package starter.task.DatosSolicitud;
+package starter.task.datosSolicitud;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -8,11 +8,14 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+<<<<<<< HEAD:src/test/java/starter/task/datosSolicitud/DatosCreditoRetanqueo.java
+import starter.ui.datosSolicitud.DatosSolicitudForm;
+=======
 import starter.ui.DatosSolicitud.DatosSolicitudForm;
 import starter.ui.commons.CommonsFuntions;
+>>>>>>> eea10548a3ce4f5f3ba2830d2b69e69faf01f460:src/test/java/starter/task/DatosSolicitud/DatosCreditoRetanqueo.java
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.datosFinancierosForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;

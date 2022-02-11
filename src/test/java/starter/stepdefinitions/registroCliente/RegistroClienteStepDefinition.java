@@ -1,4 +1,4 @@
-package starter.stepdefinitions.RegistroCliente;
+package starter.stepdefinitions.registroCliente;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;

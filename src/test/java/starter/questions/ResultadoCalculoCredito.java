@@ -2,7 +2,7 @@ package starter.questions;
 
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.TextContent;
-import starter.ui.DatosSolicitud.DatosSolicitudForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
 
 
 public class ResultadoCalculoCredito {

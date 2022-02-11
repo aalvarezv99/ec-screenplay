@@ -1,4 +1,4 @@
-package starter.stepdefinitions.EndeudamientoGlobal;
+package starter.stepdefinitions.endeudamientoGlobal;
 
 import io.cucumber.java.an.Y;
 import io.cucumber.java.es.Entonces;

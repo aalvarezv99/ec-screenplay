@@ -1,4 +1,4 @@
-package starter.task.DatosSolicitud;
+package starter.task.datosSolicitud;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -8,8 +8,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.ui.DatosSolicitud.DatosSolicitudForm;
-import starter.ui.RegistroDeCliente.RegistroClienteForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
 import starter.ui.commons.CommonsLocators;
 
 import java.nio.file.Path;

@@ -45,8 +45,10 @@ public class LoginTask implements Task {
                 Check.whether(clearCompleteButtonIsVisible)
                         .andIfSo(
                                 WaitUntil.the(DashboardForm.saltarIntro, isVisible()).forNoMoreThan(10).seconds(),
-                                Click.on(DashboardForm.saltarIntro)
-                        )
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
+                                Click.on(DashboardForm.saltarIntro),
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
+                                )
         );
 
     }

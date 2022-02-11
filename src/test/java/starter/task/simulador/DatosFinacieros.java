@@ -42,8 +42,7 @@ public class DatosFinacieros implements Task {
         boolean seleccionarCreditoPadre = lineaCredito.contains("Retanqueo");
         boolean seleccionarValor = lineaCredito.contains("cartera") || lineaCredito.contains("saneamiento");
         actor.attemptsTo(
-<<<<<<< HEAD:src/test/java/starter/task/simulador/DatosFinacierosRetanqueo.java
-                WaitUntil.the(DatosFinancierosForm.ingresos,isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DatosFinancierosForm.ingresos, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DatosFinancierosForm.ingresos),
                 Enter.theValue(ingresos).into(DatosFinancierosForm.ingresos),
                 Click.on(DatosFinancierosForm.descuentosNomina),
@@ -52,49 +51,21 @@ public class DatosFinacieros implements Task {
                 Enter.theValue(descLey).into(DatosFinancierosForm.descuentosLey),
                 Click.on(DatosFinancierosForm.lineaCredito),
                 Click.on(DatosFinancierosForm.selectLinea.of(lineaCredito)),
-                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(60).seconds(),
-                Click.on(DatosFinancierosForm.selectCredito.of(credito)),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
-        );
-        //Se crea la accion para que valide el tipo de credito y puedan agregarse las carteras
-        actor.attemptsTo(
-                Click.on(DatosFinancierosForm.vlrCompras.of("1")),
-                Check.whether(!lineaCredito.equals("Libre inversion")|| !lineaCredito.equals("Retanqueo libre inversión"))
-                        .andIfSo(
-                                WaitUntil.the(DatosFinancierosForm.vlrCompras.of("1"), isVisible()).forNoMoreThan(20).seconds(),
-                                Scroll.to(DatosFinancierosForm.vlrCompras.of("1")),
-                                Click.on(DatosFinancierosForm.vlrCompras.of("1")),
-                                Enter.theValue(vlrCompras).into(DatosFinancierosForm.vlrCompras.of("1"))
-                        ),
-                Click.on(DatosFinancierosForm.btnCalcular),
-                WaitUntil.the(DashboardForm.loading,isNotVisible()).forNoMoreThan(10).seconds(),
-                Click.on(DatosClienteForm.botonSiguiente)
-=======
-                WaitUntil.the(datosFinancierosForm.ingresos, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(datosFinancierosForm.ingresos),
-                Enter.theValue(ingresos).into(datosFinancierosForm.ingresos),
-                Click.on(datosFinancierosForm.descuentosNomina),
-                Enter.theValue(descNomina).into(datosFinancierosForm.descuentosNomina),
-                Click.on(datosFinancierosForm.descuentosLey),
-                Enter.theValue(descLey).into(datosFinancierosForm.descuentosLey),
-                Click.on(datosFinancierosForm.lineaCredito),
-                Click.on(datosFinancierosForm.selectLinea.of(lineaCredito)),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                 Check.whether(seleccionarCreditoPadre)
                         .andIfSo(
-                                Click.on(datosFinancierosForm.selectCredito.of(credito)),
+                                Click.on(DatosFinancierosForm.selectCredito.of(credito)),
                                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
                         ),
                 Check.whether(seleccionarValor)
                         .andIfSo(
-                                WaitUntil.the(datosFinancierosForm.vlrCompras.of("1"), isVisible()).forNoMoreThan(20).seconds(),
-                                Scroll.to(datosFinancierosForm.vlrCompras.of("1")),
-                                Enter.theValue(vlrCompras).into(datosFinancierosForm.vlrCompras.of("1"))
+                                WaitUntil.the(DatosFinancierosForm.vlrCompras.of("1"), isVisible()).forNoMoreThan(20).seconds(),
+                                Scroll.to(DatosFinancierosForm.vlrCompras.of("1")),
+                                Enter.theValue(vlrCompras).into(DatosFinancierosForm.vlrCompras.of("1"))
                         ),
-                Click.on(datosFinancierosForm.btnCalcular),
+                Click.on(DatosFinancierosForm.btnCalcular),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
-                Click.on(datosClienteForm.botonSiguiente)
->>>>>>> eea10548a3ce4f5f3ba2830d2b69e69faf01f460:src/test/java/starter/task/simulador/DatosFinacieros.java
+                Click.on(DatosClienteForm.botonSiguiente)
         );
         System.out.println(" punto de interrupción ");
     }

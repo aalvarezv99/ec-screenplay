@@ -1,4 +1,4 @@
-package starter.task.DatosSolicitud;
+package starter.task.datosSolicitud;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;

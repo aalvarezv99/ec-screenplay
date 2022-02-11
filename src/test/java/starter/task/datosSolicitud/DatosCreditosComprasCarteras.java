@@ -1,4 +1,4 @@
-package starter.task.DatosSolicitud;
+package starter.task.datosSolicitud;
 
 import io.cucumber.datatable.DataTable;
 import net.serenitybdd.screenplay.Actor;
@@ -8,10 +8,10 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.ui.DatosSolicitud.DatosSolicitudForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
-import starter.ui.simulador.datosFinancierosForm;
+import starter.ui.simulador.DatosFinancierosForm;
 
 import java.util.List;
 import java.util.Map;

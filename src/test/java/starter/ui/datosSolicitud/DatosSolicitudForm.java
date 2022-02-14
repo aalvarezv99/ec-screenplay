@@ -36,6 +36,7 @@ public class DatosSolicitudForm {
     //Pagina Datos Credito - Compra de carteras
     public static final Target botonAnadirCompras = Target.the("Boton añadir compras").locatedBy("//span[contains(text(),'adir valor')]");
     public static final Target campoEntidadCompra = Target.the("campo de entidad en carteras").locatedBy("//input[@id='entidad{0}']");
+    public static final Target selectEntidad = Target.the("Select valor desplegable entidad").locatedBy("//label[text() = 'Entidad {0}']/following-sibling::div/child::div");
     public static final Target campoMontoCompra = Target.the("Campo entidad en carteras").locatedBy("//input[@id='monto{0}']//preceding-sibling::input");
     public static final Target campoVlrCuotaCompra = Target.the("Campo vlr Cuora").locatedBy("//input[@id='valorCuota{0}']//preceding-sibling::input");
     public static final Target campoFechaVencimientoCompra = Target.the("campo Fecha Vencimiento").locatedBy("//input[@id='fechaVencimiento{0}']");

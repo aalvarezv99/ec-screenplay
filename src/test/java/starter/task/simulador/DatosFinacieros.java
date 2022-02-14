@@ -42,7 +42,7 @@ public class DatosFinacieros implements Task {
         boolean seleccionarCreditoPadre = lineaCredito.contains("Retanqueo");
         boolean seleccionarValor = lineaCredito.contains("cartera") || lineaCredito.contains("saneamiento");
         actor.attemptsTo(
-                WaitUntil.the(DatosFinancierosForm.ingresos, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DatosFinancierosForm.ingresos, isVisible()).forNoMoreThan(120).seconds(),
                 Click.on(DatosFinancierosForm.ingresos),
                 Enter.theValue(ingresos).into(DatosFinancierosForm.ingresos),
                 Click.on(DatosFinancierosForm.descuentosNomina),
@@ -55,7 +55,7 @@ public class DatosFinacieros implements Task {
                 Check.whether(seleccionarCreditoPadre)
                         .andIfSo(
                                 Click.on(DatosFinancierosForm.selectCredito.of(credito)),
-                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
                         ),
                 Check.whether(seleccionarValor)
                         .andIfSo(
@@ -64,7 +64,7 @@ public class DatosFinacieros implements Task {
                                 Enter.theValue(vlrCompras).into(DatosFinancierosForm.vlrCompras.of("1"))
                         ),
                 Click.on(DatosFinancierosForm.btnCalcular),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                 Click.on(DatosClienteForm.botonSiguiente)
         );
         System.out.println(" punto de interrupción ");

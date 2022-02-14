@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.JavaScriptClick;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.task.commonTask.TokenDev;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
@@ -53,14 +54,14 @@ public class Prospeccion implements Task {
 
         actor.attemptsTo(
           WaitUntil.the(ProspeccionUI.tituloProspeccion, isVisible()).forNoMoreThan(10).seconds(),
-          Enter.theValue(token).into(ProspeccionUI.cajaTextoOTP),
+          Enter.theValue(token).into(ProspeccionUI.cajaTextoOTP)/*,
           WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
           Click.on(ProspeccionUI.botonConfirmar),
           WaitUntil.the(ProspeccionUI.botonConfirmarDos, isVisible()).forNoMoreThan(10).seconds(),
           Click.on(ProspeccionUI.botonConfirmarDos),
           WaitUntil.the(ProspeccionUI.procesoValidacion, isVisible()).forNoMoreThan(10).seconds(),
           Click.on(ProspeccionUI.MisSimulaciones),
-          WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()
+          WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()*/
         );
     }
 }

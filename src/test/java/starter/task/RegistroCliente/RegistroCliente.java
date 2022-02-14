@@ -4,6 +4,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.conditions.Check;
+import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
@@ -44,6 +46,12 @@ public class RegistroCliente implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+        Boolean modalValidacionDatos = Visibility.of(RegistroClienteForm.iconClosed).viewedBy(actor).value();
+        actor.attemptsTo(
+                Check.whether(modalValidacionDatos)
+                        .andIfSo(Click.on(RegistroClienteForm.iconClosed))
+        );
         actor.attemptsTo(
                 WaitUntil.the(RegistroClienteForm.tipoDocumento, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.tipoDocumento),

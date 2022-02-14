@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class ProspeccionUI {
     public static final Target tituloProspeccion  = Target.the("Titulo menu prospeccion ").locatedBy("//*[contains(text(),'Confirmaci')]");
-    public static final Target cajaTextoOTP = Target.the("Caja de texto codigo OTP").locatedBy("//*[@id='input0']");
+    public static final Target cajaTextoOTP = Target.the("Caja de texto codigo OTP").locatedBy("//*[@id='input{0}']");
     public static final Target botonConfirmar = Target.the("Boton confirmar").locatedBy("/html/body/div/main/div[2]/div[2]/div[4]/div/div[3]/button[1]");
     public static final Target botonConfirmarDos = Target.the("Boton confirmar").locatedBy("/html/body/div/main/div[2]/div[2]/div[5]/div/div[3]/button");
     public static final Target procesoValidacion = Target.the("Iniciamos proceso de validación").locatedBy("//*[contains(text(),'Iniciamos proceso de validaci')]");

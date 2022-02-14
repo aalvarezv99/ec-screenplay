@@ -4,10 +4,10 @@ import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.JavaScriptClick;
+import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import starter.task.commonTask.TokenDev;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.dashboard.DashboardForm;
@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class Prospeccion implements Task {
 
@@ -51,17 +52,31 @@ public class Prospeccion implements Task {
         }
 
         System.out.println(" ********* codigo_OTP ************ "+ token);
-
         actor.attemptsTo(
-          WaitUntil.the(ProspeccionUI.tituloProspeccion, isVisible()).forNoMoreThan(10).seconds(),
-          Enter.theValue(token).into(ProspeccionUI.cajaTextoOTP)/*,
+                WaitUntil.the(ProspeccionUI.tituloProspeccion, isVisible()).forNoMoreThan(10).seconds()
+        );
+        String value="";
+        for(int i=0;i<token.length();i++){
+            value = String.valueOf(token.charAt(i));
+            if(i!=7){
+                actor.attemptsTo(
+                        Click.on(ProspeccionUI.cajaTextoOTP.of(String.valueOf(i))),
+                        Clear.field(ProspeccionUI.cajaTextoOTP.of(String.valueOf(i))),
+               Enter.theValue(value).into(ProspeccionUI.cajaTextoOTP.of(String.valueOf(i)))
+
+            );
+            }
+        }
+        actor.attemptsTo(
+         // Enter.theValue(String.valueOf(token.charAt(2))).into(ProspeccionUI.cajaTextoOTP.of(String.valueOf(2))),
           WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
           Click.on(ProspeccionUI.botonConfirmar),
           WaitUntil.the(ProspeccionUI.botonConfirmarDos, isVisible()).forNoMoreThan(10).seconds(),
           Click.on(ProspeccionUI.botonConfirmarDos),
           WaitUntil.the(ProspeccionUI.procesoValidacion, isVisible()).forNoMoreThan(10).seconds(),
           Click.on(ProspeccionUI.MisSimulaciones),
-          WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()*/
+          WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()
         );
+
     }
 }

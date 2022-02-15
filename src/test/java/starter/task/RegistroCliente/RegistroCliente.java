@@ -1,4 +1,4 @@
-package starter.task.RegistroCliente;
+package starter.task.registroCliente;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;

@@ -37,16 +37,20 @@ public class LoginTask implements Task {
                 Enter.theValue(username).into(LoginForm.caja_de_text_username),
                 Enter.theValue(password).into(LoginForm.caja_de_text_password),
                 Click.on(LoginForm.boton_ingreso_login),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
 
         );
         Boolean clearCompleteButtonIsVisible = Visibility.of(DashboardForm.saltarIntro).viewedBy(actor).value();
         actor.attemptsTo(
                 Check.whether(clearCompleteButtonIsVisible)
                         .andIfSo(
-                                WaitUntil.the(DashboardForm.saltarIntro, isVisible()).forNoMoreThan(10).seconds(),
-                                Click.on(DashboardForm.saltarIntro)
-                        )
+                                WaitUntil.the(DashboardForm.saltarIntro, isVisible()).forNoMoreThan(60).seconds(),
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
+                                WaitUntil.the(DashboardForm.saltarIntro, isVisible()).forNoMoreThan(60).seconds(),
+                                Click.on(DashboardForm.saltarIntro),
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
+                                )
         );
 
     }

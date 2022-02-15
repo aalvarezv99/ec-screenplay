@@ -2,10 +2,10 @@ package starter.stepdefinitions.registroCliente;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import starter.task.RegistroCliente.DatosAdicionales;
-import starter.task.RegistroCliente.FotoCedula;
-import starter.task.RegistroCliente.FotoCliente;
-import starter.task.RegistroCliente.RegistroCliente;
+import starter.task.registroCliente.DatosAdicionales;
+import starter.task.registroCliente.FotoCedula;
+import starter.task.registroCliente.FotoCliente;
+import starter.task.registroCliente.RegistroCliente;
 import starter.task.propeccionCliente.Prospeccion;
 import starter.task.propeccionCliente.ProspeccionBackground;
 

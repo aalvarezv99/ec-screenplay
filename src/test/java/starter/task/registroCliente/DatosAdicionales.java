@@ -1,11 +1,10 @@
-package starter.task.RegistroCliente;
+package starter.task.registroCliente;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.openqa.selenium.Keys;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.dashboard.DashboardForm;
 
@@ -32,7 +31,7 @@ public class DatosAdicionales implements Task {
         actor.attemptsTo(
                 WaitUntil.the(RegistroClienteForm.departamentoResidencia, isVisible()).forNoMoreThan(10).seconds(),
                 Enter.theValue(departamentoExpedicionCC).into(RegistroClienteForm.departamentoResidencia),
-                Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.departamentoResidencia),
+                WaitUntil.the(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC), isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC)),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadResidencia),

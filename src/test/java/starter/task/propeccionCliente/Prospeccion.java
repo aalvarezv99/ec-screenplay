@@ -53,22 +53,10 @@ public class Prospeccion implements Task {
 
         System.out.println(" ********* codigo_OTP ************ "+ token);
         actor.attemptsTo(
-                WaitUntil.the(ProspeccionUI.tituloProspeccion, isVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(ProspeccionUI.tituloProspeccion, isVisible()).forNoMoreThan(10).seconds(),
+                Enter.keyValues(token).into(ProspeccionUI.cajaTextoOTP.of(String.valueOf(0)))
         );
-        String value="";
-        for(int i=0;i<token.length();i++){
-            value = String.valueOf(token.charAt(i));
-            if(i!=7){
-                actor.attemptsTo(
-                        Click.on(ProspeccionUI.cajaTextoOTP.of(String.valueOf(i))),
-                        Clear.field(ProspeccionUI.cajaTextoOTP.of(String.valueOf(i))),
-               Enter.theValue(value).into(ProspeccionUI.cajaTextoOTP.of(String.valueOf(i)))
-
-            );
-            }
-        }
         actor.attemptsTo(
-         // Enter.theValue(String.valueOf(token.charAt(2))).into(ProspeccionUI.cajaTextoOTP.of(String.valueOf(2))),
           WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
           Click.on(ProspeccionUI.botonConfirmar),
           WaitUntil.the(ProspeccionUI.botonConfirmarDos, isVisible()).forNoMoreThan(10).seconds(),

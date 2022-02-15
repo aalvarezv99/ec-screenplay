@@ -32,7 +32,7 @@ public class DatosAdicionales implements Task {
         actor.attemptsTo(
                 WaitUntil.the(RegistroClienteForm.departamentoResidencia, isVisible()).forNoMoreThan(10).seconds(),
                 Enter.theValue(departamentoExpedicionCC).into(RegistroClienteForm.departamentoResidencia),
-                Hit.the(Keys.ENTER).keyIn(RegistroClienteForm.departamentoResidencia),
+                WaitUntil.the(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC), isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC)),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadResidencia),

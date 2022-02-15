@@ -3,7 +3,8 @@ package starter.task.registroCliente;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.dashboard.DashboardForm;
@@ -22,8 +23,8 @@ public class DatosAdicionales implements Task {
         this.ciudadExpedicionCC = ciudadExpedicionCC;
     }
 
-    public static Performable whithDatosAdicionales(String departamentoExpedicionCC, String ciudadExpedicionCC){
-        return instrumented(DatosAdicionales.class,departamentoExpedicionCC,ciudadExpedicionCC);
+    public static Performable whithDatosAdicionales(String departamentoExpedicionCC, String ciudadExpedicionCC) {
+        return instrumented(DatosAdicionales.class, departamentoExpedicionCC, ciudadExpedicionCC);
     }
 
     @Override
@@ -35,6 +36,7 @@ public class DatosAdicionales implements Task {
                 Click.on(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC)),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(ciudadExpedicionCC).into(RegistroClienteForm.ciudadResidencia),
+                WaitUntil.the(RegistroClienteForm.listResidencia.of(ciudadExpedicionCC), isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.listResidencia.of(ciudadExpedicionCC)),
                 Click.on(RegistroClienteForm.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(190).seconds(),
@@ -44,8 +46,6 @@ public class DatosAdicionales implements Task {
                 WaitUntil.the(RegistroClienteForm.buttonAceptarTerminos, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.buttonAceptarTerminos),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
-
         );
-
     }
 }

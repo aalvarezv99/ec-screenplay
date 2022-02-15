@@ -20,8 +20,8 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y recorre las paginas de la consulta de propeccion
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito        | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras |
-      | "Soacha"      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "RUBY"       | "ALEYDA"      | "RODRIGUEZ"    | "GONZALEZ"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "200000"   |
+      | oficinaAsesor | nombresApellidos             | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito        | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras |
+      | "Soacha"      | "ANGEL MARIA MEJIA SANDOVAL" | "91077296"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Compra de cartera" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "ANGEL"      | "MARIA"       | "MEJIA"        | "SANDOVAL"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "200000"   |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -31,16 +31,16 @@ Característica: Simulador Digicredito
     Entonces finaliza registrando la informacion a centrales <cuotaHipotecaria><tipoDocNomina><rutaPdf><otrosIngresos>
 
     Ejemplos:
-      | numeroDocumento |  descNomina | descLey  |  estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
-      | "52912399"      |  "260000"   | "100000" |  ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
+      | numeroDocumento | descNomina | descLey  | estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
+      | "52912399"      | "260000"   | "100000" | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
 
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
     Ejemplos:
-      | numeroDocumento |  estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "52912399"      | "En selección medio de desembolso"  | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
+      | "52912399"      | "En selección medio de desembolso" | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
@@ -60,10 +60,10 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaDeCredito>
-      | Contador        | Entidad                                           | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
-      | 1     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 30/12/2021       | 21236         |
-      | 2     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 30/12/2021       | 21236         |
-      | 3     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 30/12/2021       | 21236         |
+      | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
+      | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
+      | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
+      | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
     Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
     Ejemplos:
@@ -80,8 +80,8 @@ Característica: Simulador Digicredito
     Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
 
     Ejemplos:
-      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     |  estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |
-      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" |  ""           | ""   | "No vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |
+      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | ""           | ""   | "No vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |
 
   @referencias
   Esquema del escenario: Diligenciamiento de referencias personales y familiares

@@ -8,12 +8,8 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-<<<<<<< HEAD
-=======
-import starter.ui.dashboard.DashboardForm;
-import starter.ui.datosSolicitud.DatosSolicitudForm;
->>>>>>> origin/feature/adp-304
 import starter.ui.commons.CommonsLocators;
+import starter.ui.dashboard.DashboardForm;
 import starter.ui.datosSolicitud.DatosSolicitudForm;
 
 import java.nio.file.Path;
@@ -74,7 +70,7 @@ public class DatosSolicitudP4 implements Task {
                 //
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
-                );
+        );
         System.out.println("Fin Pagina 4/6 Datos Adicionales Cliente");
     }
 }

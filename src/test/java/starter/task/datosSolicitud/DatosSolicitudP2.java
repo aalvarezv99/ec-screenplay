@@ -7,11 +7,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-<<<<<<< HEAD
-=======
-import starter.ui.dashboard.DashboardForm;
-import starter.ui.datosSolicitud.DatosSolicitudForm;
->>>>>>> origin/feature/adp-304
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.datosSolicitud.DatosSolicitudForm;

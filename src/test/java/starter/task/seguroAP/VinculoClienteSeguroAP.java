@@ -17,19 +17,26 @@ public class VinculoClienteSeguroAP implements Task {
 
     private final String vinculo;
     private final String plan;
+    private final String tomarSeguroAP;
 
-    public VinculoClienteSeguroAP(String vinculo, String plan) {
+    public VinculoClienteSeguroAP(String vinculo, String plan, String tomarSeguroAP) {
         this.vinculo = vinculo;
         this.plan = plan;
+        this.tomarSeguroAP = tomarSeguroAP;
     }
 
-    public static Performable whithVinculoClienteSeguroAP(String vinculo, String plan) {
-        return instrumented(VinculoClienteSeguroAP.class, vinculo, plan);
+    public static Performable whithVinculoClienteSeguroAP(String vinculo, String plan,String tomarSeguroAP) {
+        return instrumented(VinculoClienteSeguroAP.class, vinculo, plan,tomarSeguroAP);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Check.whether(tomarSeguroAP.equals("No"))
+                        .andIfSo(
+                                Click.on(SeguroApForm.noTomarSeguro),
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
+                        ),
                 Check.whether(vinculo.equals("Vinculado"))
                         .andIfSo(
                                 Click.on(SeguroApForm.tomadorCreditoVinculado)

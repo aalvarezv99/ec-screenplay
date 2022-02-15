@@ -19,10 +19,10 @@ public class SeguroApSteDefinitions {
         );
     }
 
-    @Y("Se selecciona el vinculo del seguro y el plan {string}{string}")
-    public void Se_selecciona_el_vinculo_del_seguro_y_el_plan(String vinculo, String plan){
+    @Y("Se selecciona el vinculo del seguro y el plan {string}{string}{string}")
+    public void Se_selecciona_el_vinculo_del_seguro_y_el_plan(String vinculo, String plan,String tomarSeguroAP){
         theActorInTheSpotlight().attemptsTo(
-          VinculoClienteSeguroAP.whithVinculoClienteSeguroAP(vinculo,plan)
+          VinculoClienteSeguroAP.whithVinculoClienteSeguroAP(vinculo,plan,tomarSeguroAP)
         );
     }
 

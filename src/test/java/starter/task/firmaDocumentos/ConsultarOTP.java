@@ -33,7 +33,7 @@ public class ConsultarOTP implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(CommonsLocators.botonSiguiente),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
         );
         FuncionesCreditoQuery query = new FuncionesCreditoQuery();
         String idCliente = "", token = "";
@@ -49,7 +49,7 @@ public class ConsultarOTP implements Task {
             token = result.getString(1);
         }
         actor.attemptsTo(
-                Enter.theValue(token).into(FirmaDocumentosForm.inputOTP),
+                Enter.keyValues(token).into(FirmaDocumentosForm.inputOTP),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
                 Click.on(FirmaDocumentosForm.btnConfirmar)
         );

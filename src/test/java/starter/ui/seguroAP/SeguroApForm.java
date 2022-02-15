@@ -24,4 +24,6 @@ public class SeguroApForm {
     public static final Target departamentoTomador = Target.the("departamento tomador del seguro AP").located(By.id("state"));
     public static final Target ciudadTomador = Target.the("ciudad tomador del seguro AP").located(By.id("city"));
     public static final Target direccionResidenciaTomador = Target.the("direccion tomador del seguro AP").located(By.id("direccionResidencia"));
+    public static final Target noTomarSeguro = Target.the("No tomar seguro AP").locatedBy("//button[text()='No tomar Seguro AP']");
+
 }

@@ -21,12 +21,15 @@ public class ProspeccionBackground implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(WaitUntil.the(ProspeccionUI.paginasConsulta, isVisible()).forNoMoreThan(10).seconds());
+        actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
+                WaitUntil.the(ProspeccionUI.paginasConsulta, isVisible()).forNoMoreThan(60).seconds()
+        );
 
         String value = Text.of(ProspeccionUI.paginasConsulta).viewedBy(actor).asString()
                 .replace("1","").replace("/","").replace(" ","");
         int paginas = Integer.parseInt(value);
-        actor.attemptsTo(WaitUntil.the(ProspeccionUI.botonSiguiente, isVisible()).forNoMoreThan(10).seconds());
+        actor.attemptsTo(WaitUntil.the(ProspeccionUI.botonSiguiente, isVisible()).forNoMoreThan(60).seconds());
         for(int i=1;i<paginas;i++){
             actor.attemptsTo(  Click.on(ProspeccionUI.botonSiguiente));
         }

@@ -1,5 +1,6 @@
 package starter.task.registroCliente;
 
+import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -27,10 +28,12 @@ public class DatosAdicionales implements Task {
         return instrumented(DatosAdicionales.class, departamentoExpedicionCC, ciudadExpedicionCC);
     }
 
+    @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
+       
         actor.attemptsTo(
-                WaitUntil.the(RegistroClienteForm.departamentoResidencia, isVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(RegistroClienteForm.departamentoResidencia, isVisible()).forNoMoreThan(60).seconds(),
                 Enter.theValue(departamentoExpedicionCC).into(RegistroClienteForm.departamentoResidencia),
                 WaitUntil.the(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC), isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(RegistroClienteForm.listResidencia.of(departamentoExpedicionCC)),

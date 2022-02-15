@@ -74,8 +74,8 @@ Característica: Simulador Digicredito
   Esquema del escenario: Etapa de seguro AP
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces Se visualizan los beneficios del seguro
-    Y Se selecciona el vinculo del seguro y el plan <vinculo><plan>
-    Y Se llenan los campos de tomador del seguro <nombresApellidos><numeroDocumento><celular><correoElectronico><fechaNacimiento><departamento><ciudad><direccion>
+    Y Se selecciona el vinculo del seguro y el plan <vinculo><plan><tomarSeguroAP>
+    #Y Se llenan los campos de tomador del seguro <nombresApellidos><numeroDocumento><celular><correoElectronico><fechaNacimiento><departamento><ciudad><direccion>
     Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
 
     Ejemplos:
@@ -98,7 +98,7 @@ Característica: Simulador Digicredito
 
     Ejemplos:
       | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
-      | "91077296"      | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
+      | "52912399"      | ""                              | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
 
 
   @OperInternacionalesPEPS
@@ -119,5 +119,5 @@ Característica: Simulador Digicredito
 
     Ejemplos:
       | numeroDocumento | estadoActual | page | rutaPdf                                 |
-      | "91077296"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" |
+      | "52912399"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" |
 

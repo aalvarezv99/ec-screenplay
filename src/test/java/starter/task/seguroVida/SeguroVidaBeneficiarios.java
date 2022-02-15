@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
+import starter.ui.seguroAP.SeguroApForm;
 import starter.ui.seguroVida.SeguroVidaForm;
 
 import java.util.Arrays;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SeguroVidaBeneficiarios implements Task {
     private final String nombreBeneficiario;
@@ -44,6 +46,7 @@ public class SeguroVidaBeneficiarios implements Task {
         // primero se deben agregar los beneficiarios
         for (int i = 0; i < agregarBeneficiarios; i++) {
             actor.attemptsTo(
+                    WaitUntil.the(SeguroVidaForm.botonAgreagarBeneficiarios, isVisible()).forNoMoreThan(10).seconds(),
                     Scroll.to(SeguroVidaForm.botonAgreagarBeneficiarios),
                     Click.on(SeguroVidaForm.botonAgreagarBeneficiarios)
             );

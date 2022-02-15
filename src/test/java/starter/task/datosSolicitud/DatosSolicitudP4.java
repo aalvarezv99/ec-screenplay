@@ -8,6 +8,11 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+<<<<<<< HEAD
+=======
+import starter.ui.dashboard.DashboardForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
+>>>>>>> origin/feature/adp-304
 import starter.ui.commons.CommonsLocators;
 import starter.ui.datosSolicitud.DatosSolicitudForm;
 
@@ -15,6 +20,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class DatosSolicitudP4 implements Task {
@@ -48,6 +54,8 @@ public class DatosSolicitudP4 implements Task {
     public <T extends Actor> void performAs(T actor) {
         Path fotoPath = Paths.get(rutaPdf).toAbsolutePath();
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 WaitUntil.the(DatosSolicitudForm.pageDatosAdicionales.of("4"), isPresent()).forNoMoreThan(10).seconds(),
                 Scroll.to(CommonsLocators.botonSiguiente),
                 Click.on(DatosSolicitudForm.tipoDocumento),
@@ -61,10 +69,12 @@ public class DatosSolicitudP4 implements Task {
                 Enter.theValue(nitAfiliacion).into(DatosSolicitudForm.nitAfiliacion),
                 //
                 Scroll.to(CommonsLocators.botonSiguiente),
-                Upload.theFile(fotoPath).to(DatosSolicitudForm.subirPDF)
+                Upload.theFile(fotoPath).to(DatosSolicitudForm.subirPDF),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 //
-//                Click.on(CommonsLocators.botonSiguiente)
-        );
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+                );
         System.out.println("Fin Pagina 4/6 Datos Adicionales Cliente");
     }
 }

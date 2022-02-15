@@ -7,6 +7,11 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+<<<<<<< HEAD
+=======
+import starter.ui.dashboard.DashboardForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
+>>>>>>> origin/feature/adp-304
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.datosSolicitud.DatosSolicitudForm;
@@ -43,7 +48,7 @@ public class DatosSolicitudP2 implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 WaitUntil.the(DatosSolicitudForm.pageDatosAdicionales.of("2"), isPresent()).forNoMoreThan(10).seconds(),
                 //
                 WaitUntil.the(DatosSolicitudForm.departamentoCorrespondencia, isVisible()).forNoMoreThan(10).seconds(),

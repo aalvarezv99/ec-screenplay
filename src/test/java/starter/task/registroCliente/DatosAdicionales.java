@@ -1,11 +1,10 @@
-package starter.task.RegistroCliente;
+package starter.task.registroCliente;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.openqa.selenium.Keys;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.dashboard.DashboardForm;
 

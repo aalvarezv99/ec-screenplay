@@ -1,4 +1,4 @@
-package starter.task.RegistroCliente;
+package starter.task.registroCliente;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
@@ -46,7 +46,6 @@ public class RegistroCliente implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
         Boolean modalValidacionDatos = Visibility.of(RegistroClienteForm.iconClosed).viewedBy(actor).value();
         actor.attemptsTo(
                 Check.whether(modalValidacionDatos)

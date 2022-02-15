@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.task.RegistroCliente.DatosAdicionales;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.seguroAP.SeguroApForm;

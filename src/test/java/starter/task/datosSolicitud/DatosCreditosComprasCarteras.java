@@ -63,6 +63,7 @@ public class DatosCreditosComprasCarteras implements Task {
                     WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                     Scroll.to(DatosSolicitudForm.campoEntidadCompra.of(String.valueOf(count))),
                     Enter.theValue(objectTablaFeature.get("Entidad")).into(DatosSolicitudForm.campoEntidadCompra.of(String.valueOf(count))),
+                    Click.on(DatosSolicitudForm.selectEntidad.of(String.valueOf(count+1))),
                     Enter.theValue(objectTablaFeature.get("Monto")).into(DatosSolicitudForm.campoMontoCompra.of(String.valueOf(count))),
                     Enter.theValue(objectTablaFeature.get("VlrCuota")).into(DatosSolicitudForm.campoVlrCuotaCompra.of(String.valueOf(count))),
                     Enter.theValue(objectTablaFeature.get("FechaVencimiento")).into(DatosSolicitudForm.campoFechaVencimientoCompra.of(String.valueOf(count))),

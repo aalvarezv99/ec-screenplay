@@ -32,27 +32,26 @@ Característica: Simulador Digicredito
 
     Ejemplos:
       | numeroDocumento | descNomina | descLey  | estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
-      | "52912399"      | "260000"   | "100000" | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
+      | "91077296"      | "260000"   | "100000" | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
 
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
     Ejemplos:
-      | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "52912399"      | "En selección medio de desembolso" | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento | estadoActual | page | modalidadDesembolso      | tipoCliente |
+      | "91077296"      | ""           | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y registra los datos adicionales del cliente en Pagina 1 <paisNacimiento><lugarDeNacimiento><nacionalidad><estadoCivil><profesion>
     Y registra los datos adicionales del cliente en Pagina 2 <departamentoResidencia><ciudadResidencia><direccionResidencia><mesesResidencia><numeroHijos><personasACargo><departamentoCorrespondencia><ciudadCorrespondencia>
-    #Y registra los datos adicionales del cliente en Pagina 3
     Y registra los datos adicionales del cliente en Pagina 4 <tipoPension><codigoProgramaNomina><fechaIngreso><fechaTerminacion><nitAfiliacion><tipoDocumento><rutaPdf><cargo>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo |
-      | "52912399"      | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" |
+      | numeroDocumento | estadoActual | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo |
+      | "91077296"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" |
 
 
   @datosSolicitudCredito

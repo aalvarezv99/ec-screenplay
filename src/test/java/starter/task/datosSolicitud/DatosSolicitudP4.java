@@ -8,9 +8,9 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.datosSolicitud.DatosSolicitudForm;
-import starter.ui.commons.CommonsLocators;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -42,7 +42,7 @@ public class DatosSolicitudP4 implements Task {
 
 
     public static Performable withDatosSolicitudP4(String tipoPension, String codigoProgramaNomina, String fechaIngreso, String fechaTerminacion, String nitAfiliacion, String tipoDocumento, String rutaPdf, String cargo) {
-        return instrumented(DatosSolicitudP4.class,  tipoPension,  codigoProgramaNomina,  fechaIngreso, fechaTerminacion,  nitAfiliacion, tipoDocumento, rutaPdf, cargo);
+        return instrumented(DatosSolicitudP4.class, tipoPension, codigoProgramaNomina, fechaIngreso, fechaTerminacion, nitAfiliacion, tipoDocumento, rutaPdf, cargo);
     }
 
 
@@ -70,7 +70,7 @@ public class DatosSolicitudP4 implements Task {
                 //
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
-                );
+        );
         System.out.println("Fin Pagina 4/6 Datos Adicionales Cliente");
     }
 }

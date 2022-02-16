@@ -18,7 +18,7 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 
 public class ProspeccionBackground implements Task {
 
-    public static Performable whithProspeccionBackground(){
+    public static Performable whithProspeccionBackground() {
         return instrumented(ProspeccionBackground.class);
     }
 

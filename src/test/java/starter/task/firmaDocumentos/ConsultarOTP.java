@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ConsultarOTP implements Task {
     private final String cedula;
@@ -32,8 +33,9 @@ public class ConsultarOTP implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                 Click.on(CommonsLocators.botonSiguiente),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
         );
         FuncionesCreditoQuery query = new FuncionesCreditoQuery();
         String idCliente = "", token = "";
@@ -49,9 +51,11 @@ public class ConsultarOTP implements Task {
             token = result.getString(1);
         }
         actor.attemptsTo(
+                WaitUntil.the(FirmaDocumentosForm.inputOTP, isVisible()).forNoMoreThan(20).seconds(),
                 Enter.keyValues(token).into(FirmaDocumentosForm.inputOTP),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
-                Click.on(FirmaDocumentosForm.btnConfirmar)
+                Click.on(FirmaDocumentosForm.btnConfirmar),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
         );
         System.out.println(" punto de interrupción ");
     }

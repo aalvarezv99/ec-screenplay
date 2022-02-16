@@ -21,9 +21,11 @@ public class DescargarDocumentos implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 Click.on(FirmaDocumentosForm.btnContinuar),
                 Click.on(FirmaDocumentosForm.btnDescargaDoc),
-                Click.on(CommonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
         );
         System.out.println(" punto de interrupción ");
     }

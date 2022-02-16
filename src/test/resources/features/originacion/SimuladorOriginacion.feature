@@ -19,6 +19,7 @@ Característica: Simulador Digicredito
     Entonces se realiza el proceso de Prospeccion del cliente <numeroDocumento>
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y recorre las paginas de la consulta de propeccion
+
     Ejemplos:
       | oficinaAsesor | nombresApellidos             | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito        | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras |
       | "Soacha"      | "ANGEL MARIA MEJIA SANDOVAL" | "91077296"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Compra de cartera" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "ANGEL"      | "MARIA"       | "MEJIA"        | "SANDOVAL"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "200000"   |
@@ -38,6 +39,7 @@ Característica: Simulador Digicredito
   Esquema del escenario: Diligenciamiento del desembolso
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
+
     Ejemplos:
       | numeroDocumento | estadoActual | page | modalidadDesembolso      | tipoCliente |
       | "91077296"      | ""           | ""   | "Pago masivo (efectivo)" | "AAA"       |

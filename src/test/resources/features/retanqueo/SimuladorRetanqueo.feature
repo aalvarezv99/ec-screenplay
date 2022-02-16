@@ -21,8 +21,8 @@ Característica: Simulador Digicredito
     Y recorre las paginas de la consulta de propeccion
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria     | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
-      | "Soacha"      | "JAIRO MENDOZA DIAZ" | "9081882"      | "19/10/1952"    | "3183903022" | "aalvarez@excelcredit.co" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"        | "Retanqueo compra de cartera" | "55857"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"     | ""    | "MENDOZA"      | "DIAZ"      | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
+      | oficinaAsesor | nombresApellidos     | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria          | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "JAIRO MENDOZA DIAZ" | "9081882"       | "19/10/1952"    | "3183903022" | "aalvarez@excelcredit.co" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"   | "Retanqueo compra de cartera" | "55857"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"      | ""            | "MENDOZA"      | "DIAZ"          | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -41,8 +41,8 @@ Característica: Simulador Digicredito
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
 
     Ejemplos:
-      | numeroDocumento |  estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "9971523"       |  "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
+      | "9971523"       | "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
@@ -61,15 +61,37 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaDeCredito>
-      | Contador        | Entidad                                           | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
-      | 1     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 28/02/2022       | 21236         |
-      | 2     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 28/02/2022      | 21236         |
-      | 3     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 28/02/2022       | 21236         |
+      | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
+      | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
+      | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
+      | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
     Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
     Ejemplos:
-      | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                                  | vlrCompras |
-      | "9081882"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | "55857"      | "P.A COLPENSIONES" | "300000"        |
+      | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito                | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria          | vlrCompras |
+      | "9081882"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | "55857"      | "P.A COLPENSIONES" | "300000"   |
+
+
+  @seguroAP
+  Esquema del escenario: Etapa de seguro AP
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Entonces Se visualizan los beneficios del seguro
+    Y Se selecciona el vinculo del seguro y el plan <vinculo><plan><tomarSeguroAP>
+    #Y Se llenan los campos de tomador del seguro <nombresApellidos><numeroDocumento><celular><correoElectronico><fechaNacimiento><departamento><ciudad><direccion>
+    Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
+
+    Ejemplos:
+      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     |  estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |tomarSeguroAP|
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" |  ""           | ""   | "Vinculado"    | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |"Si"         |
+
+  @referencias
+  Esquema del escenario: Diligenciamiento de referencias personales y familiares
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y Se ingresa la informacion de las referencias personales <pNombreRefP><sNombreRefP><pApellidoRefP><sApellidoRefP><relacionRefP><celRefP><deptoRefP><ciudadRefP>
+    Y Se ingresa la informacion de las referencias familiares <pNombreRefF><sNombreRefF><pApellidoRefF><sApellidoRefF><relacionRefF><celRefF><deptoRefF><ciudadRefF>
+    Ejemplos:
+      | numeroDocumento | estadoActual                 | page | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
+      | "52912399"      | "En registro de referencias" | ""   | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
 
 
   @seguroVida
@@ -79,8 +101,7 @@ Característica: Simulador Digicredito
 
     Ejemplos:
       | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
-      | "91077296"      | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
-
+      | "52912399"      | ""                              | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
 
   @OperInternacionalesPEPS
   Esquema del escenario: Registrar operaciones internacionales y PEPS
@@ -88,8 +109,8 @@ Característica: Simulador Digicredito
     Y llena el formulario de operaciones internacionales <monedaExtranjera><tipoTransanccion><productoBancario><banco><numProducto><tipoProducto><pais><ciudad><monto><moneda>
     Y llena el formulario de persona expuesta politicamente <funcionarioPublico><recursosPublicos><expuestoPoliticamente><fechaExpuesto>
     Ejemplos:
-      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto           | pais       | ciudad       | monto     | moneda      |funcionarioPublico  |recursosPublicos  |expuestoPoliticamente  |fechaExpuesto|
-      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro"   | "Alemania" | "Berlin"     | "8500"    | "Euros"     |"No"                |"No"              |"No"                   |"12/12/2008" |
+      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudad   | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto |
+      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro" | "Alemania" | "Berlin" | "8500" | "Euros" | "No"               | "No"             | "No"                  | "12/12/2008"  |
 
 
   @firmaDocumentos

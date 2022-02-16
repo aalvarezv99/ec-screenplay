@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/originacion/SimuladorOriginacion.feature",
         glue="starter",
-        tags = "@firmaDocumentos",
+        tags = "@Simulador or @endeudamientoGlobal or @desembolso",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 //@Simulador,@endeudamientoGlobal,@desembolso,@datosSolicitud,@datosSolicitudCredito,@seguroAP,@referencias,@seguroVida,@OperInternacionalesPEPS,@firmaDocumentos

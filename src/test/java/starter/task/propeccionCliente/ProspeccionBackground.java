@@ -1,5 +1,6 @@
 package starter.task.propeccionCliente;
 
+import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -21,6 +22,7 @@ public class ProspeccionBackground implements Task {
         return instrumented(ProspeccionBackground.class);
     }
 
+    @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -33,6 +35,7 @@ public class ProspeccionBackground implements Task {
         actor.attemptsTo(WaitUntil.the(ProspeccionUI.botonSiguiente, isVisible()).forNoMoreThan(10).seconds());
         for (int i = 1; i < paginas; i++) {
             actor.attemptsTo(Click.on(ProspeccionUI.botonSiguiente));
+            Thread.currentThread().sleep(1000);
         }
         actor.attemptsTo(
                 Scroll.to(ProspeccionUI.botonContinuar),

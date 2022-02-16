@@ -1,5 +1,6 @@
 package starter.task.endeudamientoGlobal;
 
+import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -37,6 +38,7 @@ public class InformacionCentrales implements Task {
         return instrumented(InformacionCentrales.class, cuotaHipotecaria, tipoDocNomina, rutaPdf, otrosIngresos);
     }
 
+    @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
         Path doc = Paths.get(rutaPdf).toAbsolutePath();
@@ -59,6 +61,7 @@ public class InformacionCentrales implements Task {
                                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
                         )
         );
+        Thread.currentThread().sleep(5000);
         System.out.println(" punto de interrupción ");
     }
 }

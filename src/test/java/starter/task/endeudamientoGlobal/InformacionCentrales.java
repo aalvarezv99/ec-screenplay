@@ -1,5 +1,6 @@
 package starter.task.endeudamientoGlobal;
 
+import lombok.SneakyThrows;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -18,6 +19,7 @@ import java.nio.file.Paths;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class InformacionCentrales implements Task {
     private final String cuotaHipotecaria;
@@ -36,6 +38,7 @@ public class InformacionCentrales implements Task {
         return instrumented(InformacionCentrales.class, cuotaHipotecaria, tipoDocNomina, rutaPdf, otrosIngresos);
     }
 
+    @SneakyThrows
     @Override
     public <T extends Actor> void performAs(T actor) {
         Path doc = Paths.get(rutaPdf).toAbsolutePath();
@@ -53,9 +56,12 @@ public class InformacionCentrales implements Task {
                         .andIfSo(
                                 Enter.theValue(otrosIngresos).into(EndeudamientoGlobalForm.inputOtrosIngresos),
                                 Upload.theFile(doc).to(CommonsLocators.inputFile),
-                                Click.on(CommonsLocators.botonSiguiente)
+                                WaitUntil.the(CommonsLocators.botonSiguiente, isVisible()).forNoMoreThan(10).seconds(),
+                                Click.on(CommonsLocators.botonSiguiente),
+                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
                         )
         );
+        Thread.currentThread().sleep(5000);
         System.out.println(" punto de interrupción ");
     }
 }

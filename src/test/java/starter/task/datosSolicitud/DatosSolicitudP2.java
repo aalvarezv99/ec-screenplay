@@ -7,8 +7,9 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.ui.datosSolicitud.DatosSolicitudForm;
 import starter.ui.commons.CommonsLocators;
+import starter.ui.dashboard.DashboardForm;
+import starter.ui.datosSolicitud.DatosSolicitudForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
@@ -34,16 +35,16 @@ public class DatosSolicitudP2 implements Task {
         this.ciudadCorrespondencia = ciudadCorrespondencia;
     }
 
-    public static Performable withDatosSolicitudP2(String departamentoResidencia,String ciudadResidencia,String direccionResidencia,String mesesResidencia,String numeroHijos,String personasACargo,String departamentoCorrespondencia, String ciudadCorrespondencia) {
-        return instrumented(DatosSolicitudP2.class, departamentoResidencia,ciudadResidencia,direccionResidencia,mesesResidencia,numeroHijos,personasACargo,departamentoCorrespondencia, ciudadCorrespondencia);
+    public static Performable withDatosSolicitudP2(String departamentoResidencia, String ciudadResidencia, String direccionResidencia, String mesesResidencia, String numeroHijos, String personasACargo, String departamentoCorrespondencia, String ciudadCorrespondencia) {
+        return instrumented(DatosSolicitudP2.class, departamentoResidencia, ciudadResidencia, direccionResidencia, mesesResidencia, numeroHijos, personasACargo, departamentoCorrespondencia, ciudadCorrespondencia);
     }
 
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 WaitUntil.the(DatosSolicitudForm.pageDatosAdicionales.of("2"), isPresent()).forNoMoreThan(10).seconds(),
-
                 //
                 WaitUntil.the(DatosSolicitudForm.departamentoCorrespondencia, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(DatosSolicitudForm.departamentoCorrespondencia),
@@ -61,7 +62,6 @@ public class DatosSolicitudP2 implements Task {
                 Click.on(DatosSolicitudForm.ciudadResidencia),
                 Click.on(CommonsLocators.locatorByText.of(ciudadResidencia)),
                 //
-
                 Enter.theValue(direccionResidencia).into(DatosSolicitudForm.direccionResidencia),
                 Enter.theValue(ciudadResidencia).into(DatosSolicitudForm.barrio),
                 Enter.theValue(mesesResidencia).into(DatosSolicitudForm.mesesResidencia),
@@ -69,7 +69,7 @@ public class DatosSolicitudP2 implements Task {
                 Enter.theValue(personasACargo).into(DatosSolicitudForm.personasACargo),
                 Scroll.to(CommonsLocators.botonSiguiente),
                 Click.on(CommonsLocators.botonSiguiente)
-                );
+        );
         System.out.println("Fin Pagina 2/6 Datos Adicionales Cliente");
     }
 }

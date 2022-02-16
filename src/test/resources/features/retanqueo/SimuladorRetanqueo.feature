@@ -81,6 +81,28 @@ Característica: Simulador Digicredito
       | "9081882"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | "55857"      | "P.A COLPENSIONES" | "300000"   |
 
 
+  @seguroAP
+  Esquema del escenario: Etapa de seguro AP
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Entonces Se visualizan los beneficios del seguro
+    Y Se selecciona el vinculo del seguro y el plan <vinculo><plan><tomarSeguroAP>
+    #Y Se llenan los campos de tomador del seguro <nombresApellidos><numeroDocumento><celular><correoElectronico><fechaNacimiento><departamento><ciudad><direccion>
+    Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
+
+    Ejemplos:
+      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     |  estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |tomarSeguroAP|
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" |  ""           | ""   | "Vinculado"    | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |"Si"         |
+
+  @referencias
+  Esquema del escenario: Diligenciamiento de referencias personales y familiares
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Y Se ingresa la informacion de las referencias personales <pNombreRefP><sNombreRefP><pApellidoRefP><sApellidoRefP><relacionRefP><celRefP><deptoRefP><ciudadRefP>
+    Y Se ingresa la informacion de las referencias familiares <pNombreRefF><sNombreRefF><pApellidoRefF><sApellidoRefF><relacionRefF><celRefF><deptoRefF><ciudadRefF>
+    Ejemplos:
+      | numeroDocumento | estadoActual                 | page | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
+      | "52912399"      | "En registro de referencias" | ""   | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
+
+
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
@@ -88,8 +110,7 @@ Característica: Simulador Digicredito
 
     Ejemplos:
       | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
-      | "91077296"      | "En registro de seguro de vida" | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
-
+      | "52912399"      | ""                              | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
 
   @OperInternacionalesPEPS
   Esquema del escenario: Registrar operaciones internacionales y PEPS

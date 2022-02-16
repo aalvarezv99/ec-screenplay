@@ -33,7 +33,8 @@ public class InformacionFinanciera implements Task {
                 Enter.theValue(descNomina).into(EndeudamientoGlobalForm.descNomina),
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
-                Click.on(CommonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()
         );
         System.out.println(" punto de interrupción ");
     }

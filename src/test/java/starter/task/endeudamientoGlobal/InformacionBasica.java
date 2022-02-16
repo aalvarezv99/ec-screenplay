@@ -5,10 +5,13 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
+import starter.ui.dashboard.DashboardForm;
 import starter.ui.endeudamientoGlobal.EndeudamientoGlobalForm;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 
 public class InformacionBasica implements Task {
     private final String codigoAdo;
@@ -34,6 +37,7 @@ public class InformacionBasica implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
                 Enter.theValue(codigoAdo).into(EndeudamientoGlobalForm.codigoAdo),
                 Click.on(EndeudamientoGlobalForm.estrato),
                 Click.on(CommonsLocators.locatorByText.of(estrato)),
@@ -45,7 +49,8 @@ public class InformacionBasica implements Task {
                 Click.on(CommonsLocators.locatorByText.of(posicionHogar)),
                 Click.on(EndeudamientoGlobalForm.nivelEscolaridad),
                 Click.on(CommonsLocators.locatorByText.of(nivelEscolaridad)),
-                Click.on(CommonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()
         );
         System.out.println(" punto de interrupción ");
     }

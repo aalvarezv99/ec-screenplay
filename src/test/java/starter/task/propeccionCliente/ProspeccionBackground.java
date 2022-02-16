@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.dashboard.DashboardForm;
+import starter.ui.endeudamientoGlobal.EndeudamientoGlobalForm;
 import starter.ui.prospeccion.ProspeccionUI;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -38,7 +39,8 @@ public class ProspeccionBackground implements Task {
                 Click.on(ProspeccionUI.botonContinuar),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
                 Click.on(ProspeccionUI.seguirflujoContinuar),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds()
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
+                WaitUntil.the(EndeudamientoGlobalForm.codigoAdo, isVisible()).forNoMoreThan(10).seconds()
         );
 
     }

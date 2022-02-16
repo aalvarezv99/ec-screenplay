@@ -50,7 +50,7 @@ public class ConsultarOTP implements Task {
         }
         actor.attemptsTo(
                 Enter.keyValues(token).into(FirmaDocumentosForm.inputOTP),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
                 Click.on(FirmaDocumentosForm.btnConfirmar)
         );
         System.out.println(" punto de interrupción ");

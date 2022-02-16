@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.actions.Hit;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.Keys;
+import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.referencias.ReferenciasForm;
 
@@ -74,10 +75,10 @@ public class ReferenciasFamiliares implements Task {
                     Click.on(ReferenciasForm.optionCiudadRef.of(referencias.get(i)))
             );
         }
-       /* actor.attemptsTo(
+        actor.attemptsTo(
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds()
-        );*/
+        );
         System.out.println("prueba");
     }
 }

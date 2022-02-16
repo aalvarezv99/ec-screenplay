@@ -32,6 +32,7 @@ public class DatosAdicionales implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                 WaitUntil.the(RegistroClienteForm.departamentoResidencia, isVisible()).forNoMoreThan(60).seconds(),
                 Enter.theValue(departamentoExpedicionCC).into(RegistroClienteForm.departamentoResidencia),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),

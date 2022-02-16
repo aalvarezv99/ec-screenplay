@@ -6,6 +6,15 @@ Característica: Simulador Digicredito
     Cuando se asigna el usuario
     Y ingresa su usuario 88776655 y contrasena 4112935
 
+  @pruebaArchivo
+  Esquema del escenario: prueba
+    Entonces se ingresa el dato <Cedula>
+    Ejemplos:
+      | Cedula     | Credito | oficinaAsesor | nombresApellidos     | fechaNacimiento | celular      | Correo                    | actividad    | pagaduria          | Contacto                | Retanqueo  | Tasa   | Plazo | DiasHabilesIntereses | descNomina | descLey  | Ingresos  | VlrCompraSaneamiento | lineaCredito                  | rutaPDF                                 | estadoActual             | page | codigo  | primerNombre | segundoNombre | primerApellido | segundoApellido | NombreCredito | fechaExpedicion | genero | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | otrosIngresos | modalidadDesembolso      | tipoCliente | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudad   | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto | Mes       | fecha        | AnnoAfetacion | TipoDesen  | fechaActual  | Banco                                              | NumRadicadoCredito |
+     ##@externaldata@./src/test/resources/data/AutomationDataRetanqueo.xlsx@RetanqueoDigiCredito
+      | "10092369" | "55857" | "Soacha"      | "JAIRO MENDOZA DIAZ" | "19/10/1952"    | "3183903022" | "aalvarez@excelcredit.co" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000" | "1.70" | "60"  | "100"                | "260000"   | "100000" | "5500000" | "300000"             | "Retanqueo compra de cartera" | "src/test/resources/Data/PDFPRUEBA.pdf" | "Pendientes por Radicar" | ""   | "12345" | "JAIRO"      | ""            | "MENDOZA"      | "DIAZ"          | "JAIRO"       | "18/01/1974"    | "F"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "30000000"    | "Pago masivo (efectivo)" | "AAA"       | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Antioquia"            | "Abejorral"      | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro" | "Alemania" | "Berlin" | "8500" | "Euros" | "No"               | "No"             | "No"                  | "12/12/2008"  | "Febrero" | "20/07/1963" | "2022"        | "Efectivo" | "16/02/2022" | "Bancolombia Remanentes - 60237038927 - REMANENTE" | null               |
+
+
   @Simulador
   Esquema del escenario:  Paso uno Datos cliente
     Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><numeroDocumento><fechaNacimiento><celular><correoElectronico><actividad><pagaduria><Contacto>
@@ -21,8 +30,8 @@ Característica: Simulador Digicredito
     Y recorre las paginas de la consulta de propeccion
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos              | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria     | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
-      | "Soacha"      | "JAIRO MENDOZA DIAZ" | "9081882"      | "19/10/1952"    | "3183903022" | "aalvarez@excelcredit.co" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"        | "Retanqueo compra de cartera" | "55857"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"     | ""    | "MENDOZA"      | "DIAZ"      | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
+      | oficinaAsesor | nombresApellidos     | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria          | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "JAIRO MENDOZA DIAZ" | "9081882"       | "19/10/1952"    | "3183903022" | "aalvarez@excelcredit.co" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"   | "Retanqueo compra de cartera" | "55857"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"      | ""            | "MENDOZA"      | "DIAZ"          | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -41,8 +50,8 @@ Característica: Simulador Digicredito
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
 
     Ejemplos:
-      | numeroDocumento |  estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "9971523"       |  "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
+      | "9971523"       | "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
@@ -61,15 +70,15 @@ Característica: Simulador Digicredito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaDeCredito>
-      | Contador        | Entidad                                           | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
-      | 1     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 28/02/2022       | 21236         |
-      | 2     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 28/02/2022      | 21236         |
-      | 3     | ABOGADAS Y ASESORES                                         | 100000 | 70000    | 28/02/2022       | 21236         |
+      | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
+      | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
+      | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
+      | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
     Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
     Ejemplos:
-      | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                                  | vlrCompras |
-      | "9081882"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | "55857"      | "P.A COLPENSIONES" | "300000"        |
+      | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito                | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria          | vlrCompras |
+      | "9081882"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | "55857"      | "P.A COLPENSIONES" | "300000"   |
 
 
   @seguroVida
@@ -88,8 +97,8 @@ Característica: Simulador Digicredito
     Y llena el formulario de operaciones internacionales <monedaExtranjera><tipoTransanccion><productoBancario><banco><numProducto><tipoProducto><pais><ciudad><monto><moneda>
     Y llena el formulario de persona expuesta politicamente <funcionarioPublico><recursosPublicos><expuestoPoliticamente><fechaExpuesto>
     Ejemplos:
-      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto           | pais       | ciudad       | monto     | moneda      |funcionarioPublico  |recursosPublicos  |expuestoPoliticamente  |fechaExpuesto|
-      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro"   | "Alemania" | "Berlin"     | "8500"    | "Euros"     |"No"                |"No"              |"No"                   |"12/12/2008" |
+      | numeroDocumento | estadoActual | page | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudad   | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto |
+      | "52912399"      | ""           | ""   | "No"             | "Importaciones"  | "No"             | "Santander" | "966855"    | "Inversiones en oro" | "Alemania" | "Berlin" | "8500" | "Euros" | "No"               | "No"             | "No"                  | "12/12/2008"  |
 
 
   @firmaDocumentos

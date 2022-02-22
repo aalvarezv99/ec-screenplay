@@ -54,5 +54,7 @@ public class BeneficiariosSeguroAP implements Task {
                 WaitUntil.the(SeguroApForm.continuar, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(SeguroApForm.continuar)
         );
+
+
     }
 }

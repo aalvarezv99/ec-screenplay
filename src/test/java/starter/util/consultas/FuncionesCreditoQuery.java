@@ -2,6 +2,7 @@ package starter.util.consultas;
 
 import starter.conf.ConexionBase;
 import starter.conf.ConexionBaseToken;
+import starter.ui.commons.CommonsFuntions;
 
 import java.sql.ResultSet;
 
@@ -55,6 +56,22 @@ public class FuncionesCreditoQuery {
 
         } catch (Exception e) {
             System.out.println("********consultarCalculosSimuladorRetanqueo() ********");
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+
+    /*ThainePerez 22/Feb/2022 V1.0 :   1.  Se crea el consumo de la funcion para retanqueo multiple*/
+    public ResultSet consultarCalculosSimuladorRetanqueoMultiple(String cedula, String pagaduria, String tasa, String plazo, String diasIntIniciales, int monto, String compraCarteraSuma) {
+
+        System.out.println("********************** Ejecutando Funcion Retanqueo Multiple - consultarCalculosSimuladorRetanqueoMultiple() **************");
+        ResultSet r = null;
+        try {
+            String sql = "select * from	autopruebas_retanqueo_multiple_cal_simulador(" + CommonsFuntions.agregarComillas(cedula) + "," + CommonsFuntions.agregarComillas(pagaduria) + "," + tasa + "," + plazo + "," + diasIntIniciales + "," + monto + "," + compraCarteraSuma + ");";
+            System.out.println(sql);
+            r = dbconector.conexion(sql);
+        } catch (Exception e) {
+            System.out.println("********consultarCalculosSimuladorRetanqueoMultiple() ********");
             System.out.println(e.getMessage());
         }
         return r;

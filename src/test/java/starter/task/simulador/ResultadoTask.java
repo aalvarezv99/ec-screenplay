@@ -102,5 +102,34 @@ public class ResultadoTask {
 
     }
 
+    public static SimuladorModels consultarCalculosSimuladorRetanqueoMultiple(String cedula,String pagaduria,String tasa,String plazo,String diasIntIniciales,int monto, String compraCarteraSuma){
+        System.out.println("****** Calculando valores simulador Retanqueo por funcion SQL, RetanqueoCreditos -  consultarCalculosSimuladorRetanqueo()*******");
+        SimuladorModels resultSimulador = new SimuladorModels();
+        ResultSet r = null;
+        try {
+            r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueoMultiple(cedula,pagaduria,tasa,plazo,diasIntIniciales,monto, compraCarteraSuma);
+            while(r.next()) {
+
+                resultSimulador.setTipoCalculos(r.getString(1));
+                resultSimulador.setPrimaSeguroAnticipada(r.getInt(2));
+                resultSimulador.setCuotaCorriente(r.getInt(3));
+                resultSimulador.setGmf4X100(r.getInt(4));
+                resultSimulador.setPrimaNoDevengada(r.getInt(5));
+                resultSimulador.setPrimaNeta(r.getInt(6));
+                resultSimulador.setSumaFianzas(r.getInt(7));
+                resultSimulador.setFianzaPadre(r.getInt(8));
+                resultSimulador.setFianzaNeta(r.getInt(9));
+                resultSimulador.setEstudioCredito(r.getInt(10));
+                resultSimulador.setSaldoAlDia(r.getInt(11));
+                resultSimulador.setRemanenteEstimado(r.getInt(12));
+            }
+        } catch (Exception e) {
+            System.out.println("########## Error - OriginacionCreditosAccion - consultarCalculosSimulador() #######" + e);
+
+        }
+
+        return resultSimulador;
+    }
+
 
 }

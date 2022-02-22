@@ -11,7 +11,7 @@ Característica: Simulador Digicredito
     Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><numeroDocumento><fechaNacimiento><celular><correoElectronico><actividad><pagaduria><Contacto>
     Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><tasa><plazo><diasIntereses>
     Y diligencia los datos financieros <ingresos><descLey><descNomina><lineaCredito><creditoPadre><vlrCompras><pagaduria>
-    Y se validan los campos del simulador <tasa><plazo><ingresos><descLey><descNomina><pagaduria><diasIntereses><creditoPadre><vlrCompras><lineaCredito>
+    Y se validan los campos del simulador <tasa><plazo><ingresos><descLey><descNomina><pagaduria><diasIntereses><creditoPadre><vlrCompras><lineaCredito><numeroDocumento>
     Y se inicia la solicitud del credito
     Entonces El usuario carga los archivos imagen de la cedula del cliente <RutaPDF>
     Y realiza el registro del cliente paso 2 de 4 <numeroDocumento><primerNombre><segundoNombre><primerApellido><segundoApellido><fechaNacimiento><fechaExpedicion><departamentoExpedicionCC><ciudadExpedicionCC><genero>
@@ -21,8 +21,8 @@ Característica: Simulador Digicredito
     Y recorre las paginas de la consulta de propeccion
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos     | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria          | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
-      | "Soacha"      | "LUIS CARLOS MORENO MONSALVO" | "8682110"       | "19/10/1952"    | "3133421083" | "thainer.perez@gmail.com" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"   | "Retanqueo compra de cartera" | "55857"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"      | ""            | "MENDOZA"      | "DIAZ"          | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
+      | oficinaAsesor | nombresApellidos          | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria          | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "JOSE RAMON VERA SANCHEZ" | "5899301"       | "19/10/1952"    | "3133421083" | "thainer.perez@gmail.com" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"   | "Retanqueo compra de cartera" | "53174"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"      | ""            | "MENDOZA"      | "DIAZ"          | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -81,8 +81,8 @@ Característica: Simulador Digicredito
     Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
 
     Ejemplos:
-      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     |  estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |tomarSeguroAP|
-      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" |  ""           | ""   | "Vinculado"    | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |"Si"         |
+      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | estadoActual | page | vinculo     | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         | tomarSeguroAP |
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | ""           | ""   | "Vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" | "Si"          |
 
   @referencias
   Esquema del escenario: Diligenciamiento de referencias personales y familiares
@@ -100,8 +100,8 @@ Característica: Simulador Digicredito
     Entonces diligencia minimo tres beneficiaros para el seguro de vida <nombreBeneficario><documentoBeneficiario><celularBeneficiario><departamento><ciudad>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                    | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
-      | "52912399"      | ""                              | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
+      | numeroDocumento | estadoActual | page | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | departamento | ciudad   |
+      | "52912399"      | ""           | ""   | "Luis Perez Ramirez" | "1234567890"          | "3183903022"        | "Bogotá D.C" | "Bogota" |
 
   @OperInternacionalesPEPS
   Esquema del escenario: Registrar operaciones internacionales y PEPS

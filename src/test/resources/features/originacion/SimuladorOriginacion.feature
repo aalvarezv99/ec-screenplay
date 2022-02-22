@@ -25,6 +25,7 @@ Característica: Simulador Digicredito
       | oficinaAsesor | nombresApellidos                   | numeroDocumento | fechaNacimiento | celular      | correoElectronico           | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito      | RutaPDF                                 | estadoActual | page | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras | estadoCreditoEsperado              |
       | "Soacha"      | "CARLOS FERNANDO HERRERA ARBOLEDA" | "9777757"       | "06/09/1979"    | "3204992402" | "jvcutilidades@hotmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "20000000"      | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | ""   | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "0"        | "EN_PROCESO_CALCULO_ENDEUDAMIENTO" |
 
+
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
@@ -37,6 +38,7 @@ Característica: Simulador Digicredito
       | numeroDocumento | descNomina | descLey  | estadoActual                       | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos | estadoCreditoEsperado           |
       | "9777757"       | "260000"   | "100000" | "En proceso calculo endeudamiento" | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    | "EN_SELECCION_MEDIO_DESEMBOLSO" |
 
+
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
@@ -45,6 +47,7 @@ Característica: Simulador Digicredito
     Ejemplos:
       | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente | estadoCreditoEsperado                   |
       | "9777757"       | "En selección medio de desembolso" | ""   | "Pago masivo (efectivo)" | "AAA"       | "EN_REGISTRO_DATOS_ADICIONALES_CLIENTE" |
+
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
@@ -74,6 +77,20 @@ Característica: Simulador Digicredito
       | numeroDocumento | estadoActual | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito      | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                       | vlrCompras |
       | "91077296"      | ""           | ""   | "6500000"         | "250000"        | "150000"           | "Compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | ""           | "ALCALDÍA DE FLORENCIA ACTIVOS" | "300000"   |
 
+  @Excepciones
+  Esquema del escenario: Etapa de solicitud de excepciones
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Entonces se selecciona si se solicita las excepciones <decisionExcepcion>
+    Y se registran las excepciones
+      | tipoExcepcion    | detalleExcepcion             |
+      | Cartera cedida   | Cesión de cartera            |
+      | Compliance       | Listas restrictivas          |
+      | Desprendible     | Desprendible con incapacidad |
+      | Desprendible     | Desprendible con vacaciones  |
+      | Tasa             | Tasa                         |
+    Ejemplos:
+      | numeroDocumento | estadoActual | page | decisionExcepcion |
+      | "52912399"      | ""           | ""   | "No"              |
 
   @seguroAP
   Esquema del escenario: Etapa de seguro AP
@@ -84,8 +101,8 @@ Característica: Simulador Digicredito
     Y Se registran los beneficiarios <nombresSeguroAP><parentescoSeguroAP>
 
     Ejemplos:
-      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     |  estadoActual | page | vinculo        | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         |tomarSeguroAP|
-      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" |  ""           | ""   | "Vinculado"    | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" |"Si"         |
+      | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | estadoActual | page | vinculo     | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         | tomarSeguroAP |
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | ""           | ""   | "Vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" | "Si"          |
 
   @referencias
   Esquema del escenario: Diligenciamiento de referencias personales y familiares

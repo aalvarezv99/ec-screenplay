@@ -44,8 +44,6 @@ public class SimuladorStepDefinitions {
 
         if (lineaCredito.contains("Retanqueo")) {
             if(this.multiple>1){
-                System.out.println("VALIDANDO UN RETANQUEO MULTIPLE : " + calculosSimulador.getTipoCalculos());
-
                 calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula,pagaduria,tasa,plazo,diasIntereses,Integer.parseInt(valueMontoSolicitado), vlrCompras);
                 System.out.println("Tipo Calculos : " + calculosSimulador.getTipoCalculos());
                 System.out.println("Prima Seguro Anticipada : " + calculosSimulador.getPrimaSeguroAnticipada());
@@ -59,17 +57,6 @@ public class SimuladorStepDefinitions {
                 System.out.println("Estudio Credito : " + calculosSimulador.getEstudioCredito());
                 System.out.println("Saldo al Dia : " + calculosSimulador.getSaldoAlDia());
                 System.out.println("Remanente Estimado : " + calculosSimulador.getRemanenteEstimado());
-
-                theActorInTheSpotlight().attemptsTo(
-                        Ensure.that(Integer.parseInt(Simulador.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente() - 1, calculosSimulador.getCuotaCorriente() + 1),
-                        Ensure.that(Integer.parseInt(Simulador.estudioCreditoCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getEstudioCredito() - 1, calculosSimulador.getEstudioCredito() + 1),
-                        Ensure.that(Integer.parseInt(Simulador.valorFianzaCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getFianzaNeta() - 1, calculosSimulador.getFianzaNeta() + 1),
-                        Ensure.that(Integer.parseInt(Simulador.vlrCompras().answeredBy(theActorInTheSpotlight()))).isBetween(Integer.parseInt(vlrCompras) - 1, Integer.parseInt(vlrCompras) + 1),
-                        Ensure.that(Integer.parseInt(Simulador.vlr4X1000().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getGmf4X100() - 1, calculosSimulador.getGmf4X100() + 1),
-                        Ensure.that(Integer.parseInt(Simulador.primaAnticipadaSeguro().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getPrimaSeguroAnticipada() - 1, calculosSimulador.getPrimaSeguroAnticipada() + 1),
-                        Ensure.that(Integer.parseInt(Simulador.remanenteEstimado().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getRemanenteEstimado() - 1, calculosSimulador.getRemanenteEstimado() + 1)
-                );
-
             }else{
                 calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre, tasa, plazo, diasIntereses, valueMontoSolicitado, vlrCompras);
             }

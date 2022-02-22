@@ -95,4 +95,20 @@ public class FuncionesCreditoQuery {
         }
         return r;
     }
+
+    public ResultSet consultarEstadoUltimoCredito(String numeroDocumento){
+
+        ResultSet r = null;
+        try {
+            r = dbconector.conexion("select cr.estado\n" +
+                    "from credito cr\n" +
+                    "inner join cliente cl on cl.id = cr.id_cliente\n" +
+                    "and cl.identificacion in ('" + numeroDocumento + "')\n" +
+                    "order by cr.id desc limit 1;");
+        } catch (Exception e){
+            System.out.println(" ******** consultarEstadoUltimoCredito() ******** ");
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
 }

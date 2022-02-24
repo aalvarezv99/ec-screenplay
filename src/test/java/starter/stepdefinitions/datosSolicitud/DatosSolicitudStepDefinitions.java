@@ -143,8 +143,8 @@ public class DatosSolicitudStepDefinitions {
 
             );
         }
-//        theActorInTheSpotlight().attemptsTo(
-//                SimuladorDatosSolicitud.withSimuladorDatosSolicitud()
-//        );
+        theActorInTheSpotlight().attemptsTo(
+                SimuladorDatosSolicitud.withSimuladorDatosSolicitud()
+        );
     }
 }

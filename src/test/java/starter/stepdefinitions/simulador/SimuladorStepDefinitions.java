@@ -93,6 +93,7 @@ public class SimuladorStepDefinitions {
         /*Se toma la lista de los creditos de los saldos al dia */
         List<String> listElementos = Simulador.listSaldosAlDia(pagaduria).answeredBy(theActorInTheSpotlight());
 
+
         this.multiple = listElementos.size();
         int sumaValores = 0;
         if (this.multiple > 1) {

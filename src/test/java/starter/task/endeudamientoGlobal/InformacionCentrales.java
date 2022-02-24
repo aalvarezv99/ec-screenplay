@@ -10,6 +10,7 @@ import net.serenitybdd.screenplay.actions.Upload;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import starter.questions.EndeudamientoGlobalQuestion;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.endeudamientoGlobal.EndeudamientoGlobalForm;
@@ -42,6 +43,8 @@ public class InformacionCentrales implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         Path doc = Paths.get(rutaPdf).toAbsolutePath();
+        String maximoSugerido = "";
+        int valueOtrosIngresos = 0;
         actor.attemptsTo(
                 Enter.theValue(cuotaHipotecaria).into(EndeudamientoGlobalForm.cuotasHipotecarias),
                 Click.on(EndeudamientoGlobalForm.tipoDocumento),
@@ -50,18 +53,22 @@ public class InformacionCentrales implements Task {
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
         );
-        boolean otrosIngresosCertificados = Visibility.of(EndeudamientoGlobalForm.otrosIngresosCertificados).viewedBy(actor).value();
+        boolean debeIngresarOtrosIngresos = Visibility.of(EndeudamientoGlobalForm.otrosIngresosCertificados).viewedBy(actor).value();
+        if (debeIngresarOtrosIngresos) {
+            String text = String.valueOf(EndeudamientoGlobalQuestion.getOtrosIngresos().answeredBy(actor));
+            maximoSugerido = text.replaceAll("[a-zA-Z.$/\\s]", "");
+            valueOtrosIngresos = Math.min(Integer.parseInt(maximoSugerido), Integer.parseInt(otrosIngresos));
+        }
         actor.attemptsTo(
-                Check.whether(otrosIngresosCertificados)
+                Check.whether(debeIngresarOtrosIngresos)
                         .andIfSo(
-                                Enter.theValue(otrosIngresos).into(EndeudamientoGlobalForm.inputOtrosIngresos),
-                                Upload.theFile(doc).to(CommonsLocators.inputFile),
-                                WaitUntil.the(CommonsLocators.botonSiguiente, isVisible()).forNoMoreThan(10).seconds(),
-                                Click.on(CommonsLocators.botonSiguiente),
-                                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
-                        )
+                                Enter.theValue(String.valueOf(valueOtrosIngresos)).into(EndeudamientoGlobalForm.inputOtrosIngresos),
+                                Upload.theFile(doc).to(CommonsLocators.inputFile)
+                        ),
+                WaitUntil.the(CommonsLocators.botonSiguiente, isVisible()).forNoMoreThan(10).seconds(),
+                Click.on(CommonsLocators.botonSiguiente),
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
         );
-        Thread.currentThread().sleep(5000);
         System.out.println(" punto de interrupción ");
     }
 }

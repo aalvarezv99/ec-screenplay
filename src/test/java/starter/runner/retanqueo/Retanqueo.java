@@ -14,10 +14,10 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features/retanqueo/SimuladorRetanqueo.feature",
         glue = "starter",
-        tags = "@endeudamientoGlobal",
+        tags = "@firmaDocumentos",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
-
+//@Simulador or @endeudamientoGlobal or @desembolso or @datosSolicitud or @datosSolicitudCredito
 @RunWith(RunnerPersonalizado.class)
 public class Retanqueo {
     @BeforeSuite

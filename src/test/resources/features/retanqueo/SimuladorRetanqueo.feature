@@ -93,6 +93,20 @@ Característica: Simulador Digicredito
       | numeroDocumento | estadoActual                 | page | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
       | "52912399"      | "En registro de referencias" | ""   | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
 
+  @Excepciones
+  Esquema del escenario: Etapa de solicitud de excepciones
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Entonces se selecciona si se solicita las excepciones <decisionExcepcion>
+    Y se registran las excepciones
+      | tipoExcepcion    | detalleExcepcion             |
+      | Cartera cedida   | Cesión de cartera            |
+      | Compliance       | Listas restrictivas          |
+      | Desprendible     | Desprendible con incapacidad |
+      | Desprendible     | Desprendible con vacaciones  |
+      | Tasa             | Tasa                         |
+    Ejemplos:
+      | numeroDocumento | estadoActual | page | decisionExcepcion |
+      | "52912399"      | ""           | ""   | "No"              |
 
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida

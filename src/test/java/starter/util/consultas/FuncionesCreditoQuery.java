@@ -2,6 +2,7 @@ package starter.util.consultas;
 
 import starter.conf.ConexionBase;
 import starter.conf.ConexionBaseToken;
+import starter.ui.commons.CommonsFuntions;
 
 import java.sql.ResultSet;
 
@@ -60,6 +61,22 @@ public class FuncionesCreditoQuery {
         return r;
     }
 
+    /*ThainePerez 22/Feb/2022 V1.0 :   1.  Se crea el consumo de la funcion para retanqueo multiple*/
+    public ResultSet consultarCalculosSimuladorRetanqueoMultiple(String cedula, String pagaduria, String tasa, String plazo, String diasIntIniciales, int monto, String compraCarteraSuma) {
+
+        System.out.println("********************** Ejecutando Funcion Retanqueo Multiple - consultarCalculosSimuladorRetanqueoMultiple() **************");
+        ResultSet r = null;
+        try {
+            String sql = "select * from	autopruebas_retanqueo_multiple_cal_simulador(" + CommonsFuntions.agregarComillas(cedula) + "," + CommonsFuntions.agregarComillas(pagaduria) + "," + tasa + "," + plazo + "," + diasIntIniciales + "," + monto + "," + compraCarteraSuma + ");";
+            System.out.println(sql);
+            r = dbconector.conexion(sql);
+        } catch (Exception e) {
+            System.out.println("********consultarCalculosSimuladorRetanqueoMultiple() ********");
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+
     public ResultSet consultarIdCliente(String cedula) {
 
         ResultSet r = null;
@@ -91,6 +108,22 @@ public class FuncionesCreditoQuery {
             r = dbTokenConector.conexion("select token from otp o where id_cliente = " + idCliente + " order by id desc limit 1;");
         } catch (Exception e) {
             System.out.println(" ******** consultarTokenCliente() ******** ");
+            System.out.println(e.getMessage());
+        }
+        return r;
+    }
+
+    public ResultSet consultarEstadoUltimoCredito(String numeroDocumento){
+
+        ResultSet r = null;
+        try {
+            r = dbconector.conexion("select cr.estado\n" +
+                    "from credito cr\n" +
+                    "inner join cliente cl on cl.id = cr.id_cliente\n" +
+                    "and cl.identificacion in ('" + numeroDocumento + "')\n" +
+                    "order by cr.id desc limit 1;");
+        } catch (Exception e){
+            System.out.println(" ******** consultarEstadoUltimoCredito() ******** ");
             System.out.println(e.getMessage());
         }
         return r;

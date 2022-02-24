@@ -11,6 +11,9 @@ public class DatosFinancierosForm {
     public static final Target selectLinea = Target.the("Seleccionar la linea de credito a diligenciar").locatedBy("//div[text() = '{0}']");
     public static final Target btnCalcular = Target.the("botón calcular capacidad").located(By.id("calculate"));
     public static final Target selectCredito = Target.the("Seleccionar el credito").locatedBy("//h6[text()='{0}']//preceding-sibling::div");
+    public static final Target selectCreditoMultiple = Target.the("Seleccionar la lista de creditos multiples").locatedBy("//div[text()='{0}']/preceding-sibling::div/child::div[@id='checkbox']");
     public static final Target vlrCompras = Target.the("Campo para ingresar los valores de la cartera").locatedBy("//label[text() = '{0}']/parent::div/following-sibling::div/child::input[1]");
+    public static final Target listSaldoDia = Target.the("Lista de saldos al dia").locatedBy("//div[text()='{0}']/following-sibling::div/following-sibling::div");
+    public static final Target saldoTotalRecoger = Target.the("Saldo a Recoger").locatedBy("//div[text()='Saldo total a recoger']/following-sibling::div");
 
 }

@@ -8,10 +8,10 @@ Característica: Simulador Digicredito
 
   @Simulador
   Esquema del escenario:  Paso uno Datos cliente
-    Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><Cedula><fechaNacimiento><celular><Correo><actividad><pagaduria><Contacto>
-    Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><Tasa><Plazo><DiasHabilesIntereses>
-    Y diligencia los datos financieros <Ingresos><descLey><descNomina><lineaCredito><Credito><VlrCompraSaneamiento>
-    #Y se validan los campos del simulador <Tasa><Plazo><Ingresos><descLey><descNomina><pagaduria><DiasHabilesIntereses><Credito><VlrCompraSaneamiento><lineaCredito>
+    Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><numeroDocumento><fechaNacimiento><celular><correoElectronico><actividad><pagaduria><Contacto>
+    Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><tasa><plazo><diasIntereses>
+    Y diligencia los datos financieros <ingresos><descLey><descNomina><lineaCredito><creditoPadre><vlrCompras><pagaduria>
+    Y se validan los campos del simulador <tasa><plazo><ingresos><descLey><descNomina><pagaduria><diasIntereses><creditoPadre><vlrCompras><lineaCredito><Cedula>
     Y se inicia la solicitud del credito
     Entonces El usuario carga los archivos imagen de la cedula del cliente <rutaPdf>
     Y realiza el registro del cliente paso 2 de 4 <Cedula><primerNombre><segundoNombre><primerApellido><segundoApellido><fechaNacimiento><fechaExpedicion><departamento><ciudad><genero>
@@ -62,14 +62,14 @@ Característica: Simulador Digicredito
   @datosSolicitudCredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
     Cuando busca el credito para retomar el estado actual <Cedula><estadoActual><page>
-    Entonces se registran los datos para el credito Retanqueo <Ingresos><descNomina><descLey><lineaCredito><Credito>
+    Entonces se registran los datos para el credito Retanqueo <Ingresos><descNomina><descLey><lineaCredito><Credito><pagaduria>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaCredito>
       | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
       | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
       | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
       | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><Tasa><Plazo><DiasHabilesIntereses>
-    Y se validan los datos del simulador datos solicitud <Tasa><Plazo><Ingresos><descLey><descNomina><pagaduria><DiasHabilesIntereses><Credito><VlrCompraSaneamiento><lineaCredito>
+    Y se validan los datos del simulador datos solicitud <Tasa><Plazo><Ingresos><descLey><descNomina><pagaduria><DiasHabilesIntereses><Credito><VlrCompraSaneamiento><lineaCredito><Cedula>
 
     Ejemplos:
       | Cedula     | Credito | oficinaAsesor | nombresApellidos                    | fechaNacimiento | celular      | Correo                    | actividad    | pagaduria          | Contacto                | montoSolicitado | Tasa   | Plazo | DiasHabilesIntereses | descNomina | descLey  | Ingresos  | VlrCompraSaneamiento | lineaCredito                  | rutaPdf                                 | estadoActual | page | codigo  | primerNombre | segundoNombre | primerApellido | segundoApellido | NombreCredito    | fechaExpedicion | genero | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | otrosIngresos | modalidadDesembolso      | tipoCliente | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamento | ciudad      | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudadExt | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto | Mes       | fecha        | AnnoAfetacion | TipoDesen  | fechaActual  | Banco                                              | NumRadicadoCredito | vinculo     | plan     | tomarSeguroAP | nombresSeguroAP | parentescoSeguroAP | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
@@ -95,9 +95,24 @@ Característica: Simulador Digicredito
     Y Se ingresa la informacion de las referencias personales <pNombreRefP><sNombreRefP><pApellidoRefP><sApellidoRefP><relacionRefP><celRefP><deptoRefP><ciudadRefP>
     Y Se ingresa la informacion de las referencias familiares <pNombreRefF><sNombreRefF><pApellidoRefF><sApellidoRefF><relacionRefF><celRefF><deptoRefF><ciudadRefF>
     Ejemplos:
-      | Cedula     | Credito | oficinaAsesor | nombresApellidos                    | fechaNacimiento | celular      | Correo                    | actividad    | pagaduria          | Contacto                | montoSolicitado | Tasa   | Plazo | DiasHabilesIntereses | descNomina | descLey  | Ingresos  | VlrCompraSaneamiento | lineaCredito                  | rutaPdf                                 | estadoActual | page | codigo  | primerNombre | segundoNombre | primerApellido | segundoApellido | NombreCredito    | fechaExpedicion | genero | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | otrosIngresos | modalidadDesembolso      | tipoCliente | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamento | ciudad      | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudadExt | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto | Mes       | fecha        | AnnoAfetacion | TipoDesen  | fechaActual  | Banco                                              | NumRadicadoCredito | vinculo     | plan     | tomarSeguroAP | nombresSeguroAP | parentescoSeguroAP | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
+         | Cedula     | Credito | oficinaAsesor | nombresApellidos                    | fechaNacimiento | celular      | Correo                    | actividad    | pagaduria          | Contacto                | montoSolicitado | Tasa   | Plazo | DiasHabilesIntereses | descNomina | descLey  | Ingresos  | VlrCompraSaneamiento | lineaCredito                  | rutaPdf                                 | estadoActual | page | codigo  | primerNombre | segundoNombre | primerApellido | segundoApellido | NombreCredito    | fechaExpedicion | genero | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | otrosIngresos | modalidadDesembolso      | tipoCliente | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamento | ciudad      | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudadExt | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto | Mes       | fecha        | AnnoAfetacion | TipoDesen  | fechaActual  | Banco                                              | NumRadicadoCredito | vinculo     | plan     | tomarSeguroAP | nombresSeguroAP | parentescoSeguroAP | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
      ##@externaldata@./src/test/resources/data/AutomationData.xlsx@dataDigicredito
    |"5744075"   |"81768"   |"Soacha"   |"DELIO ARNULFO ROJAS GUIO"   |"15/02/1956"   |"3133421083"   |"thainer.perez@gmail.com"     |"Pensionado"   |"P.A COLPENSIONES"   |"Entidad donde trabaja"   |"20000000"   |"1.70"   |"60"   |"100"   |"260000"   |"100000"   |"5500000"   |"300000"   |"Retanqueo compra de cartera"   |"src/test/resources/Data/PDFPRUEBA.pdf"    |""   |""   |"12345"   |"DELIO"   |"ARNULFO"   |"ROJAS"    |"GUIO"   |"DELIO ARNULFO"   |"06/08/1976"    |"F"   |"Estrato 1"    |"Arriendo"    |"Casa"    |"Jefe de hogar"   | "Universitario"    |"100000"   |"Desprendible de nómina"    |"5000000"   |"Pago masivo (efectivo)"    |"AAA"   |"colombia"   |"colombia"   |"colombiano"   |"Soltera/o"   |"ingeniero"    |"Antioquia"   |"Abejorral"    |"Cra 14 No. 93a - 30"    |"24"   |"2"      |"0"   |"pension"   |"123456"     |"01/01/2015"   |"30/12/2022"   |"123456"   |"Certificación laboral"   |"CEO"   |"Luis Perez Ramirez"   |"1234567890"   |"3183903022"   |"No"   |"Importaciones"   |"No"   |"Santander"   |"966855"   |"Inversiones en oro"    |"Alemania"   |"Berlin"   |"8500"   |"Euros"   |"No"   |"No"   |"No"   |"12/12/2008"   |"Febrero"   |"20/07/1963"   |"2022"   |"Efectivo"   |"16/02/2022"   |"Bancolombia Remanentes - 60237038927 - REMANENTE"    |null   |"Vinculado"   |"Plan 1"   |"Si"   |"Juli Macias"   |"Prima"   |"maria"   |"camila"   |"lopez"   |"cardenas"   |"Amigo"   |"3204567894"   |"Arauca"   |"Arauca"   |"juan"   |"david"   |"reyes"   |"sanchez"   |"Hijo"   |"3204047804"   |"Amazonas"   |"Leticia"|
+
+  @Excepciones
+  Esquema del escenario: Etapa de solicitud de excepciones
+    Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
+    Entonces se selecciona si se solicita las excepciones <decisionExcepcion>
+    Y se registran las excepciones
+      | tipoExcepcion    | detalleExcepcion             |
+      | Cartera cedida   | Cesión de cartera            |
+      | Compliance       | Listas restrictivas          |
+      | Desprendible     | Desprendible con incapacidad |
+      | Desprendible     | Desprendible con vacaciones  |
+      | Tasa             | Tasa                         |
+    Ejemplos:
+      | numeroDocumento | estadoActual | page | decisionExcepcion |
+      | "52912399"      | ""           | ""   | "No"              |
 
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida

@@ -25,3 +25,4 @@ public class Originacion {
         DataToFeature.overrideFeatureFiles("src/test/resources/features/originacion/SimuladorOriginacion.feature");
     }
 }
+//@Simulador or @endeudamientoGlobal,@desembolso,@datosSolicitud,@datosSolicitudCredito,@seguroAP,@referencias,@seguroVida,@OperInternacionalesPEPS,@firmaDocumentos

@@ -9,4 +9,8 @@ public class CommonsFuntions {
         cadena = cadena.replaceAll("[^\\p{ASCII}]", "");
         return cadena;
     }
+
+    public static final String agregarComillas(String valor) {
+        return "'" + valor + "'";
+    }
 }

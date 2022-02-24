@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/retanqueo/SimuladorRetanqueo.feature",
         glue="starter",
-        tags = "@Simulador",
+        tags = "@datosSolicitudCredito",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class Retanqueo {

@@ -21,8 +21,8 @@ Característica: Simulador Digicredito
     Y recorre las paginas de la consulta de propeccion
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos          | numeroDocumento | fechaNacimiento | celular      | correoElectronico         | actividad    | pagaduria          | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
-      | "Soacha"      | "LUIS CARLOS MORENO MONSALVO" | "8682110"       | "19/10/1952"    | "3133421083" | "thainer.perez@gmail.com" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "5500000" | "300000"   | "Retanqueo compra de cartera" | "53174"      | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "JAIRO"      | ""            | "MENDOZA"      | "DIAZ"          | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
+      | oficinaAsesor | nombresApellidos           | numeroDocumento | fechaNacimiento | celular      | correoElectronico       | actividad    | pagaduria          | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | vlrCompras | lineaCredito                  | creditoPadre | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero |
+      | "Soacha"      | "SOLEDAD BERMUDEZ MORALES" | "20618514"      | "12/12/1952"    | "3183903022" | "aalvarezv99@gmail.com" | "Pensionado" | "P.A COLPENSIONES" | "Entidad donde trabaja" | "20000000"      | "1.70" | "60"  | "100"         | "260000"   | "100000" | "7500000" | "300000"   | "Retanqueo compra de cartera" | ""           | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "SOLEDAD"    | ""            | "BERMUDEZ"     | "MORALES"       | "18/01/1974"    | "Cauca"                  | "Balboa"           | "F"    |
 
   @endeudamientoGlobal
   Esquema del escenario: Diligencia los datos de endeudamiento global
@@ -32,8 +32,8 @@ Característica: Simulador Digicredito
     Entonces finaliza registrando la informacion a centrales <cuotaHipotecaria><tipoDocNomina><rutaPdf><otrosIngresos>
 
     Ejemplos:
-      | numeroDocumento | descNomina | descLey  | estadoActual | page                     | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
-      | "9081882"       | "260000"   | "100000" | ""           | "Pendientes por Radicar" | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
+      | numeroDocumento | descNomina | descLey  | estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos |
+      | "20618514"      | "260000"   | "100000" | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    |
 
   @desembolso
   Esquema del escenario: Diligenciamiento del desembolso
@@ -41,35 +41,34 @@ Característica: Simulador Digicredito
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente |
-      | "9971523"       | "En proceso calculo endeudamiento" | ""   | "Pago masivo (efectivo)" | "AAA"       |
+      | numeroDocumento | estadoActual | page | modalidadDesembolso      | tipoCliente |
+      | "20618514"      | ""           | ""   | "Pago masivo (efectivo)" | "AAA"       |
 
   @datosSolicitud
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Y registra los datos adicionales del cliente en Pagina 1 <paisNacimiento><lugarDeNacimiento><nacionalidad><estadoCivil><profesion>
     Y registra los datos adicionales del cliente en Pagina 2 <departamentoResidencia><ciudadResidencia><direccionResidencia><mesesResidencia><numeroHijos><personasACargo><departamentoCorrespondencia><ciudadCorrespondencia>
-    #Y registra los datos adicionales del cliente en Pagina 3
     Y registra los datos adicionales del cliente en Pagina 4 <tipoPension><codigoProgramaNomina><fechaIngreso><fechaTerminacion><nitAfiliacion><tipoDocumento><rutaPdf><cargo>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo |
-      | "9081882"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" |
+      | numeroDocumento | estadoActual | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo |
+      | "20618514"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" |
 
   @datosSolicitudCredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
-    Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre>
+    Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre><pagaduria>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaDeCredito>
       | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
       | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
       | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
       | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
-    Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
+    Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito><numeroDocumento>
     Ejemplos:
       | numeroDocumento | estadoActual          | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito                | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria          | vlrCompras |
-      | "9081882"       | "En simulación final" | ""   | "6500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | "55857"      | "P.A COLPENSIONES" | "300000"   |
+      | "20618514"      | "En simulación final" | ""   | "7500000"         | "250000"        | "150000"           | "Retanqueo compra de cartera" | "20000000"      | "1.70" | "60"  | "100"                  | ""           | "P.A COLPENSIONES" | "300000"   |
 
 
   @seguroAP

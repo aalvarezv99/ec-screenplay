@@ -2,7 +2,6 @@ package starter.stepdefinitions.simulador;
 
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import starter.conf.SessionVariables;
@@ -10,7 +9,6 @@ import starter.models.SimuladorModels;
 import starter.questions.Simulador;
 import starter.task.simulador.*;
 import starter.ui.simulador.DatosClienteForm;
-import starter.ui.simulador.DatosFinancierosForm;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -43,8 +41,8 @@ public class SimuladorStepDefinitions {
         valueMontoSolicitado = valueMontoSolicitado.replace("$", "").replace(".", "").replace(" ", "");
 
         if (lineaCredito.contains("Retanqueo")) {
-            if(this.multiple>1){
-                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula,pagaduria,tasa,plazo,diasIntereses,Integer.parseInt(valueMontoSolicitado), vlrCompras);
+            if (this.multiple > 1) {
+                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula, pagaduria, tasa, plazo, diasIntereses, Integer.parseInt(valueMontoSolicitado), vlrCompras);
                 System.out.println("Tipo Calculos : " + calculosSimulador.getTipoCalculos());
                 System.out.println("Prima Seguro Anticipada : " + calculosSimulador.getPrimaSeguroAnticipada());
                 System.out.println("Cuota Corriente : " + calculosSimulador.getCuotaCorriente());
@@ -57,7 +55,7 @@ public class SimuladorStepDefinitions {
                 System.out.println("Estudio Credito : " + calculosSimulador.getEstudioCredito());
                 System.out.println("Saldo al Dia : " + calculosSimulador.getSaldoAlDia());
                 System.out.println("Remanente Estimado : " + calculosSimulador.getRemanenteEstimado());
-            }else{
+            } else {
                 calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre, tasa, plazo, diasIntereses, valueMontoSolicitado, vlrCompras);
             }
             theActorInTheSpotlight().attemptsTo(
@@ -89,7 +87,7 @@ public class SimuladorStepDefinitions {
     @Y("diligencia los datos financieros {string}{string}{string}{string}{string}{string}{string}")
     public void diligencia_los_datos_financieros(String ingresos, String descLey, String descNomina, String lineaCredito, String credito, String vlrCompras, String pagaduria) {
         theActorInTheSpotlight().attemptsTo(
-                DatosFinacieros.withDatosFinancieros(ingresos, descLey, descNomina, lineaCredito, credito, vlrCompras,pagaduria)
+                DatosFinacieros.withDatosFinancieros(ingresos, descLey, descNomina, lineaCredito, credito, vlrCompras, pagaduria)
         );
 
         /*Se toma la lista de los creditos de los saldos al dia */
@@ -97,7 +95,7 @@ public class SimuladorStepDefinitions {
 
         this.multiple = listElementos.size();
         int sumaValores = 0;
-        if(this.multiple>1){
+        if (this.multiple > 1) {
             for (String obj : listElementos) {
                 sumaValores = sumaValores + Integer.parseInt(obj.toString().replace("$", "").replace(".", "").replace(" ", ""));
             }
@@ -107,7 +105,7 @@ public class SimuladorStepDefinitions {
         }
 
         theActorInTheSpotlight().attemptsTo(
-            Click.on(DatosClienteForm.botonSiguiente)
+                Click.on(DatosClienteForm.botonSiguiente)
         );
 
     }

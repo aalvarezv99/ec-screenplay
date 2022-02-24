@@ -65,14 +65,14 @@ Característica: Simulador Digicredito
   @datosSolicitudCredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
     Cuando busca el credito para retomar el estado actual <Cedula><estadoActual><page>
-    Entonces se registran los datos para el credito Retanqueo <Ingresos><descNomina><descLey><lineaCredito><Credito>
+    Entonces se registran los datos para el credito Retanqueo <Ingresos><descNomina><descLey><lineaCredito><Credito><pagaduria>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaCredito>
       | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
       | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
       | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
       | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><Tasa><Plazo><DiasHabilesIntereses>
-    Y se validan los datos del simulador datos solicitud <Tasa><Plazo><Ingresos><descLey><descNomina><pagaduria><DiasHabilesIntereses><Credito><VlrCompraSaneamiento><lineaCredito>
+    Y se validan los datos del simulador datos solicitud <Tasa><Plazo><Ingresos><descLey><descNomina><pagaduria><DiasHabilesIntereses><Credito><VlrCompraSaneamiento><lineaCredito><Cedula>
  Ejemplos:
       | Cedula     | Credito | oficinaAsesor | nombresApellidos             | fechaNacimiento | celular      | Correo                    | actividad    | pagaduria          | Contacto                | montoSolicitado | Tasa   | Plazo | DiasHabilesIntereses | descNomina | descLey  | Ingresos  | VlrCompraSaneamiento | lineaCredito        | rutaPdf                                 | estadoActual | page | codigo  | primerNombre | segundoNombre | primerApellido | segundoApellido | NombreCredito | fechaExpedicion | genero | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | otrosIngresos | modalidadDesembolso      | tipoCliente | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamento | ciudad   | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | nombreBeneficario    | documentoBeneficiario | celularBeneficiario | monedaExtranjera | tipoTransanccion | productoBancario | banco       | numProducto | tipoProducto         | pais       | ciudadExt | monto  | moneda  | funcionarioPublico | recursosPublicos | expuestoPoliticamente | fechaExpuesto | Mes       | fecha        | AnnoAfetacion | TipoDesen  | fechaActual  | Banco                                              | NumRadicadoCredito | vinculo     | plan     | tomarSeguroAP | nombresSeguroAP | parentescoSeguroAP | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
      ##@externaldata@./src/test/resources/data/AutomationData.xlsx@dataDigicredito
@@ -82,16 +82,16 @@ Característica: Simulador Digicredito
   Esquema del escenario: Etapa de solicitud de excepciones
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces se selecciona si se solicita las excepciones <decisionExcepcion>
-    Y se registran las excepciones
-      | tipoExcepcion    | detalleExcepcion             |
-      | Cartera cedida   | Cesión de cartera            |
-      | Compliance       | Listas restrictivas          |
-      | Desprendible     | Desprendible con incapacidad |
-      | Desprendible     | Desprendible con vacaciones  |
-      | Tasa             | Tasa                         |
+#    Y se registran las excepciones
+#      | tipoExcepcion  | detalleExcepcion             |
+#      | Cartera cedida | Cesión de cartera            |
+#      | Compliance     | Listas restrictivas          |
+#      | Desprendible   | Desprendible con incapacidad |
+#      | Desprendible   | Desprendible con vacaciones  |
+#      | Tasa           | Tasa                         |
     Ejemplos:
       | numeroDocumento | estadoActual | page | decisionExcepcion |
-      | "52912399"      | ""           | ""   | "No"              |
+      | "91077296"      | ""           | ""   | "No"              |
 
   @seguroAP
   Esquema del escenario: Etapa de seguro AP

@@ -14,7 +14,7 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features/retanqueo/SimuladorRetanqueo.feature",
         glue = "starter",
-        tags = "@pruebaArchivo",
+        tags = "@endeudamientoGlobal",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 
@@ -25,3 +25,5 @@ public class Retanqueo {
         DataToFeature.overrideFeatureFiles("src/test/resources/features/retanqueo/SimuladorRetanqueo.feature");
     }
 }
+
+//

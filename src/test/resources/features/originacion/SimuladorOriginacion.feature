@@ -22,8 +22,8 @@ Característica: Simulador Digicredito
     Y valida el cambio de estado del credito <numeroDocumento><estadoCreditoEsperado>
 
     Ejemplos:
-      | oficinaAsesor | nombresApellidos                   | numeroDocumento | fechaNacimiento | celular      | correoElectronico           | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito      | RutaPDF                                 | estadoActual | page | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras | estadoCreditoEsperado              |
-      | "Soacha"      | "CARLOS FERNANDO HERRERA ARBOLEDA" | "9777757"       | "06/09/1979"    | "3204992402" | "jvcutilidades@hotmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "20000000"      | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | ""   | "CARLOS"     | "FERNANDO"    | "HERRERA"      | "ARBOLEDA"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "0"        | "EN_PROCESO_CALCULO_ENDEUDAMIENTO" |
+      | oficinaAsesor | nombresApellidos             | numeroDocumento | fechaNacimiento | celular      | correoElectronico       | actividad    | pagaduria                       | Contacto                | montoSolicitado | tasa   | plazo | diasIntereses | descNomina | descLey  | ingresos  | lineaCredito      | RutaPDF                                 | estadoActual | page                     | primerNombre | segundoNombre | primerApellido | segundoApellido | fechaExpedicion | departamentoExpedicionCC | ciudadExpedicionCC | genero | creditoPadre | vlrCompras | estadoCreditoEsperado              |
+      | "Soacha"      | "ANGEL MARIA MEJIA SANDOVAL" | "91077296"      | "06/09/1979"    | "3183903022" | "aalvarezv99@gmail.com" | "Pensionado" | "ALCALDÍA DE FLORENCIA ACTIVOS" | "Entidad donde trabaja" | "5000000"       | "1.71" | "60"  | "100"         | "260000"   | "100000" | "3500000" | "Libre inversion" | "src/test/resources/Data/PDFPRUEBA.pdf" | ""           | "Pendientes por Radicar" | "ANGEL"      | "MARIA"       | "MEJIA"        | "SANDOVAL"      | "10/10/2010"    | "Cauca"                  | "Balboa"           | "F"    | ""           | "0"        | "EN_PROCESO_CALCULO_ENDEUDAMIENTO" |
 
 
   @endeudamientoGlobal
@@ -35,8 +35,8 @@ Característica: Simulador Digicredito
     Y valida el cambio de estado del credito <numeroDocumento><estadoCreditoEsperado>
 
     Ejemplos:
-      | numeroDocumento | descNomina | descLey  | estadoActual                       | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos | estadoCreditoEsperado           |
-      | "9777757"       | "260000"   | "100000" | "En proceso calculo endeudamiento" | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    | "EN_SELECCION_MEDIO_DESEMBOLSO" |
+      | numeroDocumento | descNomina | descLey  | estadoActual | page | codigoAdo | estrado     | tipoVivienda | claseVivienda | posicionHogar   | nivelEscolaridad | cuotaHipotecaria | tipoDocNomina            | rutaPdf                                 | otrosIngresos | estadoCreditoEsperado           |
+      | "91077296"      | "260000"   | "100000" | ""           | ""   | "1234"    | "Estrato 1" | "Arriendo"   | "Casa"        | "Jefe de hogar" | "Universitario"  | "100000"         | "Desprendible de nómina" | "src/test/resources/Data/PDFPRUEBA.pdf" | "30000000"    | "EN_SELECCION_MEDIO_DESEMBOLSO" |
 
 
   @desembolso
@@ -45,8 +45,8 @@ Característica: Simulador Digicredito
     Y se selecciona la modalidad de desembolso y tipo de cliente <modalidadDesembolso><tipoCliente>
     Y valida el cambio de estado del credito <numeroDocumento><estadoCreditoEsperado>
     Ejemplos:
-      | numeroDocumento | estadoActual                       | page | modalidadDesembolso      | tipoCliente | estadoCreditoEsperado                   |
-      | "9777757"       | "En selección medio de desembolso" | ""   | "Pago masivo (efectivo)" | "AAA"       | "EN_REGISTRO_DATOS_ADICIONALES_CLIENTE" |
+      | numeroDocumento | estadoActual | page | modalidadDesembolso      | tipoCliente | estadoCreditoEsperado                   |
+      | "91077296"      | ""           | ""   | "Pago masivo (efectivo)" | "AAA"       | "EN_REGISTRO_DATOS_ADICIONALES_CLIENTE" |
 
 
   @datosSolicitud
@@ -58,39 +58,39 @@ Característica: Simulador Digicredito
     Y valida el cambio de estado del credito <numeroDocumento><estadoCreditoEsperado>
 
     Ejemplos:
-      | numeroDocumento | estadoActual                            | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | estadoCreditoEsperado        |
-      | "9777757"       | "En registro datos adicionales cliente" | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" | "EN_SIMULACION_FINAL_ASESOR" |
+      | numeroDocumento | estadoActual | page | rutaPdf                                 | paisNacimiento | lugarDeNacimiento | nacionalidad | estadoCivil | profesion   | departamentoResidencia | ciudadResidencia | direccionResidencia   | mesesResidencia | numeroHijos | personasACargo | departamentoCorrespondencia | ciudadCorrespondencia | tipoPension | codigoProgramaNomina | fechaIngreso | fechaTerminacion | nitAfiliacion | tipoDocumento           | cargo | estadoCreditoEsperado        |
+      | "91077296"      | ""           | ""   | "src/test/resources/Data/PDFPRUEBA.pdf" | "colombia"     | "colombia"        | "colombiano" | "Soltera/o" | "ingeniero" | "Bogotá D.C"           | "Bogota"         | "Cra 14 No. 93a - 30" | "24"            | "2"         | "0"            | "Antioquia"                 | "Abejorral"           | "pension"   | "123456"             | "01/01/2015" | "30/12/2022"     | "123456"      | "Certificación laboral" | "CEO" | "EN_SIMULACION_FINAL_ASESOR" |
 
 
   @datosSolicitudCredito
   Esquema del escenario: Diligenciamiento formulario Datos Solicitud Credito
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
-    Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre>
+    Entonces se registran los datos para el credito Retanqueo <ingresosMensuales><totalDescuentos><totalDescuentosLey><lineaDeCredito><creditoPadre><pagaduria>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaDeCredito>
       | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
       | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
       | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
       | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 30/12/2021       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><tasa><plazo><diasInteresesIniciales>
-    Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito>
+    Y se validan los datos del simulador datos solicitud <tasa><plazo><ingresosMensuales><totalDescuentosLey><totalDescuentos><pagaduria><diasInteresesIniciales><creditoPadre><vlrCompras><lineaDeCredito><numeroDocumento>
     Ejemplos:
-      | numeroDocumento | estadoActual | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito      | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                       | vlrCompras |
-      | "91077296"      | ""           | ""   | "6500000"         | "250000"        | "150000"           | "Compra de cartera" | "25000000"      | "1.70" | "24"  | "120"                  | ""           | "ALCALDÍA DE FLORENCIA ACTIVOS" | "300000"   |
+      | numeroDocumento | estadoActual | page | ingresosMensuales | totalDescuentos | totalDescuentosLey | lineaDeCredito    | montoSolicitado | tasa   | plazo | diasInteresesIniciales | creditoPadre | pagaduria                       | vlrCompras |
+      | "91077296"      | ""           | ""   | "6500000"         | "250000"        | "150000"           | "Libre inversion" | "25000000"      | "1.70" | "24"  | "120"                  | ""           | "ALCALDÍA DE FLORENCIA ACTIVOS" | "0"        |
 
   @Excepciones
   Esquema del escenario: Etapa de solicitud de excepciones
     Cuando busca el credito para retomar el estado actual <numeroDocumento><estadoActual><page>
     Entonces se selecciona si se solicita las excepciones <decisionExcepcion>
-    Y se registran las excepciones
-      | tipoExcepcion    | detalleExcepcion             |
-      | Cartera cedida   | Cesión de cartera            |
-      | Compliance       | Listas restrictivas          |
-      | Desprendible     | Desprendible con incapacidad |
-      | Desprendible     | Desprendible con vacaciones  |
-      | Tasa             | Tasa                         |
+#    Y se registran las excepciones
+#      | tipoExcepcion  | detalleExcepcion             |
+#      | Cartera cedida | Cesión de cartera            |
+#      | Compliance     | Listas restrictivas          |
+#      | Desprendible   | Desprendible con incapacidad |
+#      | Desprendible   | Desprendible con vacaciones  |
+#      | Tasa           | Tasa                         |
     Ejemplos:
       | numeroDocumento | estadoActual | page | decisionExcepcion |
-      | "52912399"      | ""           | ""   | "No"              |
+      | "91077296"      | ""           | ""   | "No"              |
 
   @seguroAP
   Esquema del escenario: Etapa de seguro AP
@@ -102,7 +102,7 @@ Característica: Simulador Digicredito
 
     Ejemplos:
       | nombresApellidos                 | numeroDocumento | fechaNacimiento | celular      | correoElectronico     | estadoActual | page | vinculo     | plan     | nombresSeguroAP | parentescoSeguroAP | departamento | ciudad   | direccion         | tomarSeguroAP |
-      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "52912399"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | ""           | ""   | "Vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" | "Si"          |
+      | "RUBY ALEYDA RODRIGUEZ GONZALEZ" | "91077296"      | "06/09/1979"    | "3132739036" | "dabogadog@gmail.com" | ""           | ""   | "Vinculado" | "Plan 1" | "Juli Macias"   | "Prima"            | "Bogotá D.C" | "Bogota" | "calle 2d #22-52" | "Si"          |
 
   @referencias
   Esquema del escenario: Diligenciamiento de referencias personales y familiares
@@ -110,8 +110,8 @@ Característica: Simulador Digicredito
     Y Se ingresa la informacion de las referencias personales <pNombreRefP><sNombreRefP><pApellidoRefP><sApellidoRefP><relacionRefP><celRefP><deptoRefP><ciudadRefP>
     Y Se ingresa la informacion de las referencias familiares <pNombreRefF><sNombreRefF><pApellidoRefF><sApellidoRefF><relacionRefF><celRefF><deptoRefF><ciudadRefF>
     Ejemplos:
-      | numeroDocumento | estadoActual                 | page | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
-      | "91077296"      | "En registro de referencias" | ""   | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
+      | numeroDocumento | estadoActual | page | pNombreRefP | sNombreRefP | pApellidoRefP | sApellidoRefP | relacionRefP | celRefP      | deptoRefP | ciudadRefP | pNombreRefF | sNombreRefF | pApellidoRefF | sApellidoRefF | relacionRefF | celRefF      | deptoRefF  | ciudadRefF |
+      | "91077296"      | ""           | ""   | "maria"     | "camila"    | "lopez"       | "cardenas"    | "Amigo"      | "3204567894" | "Arauca"  | "Arauca"   | "juan"      | "david"     | "reyes"       | "sanchez"     | "Hijo"       | "3204047804" | "Amazonas" | "Leticia"  |
 
   @seguroVida
   Esquema del escenario: Registrar beneficiarios seguro de vida

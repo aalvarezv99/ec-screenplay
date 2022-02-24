@@ -129,6 +129,19 @@ public class DatosSolicitudStepDefinitions {
             );
         } else {
             calculosSimulador = ResultadoTask.consultarCalculosSimulador(valueMontoSolicitado, tasa, plazo, diasIntereses, vlrCompras, ingresos, descLey, descNomina, pagaduria);
+            System.out.println("Tipo Calculos : " + calculosSimulador.getTipoCalculos());
+            System.out.println("Prima Seguro Anticipada : " + calculosSimulador.getPrimaSeguroAnticipada());
+            System.out.println("Cuota Corriente : " + calculosSimulador.getCuotaCorriente());
+            System.out.println("Gmf4X1000 : " + calculosSimulador.getGmf4X100());
+            System.out.println("Prima No Devengada : " + calculosSimulador.getPrimaNoDevengada());
+            System.out.println("Prima Neta : " + calculosSimulador.getPrimaNeta());
+            System.out.println("Suma Fianzas : " + calculosSimulador.getSumaFianzas());
+            System.out.println("Fianza Padre : " + calculosSimulador.getFianzaPadre());
+            System.out.println("fianza neta : " + calculosSimulador.getFianzaNeta());
+            System.out.println("Estudio Credito : " + calculosSimulador.getEstudioCredito());
+            System.out.println("Saldo al Dia : " + calculosSimulador.getSaldoAlDia());
+            System.out.println("Remanente Estimado : " + calculosSimulador.getRemanenteEstimado());
+            System.out.println(" ya muestra todos los valores ");
 
             theActorInTheSpotlight().attemptsTo(
                     Ensure.that(Integer.parseInt(ResultadoCalculoCredito.vlrCompras().answeredBy(theActorInTheSpotlight()))).isBetween(Integer.parseInt(vlrCompras) - 1, Integer.parseInt(vlrCompras) + 1),

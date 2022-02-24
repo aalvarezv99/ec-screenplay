@@ -19,6 +19,7 @@ public class FuncionesCreditoQuery {
             String sql = "select * from public.calculos_automatizacion_pruebas_originacion (" + Monto + "," + DesPrimaAntic + "," + Tasa +
                     "," + Plazo + "," + DiasHabilesIntereses + "," + vlrCompasSaneamientos + "," + Ingresos + "," + descLey +
                     "," + descNomina + "," + Pagaduria + ");";
+            System.out.println("  sql función originacion -----------> " + sql);
             r = dbconector.conexion(sql);
         } catch (Exception e) {
             System.out.println("********consultarCalculosSimuladorOriginacion() ********");

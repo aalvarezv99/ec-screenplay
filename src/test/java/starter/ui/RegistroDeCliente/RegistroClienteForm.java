@@ -24,6 +24,7 @@ public class RegistroClienteForm {
     public static final Target ciudadResidencia  = Target.the("Caja de texto para el departamento de residencia").located(By.id("city"));
     public static final Target listResidencia  = Target.the("Lista departamento residencia").locatedBy("//div[text()='{0}']");
     public static final Target iconClosed = Target.the("icono cerrar").locatedBy("//div[@class='sc-hYAvag bNEMmX']/div[1]/div[1]/*");
+    public static final Target iconClosedEndeudamiento = Target.the("icono cerrar endeudamiento").locatedBy("//div[@id='ContainerModalInfoErrors']/div[1]/div[1]/*");
     public static final Target buttonContinuar = Target.the("boton continuar").locatedBy("//button[text()='Continuar' and @id='bottom-action-button']");
     public static final Target buttonAceptarTerminos = Target.the("boton Aceptar Terminos").locatedBy("//button[text()='Aceptar' and @id='accept-terms']");
 

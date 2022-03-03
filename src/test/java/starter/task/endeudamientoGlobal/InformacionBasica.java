@@ -5,7 +5,10 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.conditions.Check;
+import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.endeudamientoGlobal.EndeudamientoGlobalForm;
@@ -36,9 +39,15 @@ public class InformacionBasica implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        Boolean modalValidacionDatos = Visibility.of(RegistroClienteForm.iconClosedEndeudamiento).viewedBy(actor).value();
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
-                Enter.theValue(codigoAdo).into(EndeudamientoGlobalForm.codigoAdo),
+                Check.whether(modalValidacionDatos)
+                        .andIfSo(Click.on(RegistroClienteForm.iconClosedEndeudamiento))
+        );
+
+        actor.attemptsTo(
+                 Enter.theValue(codigoAdo).into(EndeudamientoGlobalForm.codigoAdo),
                 Click.on(EndeudamientoGlobalForm.estrato),
                 Click.on(CommonsLocators.locatorByText.of(estrato)),
                 Click.on(EndeudamientoGlobalForm.tipoVivienda),

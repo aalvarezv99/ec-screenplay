@@ -14,7 +14,7 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features/originacion/SimuladorOriginacion.feature",
         glue = "starter",
-        tags = "@Simulador",
+        tags = "@firmaDocumentos",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 
@@ -25,4 +25,4 @@ public class Originacion {
         DataToFeature.overrideFeatureFiles("src/test/resources/features/originacion/SimuladorOriginacion.feature");
     }
 }
-//@Simulador or @endeudamientoGlobal,@desembolso,@datosSolicitud,@datosSolicitudCredito,@seguroAP,@referencias,@seguroVida,@OperInternacionalesPEPS,@firmaDocumentos
+//@Simulador or @endeudamientoGlobal or @desembolso or @datosSolicitud or @datosSolicitudCredito or @Excepciones or @seguroAP or @referencias or @seguroVida or @OperInternacionalesPEPS or @firmaDocumentos

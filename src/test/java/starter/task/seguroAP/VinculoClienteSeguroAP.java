@@ -36,7 +36,7 @@ public class VinculoClienteSeguroAP implements Task {
                         .andIfSo(
                                 Click.on(SeguroApForm.noTomarSeguro),
                                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
-                        ),
+                        ).otherwise(
                 Check.whether(vinculo.equals("Vinculado"))
                         .andIfSo(
                                 Click.on(SeguroApForm.tomadorCreditoVinculado)
@@ -54,6 +54,6 @@ public class VinculoClienteSeguroAP implements Task {
                         ),
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(10).seconds()
-        );
+                ));
     }
 }

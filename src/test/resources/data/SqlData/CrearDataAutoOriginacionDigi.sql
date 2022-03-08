@@ -27,9 +27,9 @@ select	a.com||p.nombre || a.com pagaduria, a.com || c.identificacion || a.com Ce
 		|| 'src/test/resources/Data/PDFPRUEBA.pdf' || a.com rutaPDF, a.com
 		|| 'Educacion propia'|| a.com DestinoCredito, a.com
 		|| '${sexo}' || a.com sexo, a.com
-		|| 'Soltero' || a.com EstadoCivil, a.com
+		|| 'Soltera/o' || a.com EstadoCivil, a.com
 		|| 'Calle 2d #22-52' || a.com Direccion, a.com
-		|| 'FAMILIAR' || a.com tipovivienda, a.com
+		|| 'Arriendo' || a.com tipovivienda, a.com
 		|| 'perez'|| a.com pApellidoReferencia, a.com
 		|| 'alejando'|| a.com PnombreReferencia, a.com
 		|| '7210273' || a.com telefonoResidencia, a.com
@@ -39,7 +39,7 @@ select	a.com||p.nombre || a.com pagaduria, a.com || c.identificacion || a.com Ce
 		|| 'Efectivo' || a.com tipoDesembolso, a.com
 		|| 'Remanentes - 60237038927 - REMANENTE'|| a.com banco, a.com 
 		|| ''''||'ACRED'||''',' || ''''||'EGRESO' ||''''|| a.com AccountingSource, a.com 
-		|| 'upper(' ||''''||'Desembolso egreso'||'''),' ||'upper('|| ''''||'Desembolso activaciÃ³n de crÃ©dito' ||''''||')'|| a.com AccountingName, a.com
+		|| 'upper(' ||''''||'Desembolso egreso'||'''),' ||'upper('|| ''''||'Desembolso activación de crédito' ||''''||')'|| a.com AccountingName, a.com
 		|| '05/01/2022' || a.com FechaRegistro, a.com 
 		|| '${Cartera1}' || a.com Cartera1, a.com
 		|| '${Saneamiento2}' || a.com Saneamiento2, a.com

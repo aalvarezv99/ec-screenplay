@@ -13,6 +13,8 @@ import starter.task.simulador.ResultadoTask;
 import starter.ui.commons.CommonsFuntions;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -89,7 +91,7 @@ public class DatosSolicitudStepDefinitions {
             );
         }
     }
-
+    /*ThainerPerez 09/Marzo/2022 :V1.2: -Se agrega el parametro de "fechaActual" para que se ejecuten la funcion de estudio de credito de manera correcta en SQL */
     @Y("se validan los datos del simulador datos solicitud {string}{string}{string}{string}{string}{string}{string}{string}{string}{string}{string}")
     public void se_validan_los_datos_del_simulador_datos_solicitud(String tasa, String plazo, String ingresos, String descLey, String descNomina, String pagaduria, String diasIntereses, String creditoPadre, String vlrCompras, String lineaCredito, String cedula) throws SQLException, SQLException {
 
@@ -99,8 +101,9 @@ public class DatosSolicitudStepDefinitions {
         valueMontoSolicitado = valueMontoSolicitado.replace("$", "").replace(".", "").replace(" ", "");
 
         if (lineaCredito.contains("Retanqueo")) {
+            String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
             if (this.multiple > 1) {
-                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula, pagaduria, tasa, plazo, diasIntereses, Integer.parseInt(valueMontoSolicitado), vlrCompras);
+                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula, pagaduria, tasa, plazo, diasIntereses, Integer.parseInt(valueMontoSolicitado), vlrCompras,fechaActual);
                 System.out.println("Tipo Calculos : " + calculosSimulador.getTipoCalculos());
                 System.out.println("Prima Seguro Anticipada : " + calculosSimulador.getPrimaSeguroAnticipada());
                 System.out.println("Cuota Corriente : " + calculosSimulador.getCuotaCorriente());
@@ -115,7 +118,7 @@ public class DatosSolicitudStepDefinitions {
                 System.out.println("Remanente Estimado : " + calculosSimulador.getRemanenteEstimado());
                 System.out.println(" ya muestra todos los valores ");
             } else {
-                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre, tasa, plazo, diasIntereses, valueMontoSolicitado, vlrCompras);
+                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre, tasa, plazo, diasIntereses, valueMontoSolicitado, vlrCompras,fechaActual);
             }
 
             theActorInTheSpotlight().attemptsTo(

@@ -68,7 +68,7 @@ public class ResultadoTask {
 
 
     public static SimuladorModels consultarCalculosSimuladorRetanqueo(String creditoPadre, String tasa, String plazo,
-                                                                      String diasHabilesIntereses, String monto,String vlrCompras) throws SQLException {
+                                                                      String diasHabilesIntereses, String monto,String vlrCompras, String fecha) throws SQLException {
 
         ResultSet resultado;
         int DesPrimaAntic=0;
@@ -79,7 +79,7 @@ public class ResultadoTask {
         ResultSet r = null;
         try {
             r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueo(creditoPadre,tasa,plazo,
-                    diasHabilesIntereses,monto,vlrCompras);
+                    diasHabilesIntereses,monto,vlrCompras,fecha);
             while (r.next()) {
                 resultSimulador.setTipoCalculos(r.getString(1));
                 resultSimulador.setPrimaSeguroAnticipada(r.getInt(2));
@@ -102,12 +102,12 @@ public class ResultadoTask {
 
     }
 
-    public static SimuladorModels consultarCalculosSimuladorRetanqueoMultiple(String cedula,String pagaduria,String tasa,String plazo,String diasIntIniciales,int monto, String compraCarteraSuma){
+    public static SimuladorModels consultarCalculosSimuladorRetanqueoMultiple(String cedula,String pagaduria,String tasa,String plazo,String diasIntIniciales,int monto, String compraCarteraSuma, String fecha){
         System.out.println("****** Calculando valores simulador Retanqueo por funcion SQL, RetanqueoCreditos -  consultarCalculosSimuladorRetanqueo()*******");
         SimuladorModels resultSimulador = new SimuladorModels();
         ResultSet r = null;
         try {
-            r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueoMultiple(cedula,pagaduria,tasa,plazo,diasIntIniciales,monto, compraCarteraSuma);
+            r = consultarCalculosSimulador.consultarCalculosSimuladorRetanqueoMultiple(cedula,pagaduria,tasa,plazo,diasIntIniciales,monto, compraCarteraSuma, fecha);
             while(r.next()) {
 
                 resultSimulador.setTipoCalculos(r.getString(1));

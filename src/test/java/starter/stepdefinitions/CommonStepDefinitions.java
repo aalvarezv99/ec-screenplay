@@ -26,8 +26,8 @@ public class CommonStepDefinitions {
         );
     }
 
-    @Y("valida el cambio de estado del credito {string}{string}")
-    public void validaElCambioDeEstadoDelCredito(String numeroDocumento, String estadoCreditoEsperado) {
+    @Y("^valida el cambio de estado del credito \"([^\"]*)\" con estado \"([^\"]*)\"$")
+    public void validaElCambioDeEstadoDelCreditoConEstado(String numeroDocumento, String estadoCreditoEsperado) {
 
         FuncionesCreditoQuery query = new FuncionesCreditoQuery();
         String estadoCreditoDB = "";

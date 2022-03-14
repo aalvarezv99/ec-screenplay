@@ -1,5 +1,6 @@
 package starter.stepdefinitions.simulador;
 
+import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.actions.Click;
@@ -20,6 +21,11 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class SimuladorStepDefinitions {
     int multiple = 0;
+
+    @Dado("la actualizacion del usuario autorizado para la {string}")
+    public void laActualizacionDelUsuarioAutorizadoParaLa(String cedula){
+        ResultadoTask.ejecutarUpdateUsuarioAutorizado(cedula);
+    }
 
     @Entonces("el usuario diligencias los campos del formulario {string}{string}{string}{string}{string}{string}{string}{string}{string}")
     public void el_usuario_diligencias_los_campos_del_formulario(String oficinaAsesor, String nombresApellidos, String numeroDocumento, String fechaNacimiento, String celular, String correoElectronico, String actividad, String pagaduria, String Contacto) {

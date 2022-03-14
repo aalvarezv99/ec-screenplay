@@ -131,5 +131,14 @@ public class ResultadoTask {
         return resultSimulador;
     }
 
+    public static void ejecutarUpdateUsuarioAutorizado(String cedula){
+        try {
+            consultarCalculosSimulador.ejecutarUpdateCliente(cedula);
+        }catch (Exception e ){
+            System.out.println("Error TASK ejecutar Update" + e);
+        }
+
+    }
+
 
 }

@@ -6,8 +6,10 @@ Característica: Simulador Digicredito
     Cuando se asigna el usuario
     Y ingresa su usuario 88776655 y contrasena 4112935
 
+
   @Simulador
   Esquema del escenario:  Simulador Inicial
+    Dado la actualizacion del usuario autorizado para la <Cedula>
     Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><Cedula><fechaNacimiento><Celular><Correo><Actividad><Pagaduria><Contacto>
     Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><Tasa><Plazo><DiasHabilesIntereses>
     Y diligencia los datos financieros <Ingresos><descLey><descNomina><lineaCredito><Credito><vlrCompasSaneamientos><Pagaduria>

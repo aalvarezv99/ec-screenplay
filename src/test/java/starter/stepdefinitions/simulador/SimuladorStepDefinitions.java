@@ -1,5 +1,6 @@
 package starter.stepdefinitions.simulador;
 
+import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import net.serenitybdd.screenplay.actions.Click;
@@ -11,6 +12,8 @@ import starter.task.simulador.*;
 import starter.ui.simulador.DatosClienteForm;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -18,6 +21,11 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class SimuladorStepDefinitions {
     int multiple = 0;
+
+    @Dado("la actualizacion del usuario autorizado para la {string}")
+    public void laActualizacionDelUsuarioAutorizadoParaLa(String cedula){
+        ResultadoTask.ejecutarUpdateUsuarioAutorizado(cedula);
+    }
 
     @Entonces("el usuario diligencias los campos del formulario {string}{string}{string}{string}{string}{string}{string}{string}{string}")
     public void el_usuario_diligencias_los_campos_del_formulario(String oficinaAsesor, String nombresApellidos, String numeroDocumento, String fechaNacimiento, String celular, String correoElectronico, String actividad, String pagaduria, String Contacto) {
@@ -41,8 +49,9 @@ public class SimuladorStepDefinitions {
         valueMontoSolicitado = valueMontoSolicitado.replace("$", "").replace(".", "").replace(" ", "");
 
         if (lineaCredito.contains("Retanqueo")) {
+            String fechaActual = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
             if (this.multiple > 1) {
-                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula, pagaduria, tasa, plazo, diasIntereses, Integer.parseInt(valueMontoSolicitado), vlrCompras);
+                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueoMultiple(cedula, pagaduria, tasa, plazo, diasIntereses, Integer.parseInt(valueMontoSolicitado), vlrCompras, fechaActual);
                 System.out.println("Tipo Calculos : " + calculosSimulador.getTipoCalculos());
                 System.out.println("Prima Seguro Anticipada : " + calculosSimulador.getPrimaSeguroAnticipada());
                 System.out.println("Cuota Corriente : " + calculosSimulador.getCuotaCorriente());
@@ -56,7 +65,7 @@ public class SimuladorStepDefinitions {
                 System.out.println("Saldo al Dia : " + calculosSimulador.getSaldoAlDia());
                 System.out.println("Remanente Estimado : " + calculosSimulador.getRemanenteEstimado());
             } else {
-                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre, tasa, plazo, diasIntereses, valueMontoSolicitado, vlrCompras);
+                calculosSimulador = ResultadoTask.consultarCalculosSimuladorRetanqueo(creditoPadre, tasa, plazo, diasIntereses, valueMontoSolicitado, vlrCompras, fechaActual);
             }
             theActorInTheSpotlight().attemptsTo(
                     Ensure.that(Integer.parseInt(Simulador.cuotaCorrienteCal().answeredBy(theActorInTheSpotlight()))).isBetween(calculosSimulador.getCuotaCorriente() - 1, calculosSimulador.getCuotaCorriente() + 1),

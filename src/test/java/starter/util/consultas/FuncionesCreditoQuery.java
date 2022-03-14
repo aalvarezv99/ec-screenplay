@@ -46,12 +46,12 @@ public class FuncionesCreditoQuery {
     }
 
     public ResultSet consultarCalculosSimuladorRetanqueo(String creditoPadre, String tasa, String plazo,
-                                                         String diasHabilesIntereses, String monto, String sumaMontocCarteras) {
+                                                         String diasHabilesIntereses, String monto, String sumaMontocCarteras, String fecha) {
 
         ResultSet r = null;
         try {
 
-            String sql = "select * from public.calculos_simulador_retanqueo (" + Integer.parseInt(creditoPadre) + "," + Double.parseDouble(tasa) + "," + Integer.parseInt(plazo) + "," + Integer.parseInt(diasHabilesIntereses) + "," + Integer.parseInt(monto) + "," + Integer.parseInt(sumaMontocCarteras) + ");";
+            String sql = "select * from public.calculos_simulador_retanqueo (" + Integer.parseInt(creditoPadre) + "," + Double.parseDouble(tasa) + "," + Integer.parseInt(plazo) + "," + Integer.parseInt(diasHabilesIntereses) + "," + Integer.parseInt(monto) + "," + Integer.parseInt(sumaMontocCarteras) +"," + CommonsFuntions.agregarComillas(fecha) + ");";
             // System.out.println(sql);
             r = dbconector.conexion(sql);
 
@@ -63,12 +63,12 @@ public class FuncionesCreditoQuery {
     }
 
     /*ThainePerez 22/Feb/2022 V1.0 :   1.  Se crea el consumo de la funcion para retanqueo multiple*/
-    public ResultSet consultarCalculosSimuladorRetanqueoMultiple(String cedula, String pagaduria, String tasa, String plazo, String diasIntIniciales, int monto, String compraCarteraSuma) {
+    public ResultSet consultarCalculosSimuladorRetanqueoMultiple(String cedula, String pagaduria, String tasa, String plazo, String diasIntIniciales, int monto, String compraCarteraSuma, String fecha) {
 
         System.out.println("********************** Ejecutando Funcion Retanqueo Multiple - consultarCalculosSimuladorRetanqueoMultiple() **************");
         ResultSet r = null;
         try {
-            String sql = "select * from	autopruebas_retanqueo_multiple_cal_simulador(" + CommonsFuntions.agregarComillas(cedula) + "," + CommonsFuntions.agregarComillas(pagaduria) + "," + tasa + "," + plazo + "," + diasIntIniciales + "," + monto + "," + compraCarteraSuma + ");";
+            String sql = "select * from	autopruebas_retanqueo_multiple_cal_simulador(" + CommonsFuntions.agregarComillas(cedula) + "," + CommonsFuntions.agregarComillas(pagaduria) + "," + tasa + "," + plazo + "," + diasIntIniciales + "," + monto + "," + compraCarteraSuma +"," + CommonsFuntions.agregarComillas(fecha)+");";
             System.out.println(sql);
             r = dbconector.conexion(sql);
         } catch (Exception e) {
@@ -128,5 +128,13 @@ public class FuncionesCreditoQuery {
             System.out.println(e.getMessage());
         }
         return r;
+    }
+
+    public void ejecutarUpdateCliente(String cedula){
+        try {
+            dbconector.ejecutorFunciones("update cliente set id_asesor_autorizado = '758' where identificacion ="+ CommonsFuntions.agregarComillas(cedula) +";");
+        }catch (Exception e){
+            System.out.println("Error ejecutando el update del cluiente" +  e.getMessage());
+        }
     }
 }

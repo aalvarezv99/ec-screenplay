@@ -6,7 +6,11 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actions.ScrollToWebElement;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.firmaDocumentos.FirmaDocumentosForm;
@@ -34,7 +38,15 @@ public class ConsultarOTP implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
+                //inicio codigo temporal para el tema de ADO
+                WaitUntil.the(FirmaDocumentosForm.btnClose, isVisible()).forNoMoreThan(20).seconds(),
+                Click.on(FirmaDocumentosForm.btnClose),
+                WaitUntil.the(FirmaDocumentosForm.inputCodigoADO, isVisible()).forNoMoreThan(20).seconds(),
+                Enter.keyValues("123456").into(FirmaDocumentosForm.inputCodigoADO),
+                Scroll.to(CommonsLocators.botonSiguiente),
                 Click.on(CommonsLocators.botonSiguiente),
+                Click.on(FirmaDocumentosForm.btnContinuar),
+                //fin codigo temporal para el tema de ADO
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
         );
         FuncionesCreditoQuery query = new FuncionesCreditoQuery();

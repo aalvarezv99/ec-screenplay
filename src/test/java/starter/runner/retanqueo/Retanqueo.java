@@ -26,4 +26,4 @@ public class Retanqueo {
     }
 }
 
-//
+//@Simulador or @endeudamientoGlobal or @desembolso or @datosSolicitud or @datosSolicitudCredito or @Excepciones or @seguroAP or @referencias or @seguroVida or @OperInternacionalesPEPS or @firmaDocumentos

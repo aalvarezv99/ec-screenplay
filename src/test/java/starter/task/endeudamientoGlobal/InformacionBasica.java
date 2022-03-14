@@ -47,7 +47,7 @@ public class InformacionBasica implements Task {
         );
 
         actor.attemptsTo(
-                 Enter.theValue(codigoAdo).into(EndeudamientoGlobalForm.codigoAdo),
+                 //Enter.theValue(codigoAdo).into(EndeudamientoGlobalForm.codigoAdo),
                 Click.on(EndeudamientoGlobalForm.estrato),
                 Click.on(CommonsLocators.locatorByText.of(estrato)),
                 Click.on(EndeudamientoGlobalForm.tipoVivienda),

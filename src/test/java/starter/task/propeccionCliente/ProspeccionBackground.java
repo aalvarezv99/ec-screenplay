@@ -27,7 +27,7 @@ public class ProspeccionBackground implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
-                WaitUntil.the(ProspeccionUI.paginasConsulta, isVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(ProspeccionUI.paginasConsulta, isVisible()).forNoMoreThan(20).seconds()
         );
 
         String textPage = Text.of(ProspeccionUI.paginasConsulta).viewedBy(actor).asString().replace(" ", "");
@@ -43,7 +43,7 @@ public class ProspeccionBackground implements Task {
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
                 Click.on(ProspeccionUI.seguirflujoContinuar),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
-                WaitUntil.the(EndeudamientoGlobalForm.codigoAdo, isVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(EndeudamientoGlobalForm.estrato, isVisible()).forNoMoreThan(30).seconds()
         );
 
     }

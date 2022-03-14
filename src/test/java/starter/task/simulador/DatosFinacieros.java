@@ -49,7 +49,7 @@ public class DatosFinacieros implements Task {
 
 
         actor.attemptsTo(
-                WaitUntil.the(DatosFinancierosForm.ingresos, isVisible()).forNoMoreThan(120).seconds(),
+                WaitUntil.the(DatosFinancierosForm.ingresos, isVisible()).forNoMoreThan(240).seconds(),
                 Click.on(DatosFinancierosForm.ingresos),
                 Enter.theValue(ingresos).into(DatosFinancierosForm.ingresos),
                 Click.on(DatosFinancierosForm.descuentosNomina),

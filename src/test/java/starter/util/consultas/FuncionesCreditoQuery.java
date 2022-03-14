@@ -129,4 +129,12 @@ public class FuncionesCreditoQuery {
         }
         return r;
     }
+
+    public void ejecutarUpdateCliente(String cedula){
+        try {
+            dbconector.ejecutorFunciones("update cliente set id_asesor_autorizado = '758' where identificacion ="+ CommonsFuntions.agregarComillas(cedula) +";");
+        }catch (Exception e){
+            System.out.println("Error ejecutando el update del cluiente" +  e.getMessage());
+        }
+    }
 }

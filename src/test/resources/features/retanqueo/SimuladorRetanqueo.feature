@@ -8,6 +8,7 @@ Característica: Simulador Digicredito
 
   @Simulador
   Esquema del escenario:  Paso uno Datos cliente
+    Dado la actualizacion del usuario autorizado para la <Cedula>
     Entonces el usuario diligencias los campos del formulario <oficinaAsesor><nombresApellidos><Cedula><fechaNacimiento><celular><Correo><actividad><pagaduria><Contacto>
     Y ingresa la informacion de los valores credito a solicitar <montoSolicitado><Tasa><Plazo><DiasHabilesIntereses>
     Y diligencia los datos financieros <Ingresos><descLey><descNomina><lineaCredito><Credito><VlrCompraSaneamiento><pagaduria>

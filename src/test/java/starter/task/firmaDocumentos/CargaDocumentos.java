@@ -36,7 +36,7 @@ public class CargaDocumentos implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         Path doc = Paths.get(rutaPdf).toAbsolutePath();
-        List<String> files = Arrays.asList("Autorizacion de Descuento", "Documento adicional");
+        List<String> files = Arrays.asList("Autorizacion Expresa de Consulta de Informacion","Autorizacion de Descuento", "Documento adicional");
         String defaultDescription = "pdf documento adicional";
         for (String file : files) {
             actor.attemptsTo(

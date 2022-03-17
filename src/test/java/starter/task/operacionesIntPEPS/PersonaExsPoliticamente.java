@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
@@ -38,7 +39,17 @@ public class PersonaExsPoliticamente implements Task {
                 Click.on(OperacionesIntPEPSForm.funcionarioPublico.of(funcionarioPublico)),
                 Click.on(OperacionesIntPEPSForm.recursosPublicos.of(recursosPublicos)),
                 Click.on(OperacionesIntPEPSForm.expuestoPoliticamente.of(expuestoPoliticamente)),
-                Enter.theValue(fechaExpuesto).into(OperacionesIntPEPSForm.fechapoliticamente),
+                Enter.theValue(fechaExpuesto).into(OperacionesIntPEPSForm.fechapoliticamente)
+        );
+        actor.attemptsTo(
+        Click.on(OperacionesIntPEPSForm.familiarExpuestoPoliticamente.of(expuestoPoliticamente)),
+        Check.whether(funcionarioPublico.equals("Si"))
+                .andIfSo(
+                    //codigo para la parte de familiares
+                )
+        );
+
+        actor.attemptsTo(
                 Click.on(CommonsLocators.botonSiguiente),
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 WaitUntil.the(SeguroApForm.continuar, isVisible()).forNoMoreThan(10).seconds(),

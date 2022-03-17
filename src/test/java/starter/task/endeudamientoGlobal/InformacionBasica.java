@@ -8,10 +8,12 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import starter.task.propeccionCliente.ProspeccionBackground;
 import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.endeudamientoGlobal.EndeudamientoGlobalForm;
+import starter.ui.prospeccion.ProspeccionUI;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -39,6 +41,15 @@ public class InformacionBasica implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        Boolean paginasProspeccion = Visibility.of(ProspeccionUI.paginasConsulta).viewedBy(actor).value();
+
+        actor.attemptsTo(
+                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
+                Check.whether(paginasProspeccion)
+                        .andIfSo(ProspeccionBackground.whithProspeccionBackground())
+        );
+
+
         Boolean modalValidacionDatos = Visibility.of(RegistroClienteForm.iconClosedEndeudamiento).viewedBy(actor).value();
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),

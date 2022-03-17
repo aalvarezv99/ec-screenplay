@@ -18,5 +18,6 @@ public class OperacionesIntPEPSForm {
     public static final Target recursosPublicos = Target.the("Recursos publicos").locatedBy("//input[starts-with(@id,'managePublicResources')]/following-sibling::label[text()='{0}']/preceding-sibling::div");
     public static final Target expuestoPoliticamente = Target.the("Expuesto politicamente").locatedBy("//input[starts-with(@id,'politicallyExposed')]/following-sibling::label[text()='{0}']/preceding-sibling::div");
     public static final Target fechapoliticamente = Target.the("Fecha expuesto politicamente").located(By.id("fecha"));
+    public static final Target familiarExpuestoPoliticamente = Target.the("Familiar Expuesto politicamente").locatedBy("//input[starts-with(@id,'politicallyExposedRe')]/following-sibling::label[text()='{0}']/preceding-sibling::div");
 
 }

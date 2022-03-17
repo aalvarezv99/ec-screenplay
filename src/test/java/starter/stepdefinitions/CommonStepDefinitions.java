@@ -35,7 +35,7 @@ public class CommonStepDefinitions {
         ResultSet result;
 
         long start_time = System.currentTimeMillis();
-        long wait_time = 10000;
+        long wait_time = 20000;
         long end_time = start_time + wait_time;
 
         while (System.currentTimeMillis() < end_time && (estadoCreditoDB != estadoCreditoEsperado)) {

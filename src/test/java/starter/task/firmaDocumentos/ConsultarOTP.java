@@ -42,6 +42,7 @@ public class ConsultarOTP implements Task {
                 WaitUntil.the(FirmaDocumentosForm.btnClose, isVisible()).forNoMoreThan(20).seconds(),
                 Click.on(FirmaDocumentosForm.btnClose),
                 WaitUntil.the(FirmaDocumentosForm.inputCodigoADO, isVisible()).forNoMoreThan(20).seconds(),
+                Click.on(FirmaDocumentosForm.origenValidacionIdentidad.of("Who is Who")),
                 Enter.keyValues("123456").into(FirmaDocumentosForm.inputCodigoADO),
                 Scroll.to(CommonsLocators.botonSiguiente),
                 Click.on(CommonsLocators.botonSiguiente),

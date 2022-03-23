@@ -72,9 +72,9 @@ Característica: Simulador Digicredito
     Entonces se registran los datos para el credito Retanqueo <Ingresos><descNomina><descLey><lineaCredito><Credito><Pagaduria>
     Y se crean los tipos de cartera o saneamiento a recoger con la linea de <lineaCredito>
       | Contador | Entidad             | Monto  | VlrCuota | FechaVencimiento | NumObligacion |
-      | 1        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
+      | 1        | ABOGADAS Y ASESORES | 200000 | 70000    | 28/02/2022       | 21236         |
       | 2        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
-      | 3        | ABOGADAS Y ASESORES | 100000 | 70000    | 28/02/2022       | 21236         |
+      | 3        | ABOGADAS Y ASESORES | 150000 | 70000    | 28/02/2022       | 21236         |
     Y diligencia los datos calculo credito <montoSolicitado><Tasa><Plazo><DiasHabilesIntereses>
     Y se validan los datos del simulador datos solicitud <Tasa><Plazo><Ingresos><descLey><descNomina><Pagaduria><DiasHabilesIntereses><Credito><vlrCompasSaneamientos><lineaCredito><Cedula>
     Y valida el cambio de estado del credito <Cedula> con estado "EN_ESPERA_EXCEPCIONES"

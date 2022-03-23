@@ -19,5 +19,9 @@ public class OperacionesIntPEPSForm {
     public static final Target expuestoPoliticamente = Target.the("Expuesto politicamente").locatedBy("//input[starts-with(@id,'politicallyExposed')]/following-sibling::label[text()='{0}']/preceding-sibling::div");
     public static final Target fechapoliticamente = Target.the("Fecha expuesto politicamente").located(By.id("fecha"));
     public static final Target familiarExpuestoPoliticamente = Target.the("Familiar Expuesto politicamente").locatedBy("//input[starts-with(@id,'politicallyExposedRe')]/following-sibling::label[text()='{0}']/preceding-sibling::div");
+    public static final Target familiarExpPolitiParentesco = Target.the("Familiar Expuesto politicamente parentesco").locatedBy("//input[@id='parentesco{0}']");
+    public static final Target familiarExpPolitiNombres = Target.the("Familiar Expuesto politicamente Nombres").locatedBy("//input[@id='nombres{0}']");
+    public static final Target familiarExpPolitiApellidos = Target.the("Familiar Expuesto politicamente Apellidos").locatedBy("//input[@id='apellidos{0}']");
+    public static final Target botonFamiliarExpPoliti = Target.the("Boton para agregar familiar expuesto politicamente").locatedBy("//button[text()='+ Agregar familiar']");
 
 }

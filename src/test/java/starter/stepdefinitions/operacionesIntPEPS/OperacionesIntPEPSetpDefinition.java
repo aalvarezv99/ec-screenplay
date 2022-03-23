@@ -1,8 +1,14 @@
 package starter.stepdefinitions.operacionesIntPEPS;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.es.Y;
+import starter.task.excepciones.SelecionarExcepciones;
+import starter.task.operacionesIntPEPS.FamiliarExsPoliticamente;
 import starter.task.operacionesIntPEPS.OperacionesIntPEPSTask;
 import starter.task.operacionesIntPEPS.PersonaExsPoliticamente;
+
+import java.util.List;
+import java.util.Map;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
@@ -20,5 +26,14 @@ public class OperacionesIntPEPSetpDefinition {
         theActorInTheSpotlight().attemptsTo(
                 PersonaExsPoliticamente.whithpersonaExsPoliticamente(funcionarioPublico,recursosPublicos,expuestoPoliticamente,fechaExpuesto)
                         );
+    }
+
+    @Y("llena el formulario de familares del cliente {string}")
+    public void llena_el_formulario_de_familares_del_cliente(String expuestoPoliticamente,DataTable dataTable) {
+
+        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+        theActorInTheSpotlight().attemptsTo(
+                FamiliarExsPoliticamente.withFamiliarExsPoliticamente(expuestoPoliticamente,data)
+        );
     }
 }

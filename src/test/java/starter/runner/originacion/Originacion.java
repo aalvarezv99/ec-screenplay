@@ -14,7 +14,7 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features/originacion/SimuladorOriginacion.feature",
         glue = "starter",
-        tags = "@firmaDocumentos",
+        tags = "@Simulador or @endeudamientoGlobal or @desembolso or @datosSolicitud or @datosSolicitudCredito or @Excepciones or @seguroAP or @referencias or @seguroVida or @OperInternacionalesPEPS or @firmaDocumentos",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 

@@ -41,19 +41,8 @@ public class PersonaExsPoliticamente implements Task {
                 Click.on(OperacionesIntPEPSForm.expuestoPoliticamente.of(expuestoPoliticamente)),
                 Enter.theValue(fechaExpuesto).into(OperacionesIntPEPSForm.fechapoliticamente)
         );
-        actor.attemptsTo(
-        Click.on(OperacionesIntPEPSForm.familiarExpuestoPoliticamente.of(expuestoPoliticamente)),
-        Check.whether(funcionarioPublico.equals("Si"))
-                .andIfSo(
-                    //codigo para la parte de familiares
-                )
-        );
 
-        actor.attemptsTo(
-                Click.on(CommonsLocators.botonSiguiente),
-                WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
-                WaitUntil.the(SeguroApForm.continuar, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(SeguroApForm.continuar)
-        );
+
+
     }
 }

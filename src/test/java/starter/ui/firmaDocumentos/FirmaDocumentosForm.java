@@ -12,7 +12,7 @@ public class FirmaDocumentosForm {
     public static final Target inputDescripcionDoc = Target.the("input para agregar descripción del documento").located(By.id("descripcion"));
     public static final Target divFile = Target.the("div que contiene el input file").located(By.id("input-file"));
     public static final Target btnRadicarCredito = Target.the("botón para radicar credito").locatedBy("//button[contains(text(), 'Radicar cr')]");
-    public static final Target btnClose = Target.the("botón cerrar").locatedBy("//div[@class='sc-hKkhaR gRLqJH']/div[1]/*");
+    public static final Target btnClose = Target.the("botón cerrar").locatedBy("//div[@id='ContainerModalInfoErrors']/div/div/*[@id='close-icon']");
     public static final Target inputCodigoADO = Target.the("imput codigo ADO").locatedBy("//input[@id='adoSegmentCode']");
     public static final Target origenValidacionIdentidad = Target.the("origen validacion identidad").locatedBy("//label[contains(text(),'{0}')]/preceding-sibling::div");
 

@@ -15,5 +15,6 @@ public class FirmaDocumentosForm {
     public static final Target btnClose = Target.the("botón cerrar").locatedBy("//div[@id='ContainerModalInfoErrors']/div/div/*[@id='close-icon']");
     public static final Target inputCodigoADO = Target.the("imput codigo ADO").locatedBy("//input[@id='adoSegmentCode']");
     public static final Target origenValidacionIdentidad = Target.the("origen validacion identidad").locatedBy("//label[contains(text(),'{0}')]/preceding-sibling::div");
+    public static final Target tipoDocumentoList = Target.the("lista para opciones de tipo documento").locatedBy("//label[text()='Tipo documento']/parent::div/child::div/child::div[2]/child::div");
 
 }

@@ -14,7 +14,7 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/resources/features/retanqueo/SimuladorRetanqueo.feature",
         glue = "starter",
-        tags = "@firmaDocumentos",
+        tags = "@Simulador",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 //@Simulador or @endeudamientoGlobal or @desembolso or @datosSolicitud or @datosSolicitudCredito

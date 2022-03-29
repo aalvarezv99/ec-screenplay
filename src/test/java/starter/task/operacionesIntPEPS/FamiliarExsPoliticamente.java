@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.conditions.Check;
+import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
@@ -39,13 +40,10 @@ public class FamiliarExsPoliticamente implements Task {
     public <T extends Actor> void performAs(T actor) {
         int contador =0;
         actor.attemptsTo(
-                Click.on(OperacionesIntPEPSForm.familiarExpuestoPoliticamente.of(expuestoPoliticamente)),
-                Check.whether(expuestoPoliticamente.equals("Si"))
-                        .andIfSo(
-                                //codigo para la parte de familiares
-                        )
+                Click.on(OperacionesIntPEPSForm.familiarExpuestoPoliticamente.of(expuestoPoliticamente))
         );
 
+      //  if(expuestoPoliticamente.equals("Si")){
         for (Map<String, String> objectTablaFeature : data) {
             if(contador!=0){
                 actor.attemptsTo(
@@ -60,6 +58,7 @@ public class FamiliarExsPoliticamente implements Task {
             );
             contador++;
         }
+     //   }
 
        actor.attemptsTo(
                 Click.on(CommonsLocators.botonSiguiente),

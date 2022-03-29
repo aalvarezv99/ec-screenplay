@@ -3,6 +3,10 @@ package starter.questions;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.TextContent;
 import starter.ui.datosSolicitud.DatosSolicitudForm;
+import starter.ui.firmaDocumentos.FirmaDocumentosForm;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ResultadoCalculoCredito {
@@ -37,4 +41,7 @@ public class ResultadoCalculoCredito {
     public static Question<String> remanenteEstimado(){
         return actor -> TextContent.of(DatosSolicitudForm.remanenteEstimado).viewedBy(actor).asString().replace("$","").replace(".","").replace(" ","");
     }
+
+
+
 }

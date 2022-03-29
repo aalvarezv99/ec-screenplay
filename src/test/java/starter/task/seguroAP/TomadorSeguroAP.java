@@ -5,10 +5,8 @@ import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Hit;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.openqa.selenium.Keys;
-import starter.ui.RegistroDeCliente.RegistroClienteForm;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.seguroAP.SeguroApForm;
@@ -18,6 +16,7 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotV
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class TomadorSeguroAP implements Task {
+    private final String vinculo;
     private final String nombresTomador;
     private final String documentoTomador;
     private final String celularTomador;
@@ -28,7 +27,8 @@ public class TomadorSeguroAP implements Task {
     private final String direccionResidenciaTomador;
 
 
-    public TomadorSeguroAP(String nombresTomador, String documentoTomador, String celularTomador, String correoTomador, String fechaNacimientoTomador, String departamentoTomador, String ciudadTomador, String direccionResidenciaTomador) {
+    public TomadorSeguroAP(String vinculo, String nombresTomador, String documentoTomador, String celularTomador, String correoTomador, String fechaNacimientoTomador, String departamentoTomador, String ciudadTomador, String direccionResidenciaTomador) {
+        this.vinculo = vinculo;
         this.nombresTomador = nombresTomador;
         this.documentoTomador = documentoTomador;
         this.celularTomador = celularTomador;
@@ -39,14 +39,16 @@ public class TomadorSeguroAP implements Task {
         this.direccionResidenciaTomador = direccionResidenciaTomador;
     }
 
-    public static Performable whithTomadorSeguro(String nombresTomador, String documentoTomador, String celularTomador, String correoTomador, String fechaNacimientoTomador, String departamentoTomador, String ciudadTomador, String direccionResidenciaTomador) {
-        return instrumented(TomadorSeguroAP.class, nombresTomador, documentoTomador, celularTomador, correoTomador, fechaNacimientoTomador, departamentoTomador, ciudadTomador, direccionResidenciaTomador);
+    public static Performable whithTomadorSeguro(String vinculo, String nombresTomador, String documentoTomador, String celularTomador, String correoTomador, String fechaNacimientoTomador, String departamentoTomador, String ciudadTomador, String direccionResidenciaTomador) {
+        return instrumented(TomadorSeguroAP.class,vinculo, nombresTomador, documentoTomador, celularTomador, correoTomador, fechaNacimientoTomador, departamentoTomador, ciudadTomador, direccionResidenciaTomador);
     }
 
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Check.whether(vinculo.equals("No Vinculado"))
+                        .andIfSo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(20).seconds(),
                 WaitUntil.the(SeguroApForm.nombresTomador, isVisible()).forNoMoreThan(10).seconds(),
                 Enter.theValue(nombresTomador).into(SeguroApForm.nombresTomador),
@@ -60,7 +62,7 @@ public class TomadorSeguroAP implements Task {
                 Enter.theValue(ciudadTomador).into(SeguroApForm.ciudadTomador),
                 Click.on(CommonsLocators.locatorByText.of(ciudadTomador)),
                 Enter.theValue(direccionResidenciaTomador).into(SeguroApForm.direccionResidenciaTomador),
-                Click.on(CommonsLocators.botonSiguiente)
+                Click.on(CommonsLocators.botonSiguiente))
                 );
     }
 }

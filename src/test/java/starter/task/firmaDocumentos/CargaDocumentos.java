@@ -1,5 +1,6 @@
 package starter.task.firmaDocumentos;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -12,11 +13,10 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import starter.ui.commons.CommonsLocators;
 import starter.ui.dashboard.DashboardForm;
 import starter.ui.firmaDocumentos.FirmaDocumentosForm;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -36,10 +36,14 @@ public class CargaDocumentos implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         Path doc = Paths.get(rutaPdf).toAbsolutePath();
-        List<String> files = Arrays.asList("Autorizacion Expresa de Consulta de Informacion","Autorizacion de Descuento", "Documento adicional");
+        List<WebElementFacade> listElementos = FirmaDocumentosForm.tipoDocumentoList.resolveAllFor(actor);
+        List<String> files = listElementos.stream().map(element -> element.getTextContent()).collect(Collectors.toList());
+
         String defaultDescription = "pdf documento adicional";
         for (String file : files) {
             actor.attemptsTo(
+                    Check.whether(!file.equals("Sin documento adicional"))
+                            .andIfSo(
                     WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                     Click.on(FirmaDocumentosForm.tipoDocumentoSelect),
                     WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
@@ -52,6 +56,7 @@ public class CargaDocumentos implements Task {
                     WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds(),
                     Click.on(FirmaDocumentosForm.divFile),
                     WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(60).seconds()
+                            )
             );
         }
         actor.attemptsTo(

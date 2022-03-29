@@ -26,17 +26,17 @@ public class SeguroApSteDefinitions {
         );
     }
 
-    @Y("Se registran los beneficiarios {string}{string}")
-    public void Se_registran_los_beneficiarios(String nombresSeguroAP, String parentescoSeguroAP){
+    @Y("Se registran los beneficiarios {string}{string}{string}")
+    public void Se_registran_los_beneficiarios(String tomarSeguroAP,String nombresSeguroAP, String parentescoSeguroAP){
         theActorInTheSpotlight().attemptsTo(
-                BeneficiariosSeguroAP.whithBeneficiariosSeguroAP(nombresSeguroAP,parentescoSeguroAP)
+                BeneficiariosSeguroAP.whithBeneficiariosSeguroAP(tomarSeguroAP,nombresSeguroAP,parentescoSeguroAP)
         );
     }
 
-    @Y("Se llenan los campos de tomador del seguro {string}{string}{string}{string}{string}{string}{string}{string}")
-    public void Se_llenan_los_campos_de_tomador_del_seguro(String nombresTomador, String documentoTomador ,String celularTomador ,String correoTomador,String fechaNacimientoTomador ,String departamentoTomador,String ciudadTomador,String direccionResidenciaTomador){
+    @Y("Se llenan los campos de tomador del seguro {string}{string}{string}{string}{string}{string}{string}{string}{string}")
+    public void Se_llenan_los_campos_de_tomador_del_seguro(String Vinculo, String nombresTomador, String documentoTomador ,String celularTomador ,String correoTomador,String fechaNacimientoTomador ,String departamentoTomador,String ciudadTomador,String direccionResidenciaTomador){
         theActorInTheSpotlight().attemptsTo(
-                TomadorSeguroAP.whithTomadorSeguro(nombresTomador,documentoTomador,celularTomador,correoTomador,fechaNacimientoTomador,departamentoTomador,ciudadTomador,direccionResidenciaTomador)
+                TomadorSeguroAP.whithTomadorSeguro(Vinculo,nombresTomador,documentoTomador,celularTomador,correoTomador,fechaNacimientoTomador,departamentoTomador,ciudadTomador,direccionResidenciaTomador)
         );
     }
 }

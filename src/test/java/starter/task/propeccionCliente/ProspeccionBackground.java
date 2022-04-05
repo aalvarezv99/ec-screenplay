@@ -27,7 +27,7 @@ public class ProspeccionBackground implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(DashboardForm.loading, isNotVisible()).forNoMoreThan(120).seconds(),
-                WaitUntil.the(ProspeccionUI.paginasConsulta, isVisible()).forNoMoreThan(20).seconds()
+                WaitUntil.the(ProspeccionUI.paginasConsulta, isVisible()).forNoMoreThan(60).seconds()
         );
 
         String textPage = Text.of(ProspeccionUI.paginasConsulta).viewedBy(actor).asString().replace(" ", "");
